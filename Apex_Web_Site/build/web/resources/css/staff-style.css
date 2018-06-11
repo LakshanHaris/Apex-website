@@ -1,0 +1,150 @@
+
+
+
+
+
+
+#instruction-stu-atd{
+    font-family: 'Comfortaa', cursive !important;
+}
+
+#welcomeDetails{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    color: Snow;
+    font-family: 'Indie Flower', cursive !important;
+}
+
+#stu-atd-collection-center-div{
+
+    display: none;
+
+    background-color:  	  	#F5FFFA !important;
+    background-image: -webkit-linear-gradient(top,  	 	#F5FFFA,  	#B0C4DE) !important;  
+    background-image:         linear-gradient(to bottom,  	#F5FFFA,  	#B0C4DE) !important;
+
+    width:100%;
+    margin:auto;
+    max-width:1600px;
+    min-height:690px;
+    position:relative;
+    border-radius: 4px;
+
+    /*background: url(http://media.gettyimages.com/photos/school-girl-picture-id574894285) no-repeat !important;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.16);
+    */
+}
+
+
+#stu-fees-collection-center-div{
+
+
+
+    background-color:  	  	#F5FFFA !important;
+    background-image: -webkit-linear-gradient(top,  	 	#F5FFFA,  	#B0C4DE) !important;  
+    background-image:         linear-gradient(to bottom,  	#F5FFFA,  	#B0C4DE) !important;
+
+    width:100%;
+    margin:auto;
+    max-width:1600px;
+    min-height:690px;
+    position:relative;
+    border-radius: 4px;
+
+    /*background: url(http://media.gettyimages.com/photos/school-girl-picture-id574894285) no-repeat !important;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.16);
+    */
+}
+
+
+#stu-examResult-feeding-center-div{
+
+
+
+    background-color:  	  	#F5FFFA !important;
+    background-image: -webkit-linear-gradient(top,  	 	#F5FFFA,  	#B0C4DE) !important;  
+    background-image:         linear-gradient(to bottom,  	#F5FFFA,  	#B0C4DE) !important;
+
+    width:100%;
+    margin:auto;
+    max-width:1600px;
+    min-height:690px;
+    position:relative;
+    border-radius: 4px;
+
+    /*background: url(http://media.gettyimages.com/photos/school-girl-picture-id574894285) no-repeat !important;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.16);
+    */
+}
+
+#stf-salary-feeding-center-div{
+
+
+
+    background-color:  	  	#F5FFFA !important;
+    background-image: -webkit-linear-gradient(top,  	 	#F5FFFA,  	#B0C4DE) !important;  
+    background-image:         linear-gradient(to bottom,  	#F5FFFA,  	#B0C4DE) !important;
+
+    width:100%;
+    margin:auto;
+    max-width:1600px;
+    min-height:690px;
+    position:relative;
+    border-radius: 4px;
+
+    /*background: url(http://media.gettyimages.com/photos/school-girl-picture-id574894285) no-repeat !important;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.16);
+    */
+}
+
+#showStuAttendanceDiv{
+    display: none;
+}
+
+#stu-reg-id-input{
+
+
+    font-family: 'Comfortaa', cursive !important;
+    font-size: 20px;
+}
+
+#atd-collection-go-btn{
+    margin-top: 24px;
+}
+
+#scan-attendence-submit-btn{
+    margin-left:  93px;
+    margin-top: 25px;
+    width: 250px;
+    height: 50px;
+
+    background-color:  	  	 	#6A5ACD !important;
+    background-image: -webkit-linear-gradient(top,  	 	 	#6A5ACD,  	 	#191970) !important;  
+    background-image:         linear-gradient(to bottom,  	 	#6A5ACD,  	 	#191970) !important;
+
+
+
+}
+
+#scan-attendence-submit-btn:hover{
+    background-color:  	  	#191970 !important;
+    background-image: -webkit-linear-gradient(top,  	 	#191970,  	#6A5ACD) !important;  
+    background-image:         linear-gradient(to bottom,  	#191970,  	#6A5ACD) !important;
+    font-family: 'Comfortaa', cursive !important;	
+
+
+}
+
+#atd-collection-stu-pic{
+    border-radius: 4px !important; 
+    margin-left: 20px;	
+    border:1px solid #021a40;
+    background-color:#ff0;
+}
+
+#stu-fees-submit-btn{
+    width: 120px;
+    height: 50px;
+    margin-top: 20px;
+}

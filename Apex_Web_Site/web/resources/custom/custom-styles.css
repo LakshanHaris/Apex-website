@@ -1,0 +1,419 @@
+
+
+
+#cust-logo{
+    position: absolute;
+    z-index: 1000;
+    font-size: 50px;
+    font-family: 'Freckle Face', cursive;
+    padding: 30px 0px 10px 20px;
+    color: #ffffff;
+    text-shadow: 2px 0px 2px #d6ad3a;
+}
+/*.custom-main-header-tuitor{
+    height: 120px !important;
+    position: relative;
+    z-index: 1000;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #B8860B;
+    background-color: #B8860B;
+      background-image: -webkit-linear-gradient(left, #B8860B, #191919);  Chrome 10-25, iOS 5+, Safari 5.1+ 
+      background-image:         linear-gradient(to right, #B8860B, #191919);
+*/
+
+
+
+.custom-main-header{
+    height: 120px !important;
+    position: relative;
+    z-index: 1000;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #2F4F4F;
+    background-color: #2F4F4F;
+    background-image: -webkit-linear-gradient(left, #2F4F4F, #191919);  
+    background-image:         linear-gradient(to right, #2F4F4F, #191919);
+
+
+}
+
+.p sub-heading{
+    font-size: 25px;
+}
+
+.social-media{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-right: 0px;
+    float: right;
+    padding-left: 20px;
+    padding-right: 0px
+}
+
+.social-media a{
+    padding-left: 15px;
+
+}
+
+
+.main-sidebar{
+    padding-top: 119px !important;
+    height: 100%;
+    width: 230px;
+
+
+
+
+}
+
+#mainSider{
+    background-color: #2F4F4F;
+    background-image: -webkit-linear-gradient(left, #2F4F4F, #191919);  
+    background-image:         linear-gradient(to right, #2F4F4F, #191919);
+    height: 1339px;
+
+}
+
+#student-a:hover, .skin-blue .sidebar-menu>li.active>#student-a {
+    color: #fff !important;
+    background: #1e282c !important;
+    border-left-color: #27fec7 !important;
+}
+#custom-student-background{
+    background-color: Gainsboro !important;
+}
+#lectures-a:hover, .skin-blue .sidebar-menu>li.active>#lectures-a {
+    color: #fff !important;
+    background: #1e282c !important;
+    border-left-color: #27cec7 !important;
+}
+
+#classes-a:hover, .skin-blue .sidebar-menu>li.active>#classes-a {
+    color: #fff !important;
+    background: #1e282c !important;
+    border-left-color: #279ec7 !important;
+}
+#other-a:hover, .skin-blue .sidebar-menu>li.active>#other-a {
+    color: #fff !important;
+    background: #1e282c !important;
+    border-left-color: #276ec7 !important;
+}
+.custom-txtfld-style{
+    border-radius: 3px !important;
+    margin: 10px 0px 0px 0px !important;
+}
+.input-group{
+    width: 100% !important;
+}
+.custom-txt-style{
+    display: block !important;
+    padding-top: 20px !important;
+    padding-left: 20px;
+}
+
+#stuPic{
+    border-radius: 4px !important; 
+    margin: 10px 40px 10px 200px;
+    border:1px solid #021a40;
+    background-color:#ff0;
+}
+
+.pull-left image{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+
+}
+.cust-col-border{
+    border-right-width: 1px !important;
+    border-right-style: solid !important;
+    border-right-color: #222d32 !important;
+}
+
+.content-wrapper{
+
+    margin-right: 0px !important;
+
+}
+
+
+.container-fluid{
+    width: 750px;
+}
+
+.table table-bordered{
+    font-weight: bold;
+}
+/*
+.user-panel {
+    width: 
+}*/
+
+.aside .user-panel pull-left image{
+    width: 200px;
+    height: 200px;
+
+}
+
+.btn btn-block btn-success btn-lg{
+    float: left;
+    margin-left: 80px;
+}
+
+.copy-rights{
+    padding-top: 10px;
+    padding-left: 500px;
+    padding-bottom: 10px;
+    color: OldLace;
+
+    background-color:SlateGrey;
+    background-image: -webkit-linear-gradient(left top, #444448, #22333b);  
+    background-image:         linear-gradient(to right, #444448, #22333b); 
+    width: 1353px;
+
+
+    position: absolute;
+
+
+}
+
+#combo-selections{
+    padding-top: 50px;
+    font-size: 18px;
+    color: OldLace;
+}
+
+
+#welcomeDetails{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    color: Snow;
+}
+.form-group{
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.divider-style{
+    border-top: 1px solid #8c8b8b;
+
+}
+
+#divider{
+    padding-left: 0px;
+}
+
+
+
+
+
+.copy-rights-student{
+    margin-left: 
+        padding-top: 20px;
+    padding-left: 500px;
+    padding-bottom: 20px;
+    background-color: SlateGrey;
+    width: 1269px;
+    float: right;
+
+}
+
+
+.copy-rights  a{
+    color:  black;
+
+}
+
+#foot-note{
+    text-align: center;
+}
+
+#searchBtn{
+
+    width: 120px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+#searchBtn-payHistory , #searchBtn-viewResuls{
+
+    width: 120px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+#tableDataPayment{
+    padding-top: 100px;
+    display: none;
+
+}
+
+#tableDataExam{
+    padding-top: 100px;
+
+
+}
+
+#tableDataAttendance{
+    padding-top: 100px;
+
+
+}
+
+
+#payOnline{
+    margin-top: 80px;
+    margin-left: 40px;
+}
+
+#payButton{
+
+    width: 300px;
+}
+
+#payOptions{
+    margin-top: 60px;
+    margin-left: 30px;
+}
+
+#payAmount{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+
+#searchBtn-tuitor{
+    padding-left: 65px;
+    width: 180px;
+    height: 100px;
+}
+
+
+#searchBtn-payOption{
+    margin-top: 25px;
+    padding-left: 65px;
+    width: 180px;
+    height: 100px;
+}
+
+
+#colorHeaders{
+    color: Snow;  
+}
+
+#recomandHeader{
+    font-family: 'Patrick Hand SC', cursive;
+    color: #FFEFD5;  
+}
+
+#titleLogo{
+    font-family: 'Freckle Face', cursive !important;
+    font-size: 100px !important
+        color: white;
+}
+
+#welcomeUser{
+    font-family: 'Coiny', cursive !important;
+    color: white;
+}
+
+#tutorsYouMayKnowResponse{
+    margin-top: 130px !important;
+    margin-left: 80px;
+}
+
+.tuitorResponse{
+    margin-top: 130px !important;
+    margin-left: 80px;
+}
+
+
+.tutorDesc{
+    color: whitesmoke;
+}
+
+
+.tuitorDesc p{
+    font-family: 'Ubuntu', cursive !important;
+    font-size: 20px;
+    color: black !important;
+
+
+}
+
+#AmountText{
+    font-family: 'Ubuntu', cursive !important;
+    font-size: 20px;
+    color: Snow !important;
+}
+
+
+#tuiName{
+    font-size: 30px;
+    color: black !important;
+}
+
+#tuiImg{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-top:  5px;
+    border-radius: 4px;
+}
+
+.tuiText{
+    float: right;
+    
+}
+
+#tuiText{
+    color: #FFEFD5 !important;
+}
+
+
+.divider-find-tuitor-style{
+    border-top: 1px solid black;
+
+}
+
+#divider-find-tuitor{
+    padding-left: 20px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+#mySubjects{
+    width: 175px;
+    background-color: SlateGrey;
+    background-image: -webkit-linear-gradient(left top, #444448, #22333b);  
+    background-image:         linear-gradient(to bottom, #444448, #22333b); 
+}
+
+#mySubjects:hover{
+
+    background-color: #22333b;
+    background-image: -webkit-linear-gradient(left top, #22333b, #444448);  
+    background-image:         linear-gradient(to bottom, #22333b, #444448); 
+}
+
+#showPayAmount{
+    display: none;
+
+
+}
+
+#amountTextId{
+    border-radius: 4px !important; 
+    margin: 30px 250px 30px 250px;
+    border:1px solid #021a40;
+    background-color:none;
+}
+
+#receiver-quantity{
+    display: none;
+}

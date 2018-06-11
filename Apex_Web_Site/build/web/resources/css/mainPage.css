@@ -1,0 +1,17 @@
+
+.header-wrapper{
+    background-color: #2F4F4F;
+      background-image: -webkit-linear-gradient(left, #2F4F4F, #191919); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+      background-image:         linear-gradient(to right, #2F4F4F, #191919);    
+}
+
+#titleLogo{
+    font-family: 'Freckle Face', cursive !important;
+    font-size: 100px !important;
+    
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
