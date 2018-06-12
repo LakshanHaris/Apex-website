@@ -184,32 +184,17 @@ $("#search-btnClass").click(function () {
 });
 
 
-//$("#updateBtnPic").click(function () {
+//$("#updateBtnPic").submit(function () {
 //
-//    console.log("ök");
+//    console.log("ok");
 //
 //
 //
 //    $.ajax({
-//        headers: {
-//            'Accept': 'application/json',
-//            'Content-Type': 'application/json'
-//        },
-//        type: 'POST',
-//        enctype: 'multipart/form-data',
-//        url: '../student/stuEditPic',
-//        processData: false,
 //        
-//        cache: false,
-//        timeout: 600000,
-//        data: $("#profilePicUpload").serialize(),
-//        success: function (response) {
+//       success: function (response) {
 //            console.log(response);
-//            var obj = JSON.parse(response);
-//            var picAddress = obj.picture;
-//            var contentImg = '<img src="' + picAddress + '" class="img-fluid" width="300" height="300" id="stuPic">';
-//            $("#stuPic").empty();
-//            $("#stuPic").append();
+//            
 //
 //        }
 //    });

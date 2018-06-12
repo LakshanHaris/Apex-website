@@ -44,7 +44,7 @@
                             <div class="form-top">
                                 <div class="form-top-left">
                                     <h3>Login to our account</h3>
-                                    <p>Enter your credintials to log on:</p>
+                                    <p>Welcome Again!</p>
                                 </div>
                                 <div class="form-top-right">
                                     <i class="fa fa-lock"></i>

@@ -60,108 +60,65 @@
             </div>
         </nav>
 
-        <header>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                 
-                    <!-- Slide Two - Set the background image for this slide in the line below -->
-                    
-                    <div class="carousel-item active" style="background-image: url('resources/img/mainSlider1.jpg')">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>Apex Institution</h3>
-                            <p>A platform to link with Parent community</p>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-item" style="background-image: url('resources/img/mainSlider2.jpg')">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>Apex Institution</h3>
-                            <p>Talent Tutors and comfortable lecture halls</p>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-item" style="background-image: url('resources/img/mainSlider3.jpg')">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>Apex Institution</h3>
-                            <p>Fully committed staff for serving student needs 24x7</p>
-                        </div>
-                    </div>
-                    
-
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </header>
 
         <!-- Page Content -->
         <div style="height: 100px;"></div>
         <div class="container">
-            <div class='row'>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img class="img-fluid" src="resources/img/ceo.jpg" style="width: 100px;height:100px; border-radius: 50%; border: 1px solid ;">
-                        </div>
-                        <div class="col-md-9">
-                            <blockquote class="blockquote">
-                                <p class="mb-0"><i class="fas fa-quote-left"></i>&nbsp;As the CEO I ensure that all the tutors and services done by Apex is in a good command.&nbsp;<i class="fas fa-quote-right"></i></p>
-                                <footer class="blockquote-footer">CEO&nbsp; |<cite title="Source Title">&nbsp;Apex institution</cite></footer>
-                            </blockquote>
-                        </div>
-                    </div>
+
+
+           
+
+            <!-- Team Members Row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="my-4">Apex institution | Board of members</h2>
                 </div>
-                <div class="col-md-6"></div>
+                <div class="col-lg-4 col-sm-6 text-center mb-4">
+                    <img class="rounded-circle img-fluid d-block mx-auto" src="resources/img/ceo.jpg" alt="" style="width: 200px; height: 200px;">
+                    <h3>Mr. Harischandra Ranasinghe
+                        <p><small>CEO</small></p>
+                    </h3>
+<!--                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>-->
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center mb-4">
+                    <img class="rounded-circle img-fluid d-block mx-auto" src="resources/img/director.jpg" alt="" style="width: 200px; height: 200px;">
+                    <h3>Mr. Suraj Wimalasena
+                        <p><small>Director</small></p>
+                    </h3>
+<!--                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>-->
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center mb-4">
+                    <img class="rounded-circle img-fluid d-block mx-auto" src="resources/img/mainAdmin.jpg" alt="" style="width: 200px; height: 200px;">
+                    <h3>Mr. Lakshan Harischandra
+                        <p><small>Main Administrator</small></p>
+                    </h3>
+<!--                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>-->
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center mb-4">
+                    <img class="rounded-circle img-fluid d-block mx-auto" src="resources/img/saduni.jpg" alt="" style="width: 200px; height: 200px;">
+                    <h3>Miss. Sanduni Fernando
+                        <p><small>Student Representative</small></p>
+                    </h3>
+<!--                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>-->
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center mb-4">
+                    <img class="rounded-circle img-fluid d-block mx-auto" src="resources/img/aselaSir.jpg" alt="" style="width: 200px; height: 200px;">
+                    <h3>Mr. Asela Ranasinghe
+                        <p><small>Tutor Representative</small></p>
+                    </h3>
+<!--                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>-->
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center mb-4">
+                    <img class="rounded-circle img-fluid d-block mx-auto" src="resources/img/staffRep.jpg" alt="" style="width: 200px; height: 200px;">
+                    <h3>Mrs. Charuni Hettiarachchi
+                        <p><small>Staff Representative</small></p>
+                    </h3>
+<!--                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>-->
+                </div>
             </div>
 
-            <div style="height: 50px;"></div>
 
-            <div class='row'>
-                <div class="col-md-6"></div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img class="img-fluid" src="resources/img/director.jpg" style="width: 100px;height:100px; border-radius: 50%; border: 1px solid ;">
-                        </div>
-                        <div class="col-md-9">
-                            <blockquote class="blockquote">
-                                <p class="mb-0"><i class="fas fa-quote-left"></i>&nbsp;We everyday work hard to provide a trusted and quality service to our students and we won the parents confide through our services.&nbsp;<i class="fas fa-quote-right"></i></p>
-                                <footer class="blockquote-footer">Director&nbsp; |<cite title="Source Title">&nbsp;Apex institution</cite></footer>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div style="height: 50px;"></div>
-
-            <div class='row'>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img class="img-fluid" src="resources/img/staff2.jpg" style="width: 100px;height:100px; border-radius: 50%; border: 1px solid ;">
-                        </div>
-                        <div class="col-md-9">
-                            <blockquote class="blockquote">
-                                <p class="mb-0"><i class="fas fa-quote-left"></i>&nbsp;I'm a truly satisfied parent of Apex that they are proving a platform to parents as well as students to link with them - I highly recommand this institution.&nbsp;<i class="fas fa-quote-right"></i></p>
-                                <footer class="blockquote-footer">Parent&nbsp; |<cite title="Source Title">&nbsp;Apex institution</cite></footer>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6"></div>
-            </div>
         </div>
 
 

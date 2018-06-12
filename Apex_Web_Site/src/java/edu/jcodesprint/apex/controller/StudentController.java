@@ -211,7 +211,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/stuEditPic", method = RequestMethod.POST, headers = "content-type=multipart/form-data")
-    public ModelAndView stuEditPicture(@RequestParam("picture") MultipartFile picture, HttpSession session, HttpServletResponse response) throws InterruptedException {
+    public ModelAndView stuEditPicture(@RequestParam("picture") MultipartFile picture, HttpSession session, HttpServletResponse response) throws InterruptedException, IOException {
 
         int stuId = (Integer) session.getAttribute("regNumber");
 
@@ -219,28 +219,28 @@ public class StudentController {
 
             String fileName = picture.getOriginalFilename();
             System.out.println(fileName);
-            String savePath = "F:\\Apex\\Apex_Web_Site\\web\\resources\\customPics\\" + fileName;
+            String savePath = "F:\\Git_Projects\\Apex-website\\Apex_Web_Site\\web\\resources\\customPics\\" + fileName;
             File uploadFile = new File(savePath);
             picture.transferTo(uploadFile);
             String refferPath = "../resources/customPics/" + fileName;
 
             
-                Student studentResult = studentService.getStuEditPicture(refferPath, stuId);
-                String imageMain = "src=\"" + studentResult.getPicture() + "\"";
+            Thread.sleep(1000);
+            Student studentResult = studentService.getStuEditPicture(refferPath, stuId);
+//            String imageMain = "src=\"" + studentResult.getPicture() + "\"";
+            String imageLink = studentResult.getPicture();
 
-                if (null != studentResult) {
-                    ModelAndView mav = new ModelAndView();
-                    mav.addObject("studentResult", studentResult);
-                    mav.addObject("picResultMain", imageMain);
-                    mav.setViewName("student/stuViewStudent");
-                    session.setAttribute("picture", studentResult.getPicture());
+            if (null != studentResult) {
+                response.getWriter().write(imageLink);
+                ModelAndView mav = new ModelAndView();
+                mav.addObject("studentResult", studentResult);
+                mav.setViewName("student/stuViewStudent");
+                session.setAttribute("picture", studentResult.getPicture());
 
-                    return mav;
-                }
+                return mav;
+            }
 
-            
-
-        } catch (IOException | IllegalStateException ex) {
+        } catch (IllegalStateException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;

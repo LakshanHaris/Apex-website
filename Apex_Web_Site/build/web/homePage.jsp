@@ -36,21 +36,21 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
+                            <a class="nav-link" href="homePage.jsp">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="aboutUs.jsp">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Carees</a>
+                            <a class="nav-link" href="careers.jsp">Carees</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Find a Tutor</a>
+                            <a class="nav-link" href="tutorHome.jsp">Find a Tutor</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Find a Class</a>
+                            <a class="nav-link" href="classHome.jsp">Find a Class</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:url value="login/userLogin" />" target="blank">Log in</a>
@@ -178,13 +178,13 @@
             <p class="footer-links">
                 <a href="homePage.jsp">Home</a>
                 ·
-                <a href="#">About</a>
+                <a href="aboutUs.jsp">About</a>
                 ·
-                <a href="#">Careers</a>
+                <a href="careers.jsp">Careers</a>
                 ·
-                <a href="#">Tutors</a>
+                <a href="tutorHome.jsp">Tutors</a>
                 ·
-                <a href="#">Classes</a>
+                <a href="classHome.jsp">Classes</a>
 
             </p>
 
@@ -222,10 +222,10 @@
 
             <div class="footer-icons">
 
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter-square"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-google-plus-square"></i></a>
+                <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com"><i class="fab fa-twitter-square"></i></a>
+                <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.google.com"><i class="fab fa-google-plus-square"></i></a>
 
             </div>
 
@@ -236,7 +236,7 @@
 
     <script src="resources/js/jQuery-2.1.3.min.js" type="text/javascript"></script>
     <script src="resources/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    <script src="resources/js/blockQuote.js" type="text/javascript"></script>
+    
 </body>
 
 </html>

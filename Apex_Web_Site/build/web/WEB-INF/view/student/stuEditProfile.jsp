@@ -72,7 +72,7 @@
                         <div class="col-md-1"></div>
                     </div>
                 </div>
-                <img src="../resources/img/myPic.jpg" alt="Chania" width="50px" height="50px" style="border-radius: 50%">
+                <img alt="Pic" src="<%=session.getAttribute("picture")%>"  style=" width: 50px; height:50px; border-radius: 50%;">
             </div>
         </nav>
         <div style="height: 87px;"></div>

@@ -1,5 +1,5 @@
 #footer {
-    position: fixed;
+
     left: 0;
     bottom: 0;
     width: 100%;
@@ -60,7 +60,7 @@
 } */
 
 
-.container #picUploadIcon{
+/*.container #picUploadIcon{
     position: absolute;
     top: 68%;
     left: 60%;
@@ -72,10 +72,16 @@
     border: none;
     cursor: pointer;
     border-radius: 50%
+}*/
+
+#labelPicUpload{
+    margin-left: 15px;
+
 }
 
 #profilePicUpload{
-    margin-left: 15px;
+    margin-top: 0px;
+    margin-left: 70px;
 }
 
 

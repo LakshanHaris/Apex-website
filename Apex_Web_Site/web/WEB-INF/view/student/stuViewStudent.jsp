@@ -64,7 +64,7 @@
                         <div class="col-md-1"></div>
                     </div>
                 </div>
-                            <img alt="Pic" src="<%=session.getAttribute("picture")%>"  style=" width: 50px; height:50px; border-radius: 50%;">
+                <img alt="Pic" src="<%=session.getAttribute("picture")%>"  style=" width: 50px; height:50px; border-radius: 50%;">
             </div>
         </nav>
         <div style="height: 87px;"></div>
@@ -76,13 +76,9 @@
             <div class="row">
                 <div class="col-md-5 col-xs-4 col-sm-4">
                     <div class="container">
-                        <img src="<%=session.getAttribute("picture")%>" class="img-fluid" style="width: 300px; height: 300px;" id="stuPic">
-                        <span id="picUploadIcon"><i class="fas fa-user-edit fa-3x"></i></span>
-
-                      
+                        <img src="<%=session.getAttribute("picture")%>" class="img-responsive" style="width: 300px; height: 300px;" id="stuPic">
 
 
-                        </form>
                     </div>
 
 
@@ -137,14 +133,18 @@
                     </table>
                 </div>
             </div>
+                                
             <div class="row" style="height: 45px; ">
-
                 <form id="profilePicUpload" action="../student/stuEditPic" method="POST"  enctype="multipart/form-data" >
-                    <button id="updateBtnPic" type="submit" class="btn btn-primary btn-lg" >Update photo</button>
-                    <input type="file" style="margin-left: 17px;" name="picture" id="chooseFilePic"/><br>
+                    
+                        <button id="updateBtnPic" type="submit" class="btn btn-primary btn-lg" >Upload photo</button>
+                   
+                   
+                        <label id="labelPicUpload"><i class="fas fa-upload fa-2x"></i><input type="file" style="margin-left: 17px; display: none;" name="picture" id="chooseFilePic"/><br></label>
+                   
                 </form>
-
             </div>
+                                
             <div class="row">
                 <div class="col-md-6 col-sm-3 col-xs-2"></div>
 
