@@ -130,7 +130,7 @@
                     </tr>
                 </thead>
                 <tbody id="payDetailsBody">
-<!--                    ajax load content here-->
+                    <!--                    ajax load content here-->
                 </tbody>
             </table>
 
@@ -140,7 +140,7 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Pay fees online here!</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href = '../student/stuPayFeesOnline';">Pay fees online here!</button>
                 </div>
                 <div class="col-md-4"></div>
             </div>

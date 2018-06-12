@@ -11,6 +11,7 @@ import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
 import edu.jcodesprint.apex.service.ParentService;
@@ -191,8 +192,20 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/stuViewSubjects", method = RequestMethod.GET)
-    public String getStuViewSubjects() {
-        return "student/stuViewSubjects";
+    public List<Subject> getStuViewSubjects(HttpServletResponse response, HttpSession session) {
+        int stuId = (int) session.getAttribute("regNumber");
+        List<Subject> subjectList = studentService.getStudentSubjects(stuId);
+        if (null != subjectList) {
+
+            try {
+                ObjectMapper objectMapper = new ObjectMapper();
+                String jsonObj = objectMapper.writeValueAsString(subjectList);
+                response.getWriter().write(jsonObj);
+            } catch (IOException ex) {
+                Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
     }
 
     @RequestMapping(value = "/stuPayFeesOnline", method = RequestMethod.GET)
@@ -224,7 +237,6 @@ public class StudentController {
             picture.transferTo(uploadFile);
             String refferPath = "../resources/customPics/" + fileName;
 
-            
             Thread.sleep(1000);
             Student studentResult = studentService.getStuEditPicture(refferPath, stuId);
 //            String imageMain = "src=\"" + studentResult.getPicture() + "\"";

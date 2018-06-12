@@ -38,6 +38,7 @@
 }
 
 #stuPic{
+    margin-left: 10px;
     border-color: #1d1d1d;
     border: 3px solid ;
     border-radius: 10px;
@@ -82,8 +83,12 @@
 #profilePicUpload{
     margin-top: 0px;
     margin-left: 70px;
+    height:1px;
 }
 
+#updateBtnPic{
+    margin-left: 20px;
+}
 
 
 /* <------- Media queries ---------- */

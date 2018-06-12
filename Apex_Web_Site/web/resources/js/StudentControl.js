@@ -184,6 +184,36 @@ $("#search-btnClass").click(function () {
 });
 
 
+$("#getSubjects").click(function () {
+    $.ajax({
+        type: 'GET',
+        url: '../student/stuViewSubjects',
+        success: function (response) {
+            $("#subjectPanelBody").empty();
+            var objArr = JSON.parse(response);
+            var count = objArr.length;
+
+            if (count == 0) {
+                swal("Warning!", "You haven't attended to any class yet!", "error");
+            }
+            var panelContent;
+            for (var i = 0; i < objArr.length; i++) {
+                var obj = objArr[i];
+                panelContent += '<li class="list-group-item d-flex justify-content-between align-items-center">' +
+                        ' ' + obj.name + '&nbsp;|&nbsp;' + obj.level + '&nbsp;|&nbsp;Rs.&nbsp;' + obj.subFee + ' ' +
+                        '<span class="badge badge-primary badge-pill"><i class="fas fa-chalkboard-teacher"></i></span>' +
+                        '</li>';
+
+            }
+            $("#subjectPanelBody").append(panelContent);
+        }
+    });
+});
+
+
+
+
+
 //$("#updateBtnPic").submit(function () {
 //
 //    console.log("ok");

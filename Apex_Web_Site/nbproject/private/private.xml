@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/F:/Git_Projects/Apex-website/Apex_Web_Site/web/WEB-INF/view/student/stuViewStudent.jsp</file>
+            <file>file:/F:/Git_Projects/Apex-website/Apex_Web_Site/src/java/edu/jcodesprint/apex/controller/StudentController.java</file>
+            <file>file:/F:/Git_Projects/Apex-website/Apex_Web_Site/src/java/edu/jcodesprint/apex/repoImpl/StudentDAOImpl.java</file>
+            <file>file:/F:/Git_Projects/Apex-website/Apex_Web_Site/src/java/edu/jcodesprint/apex/serviceImpl/StudentServiceImpl.java</file>
+            <file>file:/F:/Git_Projects/Apex-website/Apex_Web_Site/web/resources/js/StudentControl.js</file>
+        </group>
     </open-files>
 </project-private>

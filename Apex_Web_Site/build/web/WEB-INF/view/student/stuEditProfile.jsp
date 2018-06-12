@@ -138,11 +138,7 @@
                                 <input type="password" class="form-control" placeholder="password"  name="password">
                             </div>
                             <br>
-                            <div class="form-group">
-                                <label for="exampleInputFile">Profile picture</label>
-                                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="picture">
-                                <small id="fileHelp" class="form-text text-muted">Please upload a profile picture for your account.</small>
-                            </div>
+                            
                             <br>
                             <br>
                             <button type="button" class="btn btn-primary" id="stuEditStuBtn">Submit</button>

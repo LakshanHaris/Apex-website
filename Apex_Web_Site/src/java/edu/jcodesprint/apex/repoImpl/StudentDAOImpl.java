@@ -11,6 +11,7 @@ import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
 import edu.jcodesprint.apex.repo.StudentDAO;
@@ -181,8 +182,21 @@ public class StudentDAOImpl implements StudentDAO {
         query.setParameter("subjectId", subject);
         query.addEntity(Tution_class.class);
 
-        return  (Tution_class) query.uniqueResult();
+        return (Tution_class) query.uniqueResult();
 
+    }
+
+    @Override
+    public List<Subject> getStudentSubjects(int stuId) {
+        String sql = "select DISTINCT t1.*\n"
+                + "from subject as t1\n"
+                + "INNER JOIN student_maintaince as t2\n"
+                + "where t2.subject_id_maintaince=t1.subject_id and t2.stu_id_stuMaintaince= :studentRegNumber";
+
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.setParameter("studentRegNumber", stuId);
+        query.addEntity(Subject.class);
+        return query.list();
     }
 
 }

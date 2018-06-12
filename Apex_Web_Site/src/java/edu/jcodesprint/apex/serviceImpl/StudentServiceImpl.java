@@ -15,6 +15,7 @@ import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Parent;
 import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
 import edu.jcodesprint.apex.repo.StudentDAO;
@@ -38,7 +39,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public boolean addStudent(Student student) {
 
-        
         if (null != studentDAO.addStudent(student)) {
             student = null;
             return true;
@@ -85,8 +85,8 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Attendence> getAttendenceDetails(AttendenceSearchDTO attendenceSearchDTO) {
 
-        String datePatern = attendenceSearchDTO.getYear() + "-" + attendenceSearchDTO.getMonth()+"-%";
-        return studentDAO.getAttendenceDetails(datePatern, attendenceSearchDTO.getSubject(),attendenceSearchDTO.getStuId());
+        String datePatern = attendenceSearchDTO.getYear() + "-" + attendenceSearchDTO.getMonth() + "-%";
+        return studentDAO.getAttendenceDetails(datePatern, attendenceSearchDTO.getSubject(), attendenceSearchDTO.getStuId());
     }
 
     @Override
@@ -101,32 +101,30 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Tutor getStuSearchTutor(int grade, int subject) {
-        return studentDAO.getStuSearchTutor(grade,subject);
+        return studentDAO.getStuSearchTutor(grade, subject);
     }
 
     @Override
     public Tution_class getStuSearchClass(int grade, int subject) {
-        return studentDAO.getStuSearchClass(grade,subject);
+        return studentDAO.getStuSearchClass(grade, subject);
     }
 
     @Override
-    public Student getStuEditPicture(String refferPath,int stuId) {
-        Student student= studentDAO.searchStudent(stuId);
+    public Student getStuEditPicture(String refferPath, int stuId) {
+        Student student = studentDAO.searchStudent(stuId);
         System.out.println(student);
         student.setPicture(refferPath);
-        
-       
-        
         if (studentDAO.updateStudent(student)) {
             System.out.println(student);
-            return  studentDAO.searchStudent(stuId);
-            
-            
+            return studentDAO.searchStudent(stuId);
         } else {
             return null;
         }
-        
-        
+    }
+
+    @Override
+    public List<Subject> getStudentSubjects(int stuId) {
+        return studentDAO.getStudentSubjects(stuId);
     }
 
 }

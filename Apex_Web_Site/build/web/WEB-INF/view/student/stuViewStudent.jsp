@@ -74,22 +74,50 @@
 
             <div class="row" style="height: 100px;"></div>
             <div class="row">
-                <div class="col-md-5 col-xs-4 col-sm-4">
+                <div class="col-md-4"></div>
+                <div class="col-md-5">
                     <div class="container">
                         <img src="<%=session.getAttribute("picture")%>" class="img-responsive" style="width: 300px; height: 300px;" id="stuPic">
-
-
                     </div>
-
-
                 </div>
+                <div class="col-md-3"></div>
+            </div>
 
-                <div class="col-md-1"></div><br>
+            <div style="height: 87px;"></div>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="container">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+
+                                <div class="custom-file">
+                                    <form id="profilePicUpload" action="../student/stuEditPic" method="POST"  enctype="multipart/form-data" >
+                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="picture">
+                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                        <button id="updateBtnPic" type="submit" class="btn btn-primary btn-lg" >Upload photo</button>
+                                    </form>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div style="height: 130px;"></div>
+
+            <div class="row">
+                <div class="col-md-3"></div><br>
                 <div class="col-md-6 col-xs-8 col-sm-8">
                     <table class="table table-hover" id="profileTable">
 
                         <tbody>
-                            <tr class="table-dark">
+                            <tr class="table-success">
                                 <th scope="row">Student Registration Number</th>
                                 <td>${studentResult.stuRegNumber}</td>
 
@@ -99,7 +127,7 @@
                                 <td>${studentResult.firstName} &nbsp; ${studentResult.lastName}</td>
 
                             </tr>
-                            <tr class="table-dark">
+                            <tr class="table-success">
                                 <th scope="row">Date of Birth</th>
                                 <td>${studentResult.dob}</td>
 
@@ -109,7 +137,7 @@
                                 <td>${studentResult.gender}</td>
 
                             </tr>
-                            <tr class="table-dark">
+                            <tr class="table-success">
                                 <th scope="row">Grade</th>
                                 <td>${studentResult.grade}</td>
 
@@ -119,7 +147,7 @@
                                 <td>${studentResult.address}</td> 
 
                             </tr>
-                            <tr class="table-dark">
+                            <tr class="table-success">
                                 <th scope="row">Mobile Number</th>
                                 <td>${studentResult.mobileNumber}</td> 
 
@@ -132,32 +160,45 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="col-md-3"></div>
             </div>
-                                
-            <div class="row" style="height: 45px; ">
-                <form id="profilePicUpload" action="../student/stuEditPic" method="POST"  enctype="multipart/form-data" >
-                    
-                        <button id="updateBtnPic" type="submit" class="btn btn-primary btn-lg" >Upload photo</button>
-                   
-                   
-                        <label id="labelPicUpload"><i class="fas fa-upload fa-2x"></i><input type="file" style="margin-left: 17px; display: none;" name="picture" id="chooseFilePic"/><br></label>
-                   
-                </form>
-            </div>
-                                
+
+            <div style="height: 30px;"></div>          
+
             <div class="row">
-                <div class="col-md-6 col-sm-3 col-xs-2"></div>
-
-                <div class="col-md-3 col-sm-6 col-xs-9">
-                    <a href="<c:url value="../student/stuEditProfile"/>"> <button type="button" class="btn btn-primary">Edit Profile</button></a>
+                <div class="col-md-5"></div>
+                <div class="col-md-5">
+                    <a href="<c:url value="../student/stuEditProfile"/>"> <button type="button" class="btn btn-primary">Edit Profile Details</button></a>
                 </div>
-
-                <div class="col-md-3 col-sm-6 col-xs-push-9">
-                    <a href="<c:url value="../student/stuViewSubjects"/>"><button type="button" class="btn btn-primary">My Subjects</button></a>
-                </div>
+                <div class="col-md-2"></div>
             </div>
+
+            <div style="height: 60px;"></div> 
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="getSubjects">Click to see your subjects</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div style="height: 30px;"></div> 
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" >
+                    <ul class="list-group" id="subjectPanelBody">
+                        
+                    </ul>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div style="height: 100px;"></div> 
 
         </div>
+
         <div class="clear"></div>
         <!-- Footer -->
         <footer id="footer">

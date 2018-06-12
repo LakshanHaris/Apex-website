@@ -12,6 +12,7 @@ import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
 import java.io.Serializable;
@@ -49,5 +50,7 @@ public interface StudentDAO {
     public Tutor getStuSearchTutor(int grade, int subject);
 
     public Tution_class getStuSearchClass(int grade, int subject);
+
+    public List<Subject> getStudentSubjects(int stuId);
 
 }
