@@ -1,606 +1,564 @@
-<%-- 
-    Document   : admViewDashboard
-    Created on : Oct 20, 2017, 2:24:50 PM
-    Author     : Lakshan Harischandra
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <html>
-
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin</title>
-        <!-- Core CSS - Include with every page -->
-        <link href="../resources/css/bootstrap.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Freckle+Face|Rock+Salt" rel="stylesheet"> 
-        <link href="../resources/css/font-awesome.css" rel="stylesheet" />
-        <link href="../resources/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <meta charset="UTF-8">
+        <title>Apex | Admin</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- Bootstrap 3.3.2 -->
+        <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
         <link href="../resources/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+        <link href="../resources/css/_all-skins.min.css" rel="stylesheet" type="text/css" />
+        <link href="../resources/custom/AdminCustomStyles.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/sweetalert.css" rel="stylesheet" type="text/css"/>
 
-        <link href="../resources/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-        <link href="../resources/css/admin-style.css" rel="stylesheet" />
-        <link href="../resources/css/admin-main-style.css" rel="stylesheet" />
 
     </head>
+    <body class="skin-blue">
+        <!-- Site wrapper -->
+        <div class="wrapper">
 
-    <body>
-        <!--  wrapper -->
-        <div id="wrapper">
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="adjust-nav">
-                    <div class="navbar-header">
+            <header class="main-header">
+                <a href="../../index2.html" class="logo"><b>Apex</b>Institution</a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="navbar-custom-menu">
 
-
-                        <h2 id="main-title">Apex Institutuion</h2>
-
-
-
+                        <label><a href="../login/userLogOut" style="color: black; align-self: center; font-size: 25px;"><i class="fas fa-power-off fa-1x"></i></a></label>
                     </div>
 
+                </nav>
+            </header>
+            <!-- =============================================== -->
 
+            <!-- Left side column. contains the sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="<%=session.getAttribute("picture")%>" class="img-circle" alt="pic" />
+                        </div>
+                        <div class="pull-left info">
+                            <p><%=session.getAttribute("firstName")%></p>
 
-
-
-
-                    <div class="social-media">
-
-                        <a href="#"><i class="fa fa-facebook-square fa-3x" ></i></a>    
-                        <a href="#"><i class="fa fa-twitter-square fa-3x" ></i></a>    
-                        <a href="#"><i class="fa fa-linkedin-square fa-3x" ></i></a>    
-                        <a href="#"><i class="fa fa-google-plus fa-3x" ></i></a>    
-
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
                     </div>
 
-                    <!--                    <form action="/logInPage" method="GET">-->
-                    <a href="../login/userLogOut"><button class="btn btn-block btn-success btn-lg" id="admin-logout" type="button">Log Out</button></a>
-                    <!--                    </form>-->
-
-                </div>
-
-            </div>
-            <!-- navbar side -->
-            <nav class="navbar-default navbar-static-side" id="navigation" role="navigation">
-                <!-- sidebar-collapse -->
-                <div class="sidebar-collapse">
-                    <!-- side-menu -->
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <!-- user image section-->
-                            <div class="user-section">
-                                <div class="user-section-inner">
-                                    <img  src="../resources/img/img2.jpg" alt="pic">
-                                </div>
-                                <div class="user-info">
-                                    <div>Admin : <strong><%=session.getAttribute("firstName")%></strong></div>
-                                    <div class="user-text-online">
-                                        <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;<small>Online</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end user image section-->
-                        </li>
-                        <li class="sidebar-search">
-                            <!-- search section-->
-                            <div class="input-group custom-search-form">
-                                <form action="../student/admViewStudent" method="POST">
-                                    <input type="search" class="form-control" placeholder="Search Student" name="stuRegNumber">
-                                </form>
-
-                            </div>
-
-                            <br>
-
-                            <div class="input-group custom-search-form">
-                                <form action="../tutor/admViewTutor" method="POST">
-                                    <input type="search" class="form-control" placeholder="Search Tuitor" name="tuiRegNumber">
-                                </form>
-                            </div>
-
-                            <!--end search section-->
-                        </li>
-
-
-
-
-
-
-
-                        <li class="">
-
-                            <a href="<c:url value="../admin/admViewDashboard"/>"   ><i class="fa fa-dashboard fa-lg"></i> &nbsp;Dashboard</a>
-
-                        </li>
-
-                        <li class="">
-                            <a href="<c:url value="../admin/admViewAdmin"/>"><i class="fa fa-user fa-lg" aria-hidden="true"></i> &nbsp;&nbsp;My Profile</a>
-                        </li>
-                        <li>
-                            <a href="admin-search-student.html"><i class="fa fa-male fa-lg" aria-hidden="true" ></i> &nbsp;&nbsp;Student<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-
-                                <li>
-                                    <a href="<c:url value="../admin/admAddStudent"/>"><i class="fa fa-bars " aria-hidden="true"></i>  Registor Student</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admDeleteStudent"/>"><i class="fa fa-bars " aria-hidden="true"></i>  Delete Student</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admScanStudentAttendence"/>"><i class="fa fa-bars " aria-hidden="true"></i>  View Attendence</a>
-                                </li>
-                                <li>
-                                    <a href="<c:url value="../admin/admScanStudentFees"/>"><i class="fa fa-bars" aria-hidden="true"></i>  View Payments</a>
-                                </li>
+                    <!-- search form -->
+                    <form action="../admin/admViewStudent" method="GET" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search student(id)"/>
+                            <span class="input-group-btn">
+                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="header">MAIN NAVIGATION</li>
+                        <li><a href="<c:url value="../admin/admViewDashboard"/>"><i class="fa fa-book"></i> Dashboard</a></li>
+                        <li><a href="<c:url value="../admin/admViewAdmin"/>"><i class="fa fa-book"></i> My Profile</a></li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>Student</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value="../admin/admAddStudent"/>"><i class="fa fa-circle-o"></i> Register</a></li>
+                                <li><a href="<c:url value="../admin/admDeleteStudent"/>"><i class="fa fa-circle-o"></i> Delete</a></li>
+                                <li><a href="<c:url value="../admin/admScanStudentAttendence"/>"><i class="fa fa-circle-o"></i> View Attendence</a></li>
+                                <li><a href="<c:url value="../admin/admScanStudentFees"/>"><i class="fa fa-circle-o"></i> View Payments</a></li>
+                                <li><a href="<c:url value="../admin/admEditStudentParent"/>"><i class="fa fa-circle-o"></i> Edit Parent</a></li>
                             </ul>
-                            <!-- second-level-items -->
                         </li>
-                        <li>
-                            <a ><i class="fa fa-hand-o-up fa-lg" aria-hidden="true"></i>   &nbsp;Tuitor<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-
-                                <li>
-                                    <a href="<c:url value="../admin/admAddTutor"/>"><i class="fa fa-bars" aria-hidden="true"></i>  Registor Tuitor</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admDeleteTutor"/>"> <i class="fa fa-bars" aria-hidden="true"></i> Delete Tuitor</a>
-                                </li>
-
-
-                                <li>
-                                    <a href="<c:url value="../admin/admViewTutorPayments"/>"> <i class="fa fa-bars" aria-hidden="true"></i> View Payments</a>
-                                </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>Tutor</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value="../admin/admAddTutor"/>"><i class="fa fa-circle-o"></i> Register</a></li>
+                                <li><a href="<c:url value="../admin/admDeleteTutor"/>"><i class="fa fa-circle-o"></i> Delete</a></li>
+                                <li><a href="<c:url value="../admin/admViewTutorPayments"/>"><i class="fa fa-circle-o"></i> View Payments</a></li>
+                                <li><a href="<c:url value="../admin/admViewTutors"/>"><i class="fa fa-circle-o"></i> View Tutors</a></li>
                             </ul>
-                            <!-- second-level-items -->
                         </li>
-                        <li>
-                            <a><i class="fa fa-users fa-lg" aria-hidden="true"></i>  &nbsp;Staff<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-
-                                <li>
-                                    <a href="<c:url value="../admin/admAddStaff"/>"> <i class="fa fa-bars" aria-hidden="true"></i> Registor Staff</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admDeleteStaff"/>"><i class="fa fa-bars" aria-hidden="true"></i>  Delete Staff</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admViewStaffPayments"/>"> <i class="fa fa-bars" aria-hidden="true"></i> View Payments</a>
-                                </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>Staff</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value="../admin/admAddStaff"/>"><i class="fa fa-circle-o"></i> Register</a></li>
+                                <li><a href="<c:url value="../admin/admDeleteStaff"/>"><i class="fa fa-circle-o"></i> Delete</a></li>
+                                <li><a href="<c:url value="../admin/admViewStaffPayments"/>"><i class="fa fa-circle-o"></i> View Payments</a></li>
+                                <li><a href="<c:url value="../admin/admViewStaffMembers"/>"><i class="fa fa-circle-o"></i> View Staff</a></li>
                             </ul>
-                            <!-- second-level-items -->
                         </li>
-                        <li>
-                            <a href="<c:url value="../admin/admScanStudentAttendence"/>"><i class="fa fa-indent fa-lg" aria-hidden="true"></i> &nbsp;Scan Attendence</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admScanStudentFees"/>"><i class="fa fa-usd fa-lg"  aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Scan Fees</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admViewTimetable"/>"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Time table</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admBanUser"/>"><i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ban user</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admSendMail"/>"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Send Mail</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admViewInbox"/>"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Inbox</a>
-                        </li>
-
-
-
+                        <li><a href="<c:url value="../admin/admScanStudentAttendence"/>"><i class="fa fa-book"></i> Scan Attendence</a></li>
+                        <li><a href="<c:url value="../admin/admScanStudentFees"/>"><i class="fa fa-book"></i> Scan Fees</a></li>
+                        <li><a href="<c:url value="../admin/admSendMail"/>"><i class="fa fa-book"></i> Send Mail</a></li>
+                        <li><a href="<c:url value="../admin/admViewInbox"/>"><i class="fa fa-book"></i> Inbox</a></li>
                     </ul>
-                    <!-- end side-menu -->
-                </div>
-                <!-- end sidebar-collapse -->
+                </section>
+                <!-- /.sidebar -->
+            </aside>
 
+            <!-- =============================================== -->
 
-
-
-            </nav>
-            <!-- end navbar side -->
-            <!--  page-wrapper -->
-            <div id="page-wrapper">
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
 
                 <div id="page-inner">
-                    <br><br>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h2>ADMIN DASHBOARD</h2>   
-                        </div>
-                    </div>              
+                    <br>
+
                     <!-- /. ROW  -->
                     <hr />
-                    <br><br>
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <div class="alert alert-info">
-                                <strong>Welcome Admin ! </strong> <br>It's pleasure to see you here again...
-                            </div>
 
-                        </div>
-                    </div>
-                    <!-- /. ROW  --> 
-                    <br><br><br>
-                    <div class="row text-center pad-top">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-search-student.html" >
-                                    <i class="fa fa-male fa-5x" aria-hidden="true" ></i>
-                                    <h4>Search Student</h4>
-                                </a>
-                            </div>
-
-
-                        </div> 
-
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-search-tuitor.html" >
-                                    <i class="fa fa-hand-o-up fa-5x" aria-hidden="true"></i>
-                                    <h4>Search Tuitor</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-search-staff.html" >
-                                    <i class="fa fa-users fa-5x" aria-hidden="true"></i>
-                                    <h4>Search Staff</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-reg-stu.html" >
-                                    <i class="fa fa-male fa-5x" aria-hidden="true" ></i>
-                                    <h4>Register Student</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-reg-tui.html" >
-                                    <i class="fa fa-hand-o-up fa-5x" aria-hidden="true"></i>
-                                    <h4>Register Tuitor</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-reg-stf.html" >
-                                    <i class="fa fa-users fa-5x" aria-hidden="true"></i>
-                                    <h4>Register Staff</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <br>
-                    <!-- /. ROW  --> 
-                    <div class="row text-center pad-top">
-
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-timetable.html" >
-                                    <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
-                                    <h4>Time Table</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-scan-stu-attendence.html" >
-                                    <i class="fa fa-indent fa-5x" aria-hidden="true"></i>
-                                    <h4>Scan Attendence</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-scan-stu-fees.html" >
-                                    <i class="fa fa-gear fa-5x"></i>
-                                    <h4>Scan Fees</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-view-tui-payments.html" >
-                                    <i class="fa fa-money fa-5x" aria-hidden="true"></i>
-
-
-                                    <h4>Tuitor Payments </h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-view-stf-payments.html" >
-                                    <i class="fa fa-usd fa-5x"  aria-hidden="true"></i>
-
-                                    <h4>Staff Salary</h4>
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                <a href="admin-sendMail.html" >
-                                    <i class="fa fa-envelope-o fa-5x" aria-hidden="true"></i>
-                                    <h4>Send Mail</h4>
-                                </a>
-                            </div>
-
-
-                        </div> 
-
-                    </div>   
-                    <!-- /. ROW  -->    
-                    <br><br><br>
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <br/>
-                            <div class="alert alert-danger">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. </p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <br><br><br><br><br>
-
-                    <div class="row">
-                        <!--quick info section -->
-                        <div class="col-lg-3">
-                            <div class="alert alert-danger text-center">
-                                <i class="fa fa-calendar fa-3x"></i>&nbsp;&nbsp;<b>3 </b>Changes of Time table arragments done on this month
-
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="alert alert-success text-center">
-                                <i class="fa  fa-beer fa-3x"></i>&nbsp;&nbsp;<b>32 % </b>Profit Recorded in this Month  
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="alert alert-info text-center">
-                                <i class="fa fa-male fa-3x" aria-hidden="true" ></i> &nbsp;&nbsp;<b>48</b> New Student Registrations done in this month
-
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="alert alert-warning text-center">
-                                <i class="fa fa-usd fa-3x"  aria-hidden="true"></i>&nbsp;&nbsp;<b>3,000 $ </b>Total Payments has been deducted
-                            </div>
-                        </div>
-                        <!--end quick info section -->
-                    </div>
-
-                    <br><br><br><br><br><br>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="box box-primary">
-                                <div class="box-header">
-                                    <i class="ion ion-clipboard"></i>
-                                    <h3 class="box-title">To Do List</h3>
-                                    <div class="box-tools pull-right">
-                                        <ul class="pagination pagination-sm inline">
-                                            <li><a href="#">&laquo;</a></li>
-                                            <li><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">&raquo;</a></li>
-                                        </ul>
+                    <section class="content" >
+                        <div class="row" >
+                            <div class="col-lg-3 col-xs-6">
+                                <!-- small box -->
+                                <div class="small-box bg-aqua">
+                                    <div class="inner">
+                                        <h3 id="tuiStat">${userStats.tutorCount}</h3>
+                                        <p>Tutors</p>
                                     </div>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <ul class="todo-list">
-                                        <li>
-                                            <!-- drag handle -->
-                                            <span class="handle">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </span>
-                                            <!-- checkbox -->
-                                            <input type="checkbox" value="" name=""/>
-                                            <!-- todo text -->
-                                            <span class="text">Restart the server</span>
-                                            <!-- Emphasis label -->
-                                            <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                                            <!-- General tools such as edit or delete-->
-                                            <div class="tools">
-                                                <i class="fa fa-edit"></i>
-                                                <i class="fa fa-trash-o"></i>
+                                    <div class="icon">
+                                        <i class="ion ion-bag"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div><!-- ./col -->
+                            <div class="col-lg-3 col-xs-6">
+                                <!-- small box -->
+                                <div class="small-box bg-green">
+                                    <div class="inner">
+                                        <h3 id="stfStat">${userStats.staffCount}</h3>
+                                        <p>Staff members</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-stats-bars"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div><!-- ./col -->
+                            <div class="col-lg-3 col-xs-6">
+                                <!-- small box -->
+                                <div class="small-box bg-yellow">
+                                    <div class="inner">
+                                        <h3 id="stuStat">${userStats.studentCount}</h3>
+                                        <p>Students</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-person-add"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div><!-- ./col -->
+                            <div class="col-lg-3 col-xs-6">
+                                <!-- small box -->
+                                <div class="small-box bg-red">
+                                    <div class="inner">
+                                        <h3 id="classStat">${userStats.classCount}</h3>
+                                        <p>Classes</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-pie-graph"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div><!-- ./col -->
+                        </div>
+                    </section>
+                                        
+                    <section class="content" >
+                        <div class="row" >
+                            
+                            <div class="col-lg-3 col-xs-6">
+                                <!-- small box -->
+                                <div class="small-box bg-green">
+                                    <div class="inner">
+                                        <h3 id="stfStat">${userStats.examCount}</h3>
+                                        <p>Total Exams</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-stats-bars"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div><!-- ./col -->
+                            
+                            <div class="col-lg-3 col-xs-6">
+                                <!-- small box -->
+                                <div class="small-box bg-aqua">
+                                    <div class="inner">
+                                        <h3 id="tuiStat">${userStats.subjectCount}</h3>
+                                        <p>Subjects</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-bag"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div><!-- ./col -->
+                            
+                            
+                            <div class="col-lg-3 col-xs-6">
+                                <!-- small box -->
+                                <div class="small-box bg-red">
+                                    <div class="inner">
+                                        <h3 id="classStat">${userStats.parentCount}</h3>
+                                        <p>Parents</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-pie-graph"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div><!-- ./col -->
+                            
+                            <div class="col-lg-3 col-xs-6">
+                                <!-- small box -->
+                                <div class="small-box bg-yellow">
+                                    <div class="inner">
+                                        <h3 id="stuStat">${userStats.adminCount}</h3>
+                                        <p>Admins</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-person-add"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div><!-- ./col -->
+                        </div>
+                    </section>
+
+
+
+
+                    <section class="content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="box box-solid bg-green-gradient">
+                                    <div class="box-header">
+                                        <i class="fa fa-calendar"></i>
+                                        <h3 class="box-title">Calendar</h3>
+                                        <!-- tools box -->
+                                        <div class="pull-right box-tools">
+                                            <!-- button with a dropdown -->
+                                            <div class="btn-group">
+                                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
+                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                    <li><a href="#">Add new event</a></li>
+                                                    <li><a href="#">Clear events</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">View calendar</a></li>
+                                                </ul>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </span>
-                                            <input type="checkbox" value="" name=""/>
-                                            <span class="text">Re shedule grade 7 science class</span>
-                                            <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                                            <div class="tools">
-                                                <i class="fa fa-edit"></i>
-                                                <i class="fa fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </span>
-                                            <input type="checkbox" value="" name=""/>
-                                            <span class="text">Contact Mr Lakshan Ranasinghe</span>
-                                            <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                                            <div class="tools">
-                                                <i class="fa fa-edit"></i>
-                                                <i class="fa fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </span>
-                                            <input type="checkbox" value="" name=""/>
-                                            <span class="text">Send emails to grade 10 English students </span>
-                                            <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                                            <div class="tools">
-                                                <i class="fa fa-edit"></i>
-                                                <i class="fa fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </span>
-                                            <input type="checkbox" value="" name=""/>
-                                            <span class="text">Promotional campain</span>
-                                            <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                                            <div class="tools">
-                                                <i class="fa fa-edit"></i>
-                                                <i class="fa fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </span>
-                                            <input type="checkbox" value="" name=""/>
-                                            <span class="text">Feed payment status</span>
-                                            <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                                            <div class="tools">
-                                                <i class="fa fa-edit"></i>
-                                                <i class="fa fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div><!-- /.box-body -->
-                                <div class="box-footer clearfix no-border">
-                                    <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+                                            <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                            <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                                        </div><!-- /. tools -->
+                                    </div><!-- /.box-header -->
+                                    <div class="box-body no-padding">
+                                        <!--The calendar -->
+                                        <div id="calendar" style="width: 100%"></div>
+                                    </div><!-- /.box-body -->
+                                    <div class="box-footer text-black">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- Progress bars -->
+                                                <div class="clearfix">
+                                                    <span class="pull-left">Task #1</span>
+                                                    <small class="pull-right">90%</small>
+                                                </div>
+                                                <div class="progress xs">
+                                                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
+                                                </div>
+
+                                                <div class="clearfix">
+                                                    <span class="pull-left">Task #2</span>
+                                                    <small class="pull-right">70%</small>
+                                                </div>
+                                                <div class="progress xs">
+                                                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
+                                                </div>
+                                            </div><!-- /.col -->
+                                            <div class="col-sm-6">
+                                                <div class="clearfix">
+                                                    <span class="pull-left">Task #3</span>
+                                                    <small class="pull-right">60%</small>
+                                                </div>
+                                                <div class="progress xs">
+                                                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
+                                                </div>
+
+                                                <div class="clearfix">
+                                                    <span class="pull-left">Task #4</span>
+                                                    <small class="pull-right">40%</small>
+                                                </div>
+                                                <div class="progress xs">
+                                                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
+                                                </div>
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="col-lg-6">
+
+                                <div class="box box-danger">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Latest Students</h3>
+                                        <div class="box-tools pull-right">
+                                            <!--                                            <span class="label label-danger">8 New Members</span>-->
+                                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                        </div>
+                                    </div><!-- /.box-header -->
+                                    <div class="box-body no-padding">
+                                        <ul class="users-list clearfix">
+
+
+                                            <c:forEach items="${latestStudents}" var="student">
+                                                <li>
+                                                    <img src="${student.picture}" alt="User Image" style="width: 70px;height: 70px;"/>
+                                                    <a class="users-list-name" href="#">${student.stuRegNumber} | ${student.firstName}</a>
+                                                </li>
+                                            </c:forEach>
+
+                                        </ul><!-- /.users-list -->
+                                    </div><!-- /.box-body -->
+                                    <div class="box-footer text-center">
+
+                                    </div><!-- /.box-footer -->
+                                </div>
+                            </div>
+                    </section>
+
+                </div>
+
+                <section class="content">
+                    <div id="page-inner">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <strong>Class Time Table</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last updated on <u>27/06/2017</u>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Class ref</th>
+                                                <th>Subject</th>
+                                                <th>Level</th>
+                                                <th>Grade</th>
+                                                <th>Day</th>
+                                                <th>Time duration</th>
+                                                <th>Tuitor</th>
+                                                <th>Hall Number</th>
+                                                <th>Number of Students</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>cl/01</td>
+                                                <td>Mathematics</td>
+                                                <td>Ordinary</td>
+                                                <td>6</td>
+                                                <td>Monday</td>
+                                                <td>4-6 p.m</td>
+                                                <td>Mrs. Padma wijesinghe</td>
+                                                <td>3</td>
+                                                <td>59</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/02</td>
+                                                <td>Science</td>
+                                                <td>Ordinary</td>
+                                                <td>6</td>
+                                                <td>Tuesday</td>
+                                                <td>4-6 p.m</td>
+                                                <td>Mr. Prasad silva</td>
+                                                <td>3</td>
+                                                <td>105</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/03</td>
+                                                <td>ICT</td>
+                                                <td>Ordinary</td>
+                                                <td>10</td>
+                                                <td>Monday</td>
+                                                <td>4-6 p.m</td>
+                                                <td>Mr. Lakshan ranasinghe</td>
+                                                <td>1</td>
+                                                <td>23</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/04</td>
+                                                <td>English</td>
+                                                <td>Ordinary</td>
+                                                <td>9</td>
+                                                <td>Saturday</td>
+                                                <td>1-3 p.m</td>
+                                                <td>Mrs. Kasuni withanage</td>
+                                                <td>1</td>
+                                                <td>80</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/05</td>
+                                                <td>Mathematics</td>
+                                                <td>Ordinary</td>
+                                                <td>7</td>
+                                                <td>Saturday</td>
+                                                <td>1-3 p.m</td>
+                                                <td>Mrs. Padma wijesinghe</td>
+                                                <td>3</td>
+                                                <td>95</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/06</td>
+                                                <td>Mathematics</td>
+                                                <td>Ordinary</td>
+                                                <td>8</td>
+                                                <td>Wednesday</td>
+                                                <td>4-6 p.m</td>
+                                                <td>Mrs. Padma wijesinghe</td>
+                                                <td>3</td>
+                                                <td>60</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/07</td>
+                                                <td>Sinhala</td>
+                                                <td>Ordinary</td>
+                                                <td>6</td>
+                                                <td>Thursday</td>
+                                                <td>4-6 p.m</td>
+                                                <td>Mr. Romesh kiththangoda</td>
+                                                <td>3</td>
+                                                <td>48</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/08</td>
+                                                <td>Science</td>
+                                                <td>Ordinary</td>
+                                                <td>9</td>
+                                                <td>Tuesday</td>
+                                                <td>4-6 p.m</td>
+                                                <td>Mr. Prasad silva</td>
+                                                <td>2</td>
+                                                <td>46</td>
+                                            </tr>
+                                            <tr>
+                                                <td>cl/09</td>
+                                                <td>English</td>
+                                                <td>Ordinary</td>
+                                                <td>9</td>
+                                                <td>Friday</td>
+                                                <td>1-3 p.m</td>
+                                                <td>Mrs. Kasuni withanage</td>
+                                                <td>1</td>
+                                                <td>70</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/10</td>
+                                                <td>Mathematics</td>
+                                                <td>Ordinary</td>
+                                                <td>11</td>
+                                                <td>Monday</td>
+                                                <td>4-6 p.m</td>
+                                                <td>Mrs. Padma wijesinghe</td>
+                                                <td>3</td>
+                                                <td>80</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>cl/11</td>
+                                                <td>ICT</td>
+                                                <td>Ordinary</td>
+                                                <td>11</td>
+                                                <td>Monday</td>
+                                                <td>6-8 p.m</td>
+                                                <td>Mr. Lakshan ranasinghe</td>
+                                                <td>1</td>
+                                                <td>35</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
 
 
 
-                        <div class="col-lg-6">
-
-                            <div class="box box-danger">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Latest Members</h3>
-                                    <div class="box-tools pull-right">
-                                        <span class="label label-danger">8 New Members</span>
-                                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div><!-- /.box-header -->
-                                <div class="box-body no-padding">
-                                    <ul class="users-list clearfix">
-                                        <li>
-                                            <img src="../resources/img/b4.jpg" alt="User Image"/>
-                                            <a class="users-list-name" href="#">Kanchana</a>
-                                            <span class="users-list-date">Today</span>
-                                        </li>
-                                        <li>
-                                            <img src="../resources/img/b3.jpg" alt="User Image"/>
-                                            <a class="users-list-name" href="#">Ushan</a>
-                                            <span class="users-list-date">Yesterday</span>
-                                        </li>
-                                        <li>
-                                            <img src="../resources/img/g1.jpg" alt="User Image"/>
-                                            <a class="users-list-name" href="#">Saduni</a>
-                                            <span class="users-list-date">12 Jan</span>
-                                        </li>
-
-                                        <li>
-                                            <img src="../resources/img/b1.jpg" alt="User Image"/>
-                                            <a class="users-list-name" href="#">Chathura</a>
-                                            <span class="users-list-date">14 Jan</span>
-                                        </li>
-                                        <li>
-                                            <img src="../resources/img/g2.jpg" alt="User Image"/>
-                                            <a class="users-list-name" href="#">Nimesha</a>
-                                            <span class="users-list-date">15 Jan</span>
-                                        </li>
-                                        <li>
-                                            <img src="../resources/img/b5.jpg" alt="User Image"/>
-                                            <a class="users-list-name" href="#">Ruchira</a>
-                                            <span class="users-list-date">15 Jan</span>
-                                        </li>
-                                    </ul><!-- /.users-list -->
-                                </div><!-- /.box-body -->
-                                <div class="box-footer text-center">
-                                    <a href="javascript::" class="uppercase">View All Users</a>
-                                </div><!-- /.box-footer -->
-                            </div>
-                        </div>
 
                     </div>
 
+                </section>
 
-                    <!-- /. ROW  --> 
-                </div>
-                <!-- /. PAGE INNER  -->
+
+                <!-- /. ROW  --> 
             </div>
 
 
 
-        </div>
-        <!-- end page-wrapper -->
-
-    </div>
-    <!-- end wrapper -->
-    <div class="footer" id="admin-footer">
 
 
-        <div class="row">
-            <div class="col-lg-12" id="foot-note-admin">
-                &copy;  2017 Apex Institution,Kalutara. &nbsp;| &nbsp;Designed by :&nbsp; <a href="#" style="color:#E6E6FA;" target="_blank">Lakshan Harischandra</a>
+
+
+
+        </div><!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.0
             </div>
-        </div>
-    </div>
+            <strong>Copyright &copy; 2018 <a href="#">Apex Institution</a></strong> | Lakshan Harischandra.
+        </footer>
+    </div><!-- ./wrapper -->
 
-    <!-- Core Scripts - Include with every page -->
-    <script src="../resources/js/jquery-1.10.2.js"></script>
-    <script src="../resources/js/bootstrap.min.js"></script>
-    <script src="../resources/js/jquery.metisMenu.js"></script>
-    <script src="../resources/js/pace.js"></script>
-    <script src="../resources/js/siminta.js"></script>
-
+    <!-- jQuery 2.1.3 -->
+    <script src="../resources/js/jQuery-2.1.3.min.js"></script>
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="../resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- SlimScroll -->
+    <script src="../resources/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src="../resources/js/fastclick.min.js" type="text/javascript"></script>
+    <script src="../resources/js/datePicker.js" type="text/javascript"></script>
+    <!-- AdminLTE App -->
+    <script src="../resources/js/app.min.js" type="text/javascript"></script>
+    <script src="../resources/js/AdminControl.js" type="text/javascript"></script>
+    <script src="../resources/js/sweetalert.js" type="text/javascript"></script>
 </body>
-
 </html>
-

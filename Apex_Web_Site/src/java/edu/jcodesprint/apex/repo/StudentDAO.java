@@ -53,4 +53,10 @@ public interface StudentDAO {
 
     public List<Subject> getStudentSubjects(int stuId);
 
+    public Student newlyCreatedStudent();
+
+    public List<Student> getLatestStudents();
+
+   
+
 }

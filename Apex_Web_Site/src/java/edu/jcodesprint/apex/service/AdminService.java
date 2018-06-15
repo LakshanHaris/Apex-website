@@ -14,10 +14,20 @@ import java.util.List;
  * @author Lakshan Harischandra
  */
 public interface AdminService {
-    boolean   addAdmin(Admin admin);
-    boolean  deleteAdmin(int adminId);
-    boolean  updateAdmin(Admin admin);
+
+    int addAdmin(Admin admin);
+
+    boolean deleteAdmin(int adminId);
+
+    boolean updateAdmin(Admin admin);
+
     List<Admin> getAllAdmins();
+
     public Admin SearchAdmin(int adminId);
+
     public Admin checkUserNamePassword(LoginCredintials loginCredintials);
+
+    public Admin getAdmEditPicture(String refferPath, int admID);
+
+    public int getAdminCount();
 }

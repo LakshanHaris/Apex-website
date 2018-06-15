@@ -51,7 +51,7 @@ public class TutorDAOImpl implements TutorDAO {
 
     @Override
     public boolean updateTutor(Tutor tutor) {
-        String sql="update Tutor set tui_reg_number = :tuiRegNum,first_name = :firstName,"
+        String sql = "update Tutor set tui_reg_number = :tuiRegNum,first_name = :firstName,"
                 + "last_name = :lastName,"
                 + " dob = :dob,address = :address,gender = :gender,email = :email,mobile_number = :mobileNumber,graduation =:graduation,stream =:stream"
                 + "bank = :bank,bank_acc = :bankAcc,branch = :branch,password = :password,picture = :picture,adm_id_tui = :admIdStu    where tui_reg_number = :tuiId";
@@ -98,6 +98,14 @@ public class TutorDAOImpl implements TutorDAO {
         criteria.add(andExp);
 
         return (Tutor) criteria.uniqueResult();
+    }
+
+    @Override
+    public Tutor newlyCreatedTutor() {
+        String sql = "select * from tutor where tui_reg_number = (select max(tui_reg_number) from tutor) ";
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.addEntity(Tutor.class);
+        return (Tutor) query.uniqueResult();
     }
 
 }

@@ -1,4 +1,3 @@
-
 $("#admAddAdminBtn").click(function () {
 
     var ajaxConfigure = {
@@ -9,18 +8,20 @@ $("#admAddAdminBtn").click(function () {
         data: $("#admAddAdminForm").serialize()
     };
 
+    console.log("inside");
 
 
     $.ajax(ajaxConfigure)
             .done(function (response) {
-                if (response.toString() == "success") {
-                    swal("Success!", "New Admin added!", "success");
+                console.log(response);
+                if (response != 0) {
+                    swal("New Admin added!", "Admin registration number :" + response + "", "success");
 
 
-                }
-                if (response.toString() == "error") {
+                } else {
                     swal("error!", "Something Went Wrong!", "error");
                 }
+
             });
 
 
@@ -71,20 +72,72 @@ $("#admDeleteBtn").click(function () {
 });
 
 
-$("#admAddStuBtn").click(function () {
+$("#admAddParentBtn").click(function () {
+    console.log("inside");
     var ajaxConfigure = {
         type: "POST",
-        url: "../admin/admAddStudent",
+        url: "../admin/admAddParentStuRegister",
+        async: true,
+        data: $("#admAddParentForm").serialize()
+    };
+    $.ajax(ajaxConfigure)
+            .done(function (response) {
+
+                console.log("okkk");
+
+                if (response != null) {
+                    swal("Student Added!", "Student registration number : " + response + "!", "success");
+                } else {
+                    swal("Error!", "Something Went Wrong!", "error");
+                }
+            })
+            .fail(console.log("failed"));
+});
+
+
+$("#admEditParentBtn").click(function () {
+    console.log("inside");
+    var ajaxConfigure = {
+        type: "POST",
+        url: "../admin/admEditStudentParent",
+        async: true,
+        data: $("#admEditParentForm").serialize()
+    };
+    $.ajax(ajaxConfigure)
+            .done(function (response) {
+
+                console.log("okkk");
+
+                if (response.toString() == "success") {
+                    swal("Success!", "Parent successfully updated!", "success");
+
+
+                }
+                if (response.toString() == "error") {
+                    swal("error!", "Something Went Wrong!", "error");
+                }
+            })
+            .fail(console.log("failed"));
+});
+
+
+$("#admAddStuBtn").click(function () {
+    console.log("inside");
+    var ajaxConfigure = {
+        type: "POST",
+        url: "../admin/admAddParentStuRegisterExists",
         async: true,
         data: $("#admAddStudentForm").serialize()
     };
     $.ajax(ajaxConfigure)
             .done(function (response) {
-                if (response.toString() == "success") {
-                    swal("Success!", "Student successfully Added!", "success");
-                }
-                if (response.toString() == "error") {
-                    swal("error!", "Something Went Wrong!", "error");
+
+                console.log(response);
+
+                if (response != null) {
+                    swal("Student Added!", "Student registration number : " + response + "!", "success");
+                } else {
+                    swal("Error!", "Something Went Wrong!", "error");
                 }
             })
             .fail(console.log("failed"));
@@ -137,14 +190,14 @@ $("#admAddTuiBtn").click(function () {
 
 
 
-                if (response.toString() == "success") {
-                    swal("Success!", "Tutor successfully Added!", "success");
+                if (0 != response) {
+                    swal("Tutor successfully Added!", "Registration number : " + response + " ", "success");
 
 
-                }
-                if (response.toString() == "error") {
+                } else {
                     swal("error!", "Something Went Wrong!", "error");
                 }
+
             });
 
 
@@ -214,14 +267,16 @@ $("#admAddStfBtn").click(function () {
 
     $.ajax(ajaxConfigure)
             .done(function (response) {
-                console.log("ok");
-                console.log(response);
+                if (0 != response) {
+                    swal("Staff Member successfully Added!", "Staff registration number : " + response + " ", "success");
+                } else {
+                    swal("error!", "Something Went Wrong!", "error");
+                }
+
             })
-            .fail(function (response) {
-                console.log("fail");
-                console.log(response);
-            })
-            .always(function (response) {
-                console.log("always");
-            })
+
 });
+
+
+
+

@@ -64,7 +64,7 @@ public class Admin implements Serializable {
     private String password;
     @Lob
     @Column(name = "picture")
-    private byte[] picture;
+    private String picture;
     @OneToMany(mappedBy = "admIdStu", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Student> studentList;
@@ -180,14 +180,7 @@ public class Admin implements Serializable {
         this.password = password;
     }
 
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
+   
     @JsonIgnore
     public List<Student> getStudentList() {
         return studentList;
@@ -222,6 +215,20 @@ public class Admin implements Serializable {
 
     public void setTutorList(List<Tutor> tutorList) {
         this.tutorList = tutorList;
+    }
+
+    /**
+     * @return the picture
+     */
+    public String getPicture() {
+        return picture;
+    }
+
+    /**
+     * @param picture the picture to set
+     */
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
 }

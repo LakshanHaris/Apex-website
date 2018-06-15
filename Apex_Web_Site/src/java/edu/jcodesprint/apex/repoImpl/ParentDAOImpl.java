@@ -11,8 +11,10 @@ import edu.jcodesprint.apex.model.Student;
 
 import edu.jcodesprint.apex.repo.ParentDAO;
 import java.io.Serializable;
+import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,8 @@ import org.springframework.stereotype.Repository;
  * @author Lakshan Harischandra
  */
 @Repository
-public class ParentDAOImpl  implements ParentDAO {
-    
+public class ParentDAOImpl implements ParentDAO {
+
     @Autowired
     SessionFactory factory;
 
@@ -34,7 +36,7 @@ public class ParentDAOImpl  implements ParentDAO {
     }
 
     @Override
-    public boolean  deleteParent(int parentIdNo) {
+    public boolean deleteParent(int parentIdNo) {
         Query query = factory.getCurrentSession().createQuery("delete from Parent where parentId=:parentRegNum");
         query.setParameter("parentRegNum", parentIdNo);
 
@@ -46,7 +48,7 @@ public class ParentDAOImpl  implements ParentDAO {
     }
 
     @Override
-    public boolean  updateParent(Parent parent) {
+    public boolean updateParent(Parent parent) {
         Query query = factory.getCurrentSession().createQuery("update Parent set parentId = :parentRegNum,firstName = :firstName,"
                 + "lastName = :lastName,"
                 + "email = :email,mobileNumber = :mobileNumber,occupation = :occupation"
@@ -58,8 +60,7 @@ public class ParentDAOImpl  implements ParentDAO {
         query.setParameter("occupation", parent.getOccupation());
         query.setParameter("email", parent.getEmail());
         query.setParameter("mobileNumber", parent.getMobileNumber());
-        
-        
+
         query.setParameter("parentId", parent.getParentId());
 
         return 0 < query.executeUpdate();
@@ -67,9 +68,23 @@ public class ParentDAOImpl  implements ParentDAO {
 
     @Override
     public Parent SearchParent(int parentIdNo) {
-         Criteria criteria = factory.getCurrentSession().createCriteria(Parent.class);
+        Criteria criteria = factory.getCurrentSession().createCriteria(Parent.class);
         criteria.add(Restrictions.eq("parentId", parentIdNo));
         return (Parent) criteria.uniqueResult();
     }
-    
+
+    @Override
+    public Parent newlyCreatedParent() {
+        String sql = "select * from parent where parentId = (select max(parentId) from parent) ";
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.addEntity(Parent.class);
+        return (Parent) query.uniqueResult();
+    }
+
+    @Override
+    public List<Parent> getAllParents() {
+        Criteria criteria = factory.getCurrentSession().createCriteria(Parent.class);
+        return (List<Parent>) criteria.list();
+    }
+
 }

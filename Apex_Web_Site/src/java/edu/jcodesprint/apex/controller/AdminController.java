@@ -5,21 +5,26 @@
  */
 package edu.jcodesprint.apex.controller;
 
-import edu.jcodesprint.apex.dto.StudentDto;
+import edu.jcodesprint.apex.dto.DashboardData;
+import edu.jcodesprint.apex.dto.StudentRegister;
 import edu.jcodesprint.apex.model.Admin;
-import edu.jcodesprint.apex.model.Parent;
 import edu.jcodesprint.apex.model.Staff;
 import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.Tutor;
+import edu.jcodesprint.apex.model.Parent;
 import edu.jcodesprint.apex.service.AdminService;
+import edu.jcodesprint.apex.service.ExamService;
+import edu.jcodesprint.apex.service.ParentService;
 import edu.jcodesprint.apex.service.StaffService;
 import edu.jcodesprint.apex.service.StudentService;
+import edu.jcodesprint.apex.service.SubjectService;
+import edu.jcodesprint.apex.service.Tution_classService;
 import edu.jcodesprint.apex.service.TutorService;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +59,18 @@ public class AdminController {
     @Autowired
     TutorService tutorService;
 
+    @Autowired
+    Tution_classService tution_class_Service;
+
+    @Autowired
+    ParentService parentService;
+    
+    @Autowired
+    ExamService examService;
+    
+    @Autowired
+    SubjectService subjectService;
+
     @RequestMapping(value = "/admAddAdmin", method = RequestMethod.GET)
     public String getAdmin() {
 
@@ -62,12 +79,12 @@ public class AdminController {
 
     @RequestMapping(value = "/admAddAdmin", method = RequestMethod.POST)
     public @ResponseBody
-    String addAdmin(@ModelAttribute("Admin") Admin admin) {
-
-        if (adminService.addAdmin(admin)) {
-            return "success";
+    int addAdmin(@ModelAttribute("Admin") Admin admin) {
+        int admId = adminService.addAdmin(admin);
+        if (0 != admId) {
+            return admId;
         } else {
-            return "error";
+            return 0;
         }
     }
 
@@ -92,8 +109,26 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/admViewDashboard", method = RequestMethod.GET)
-    public String getAdmindashboard() {
-        return "admin/admViewDashboard";
+    public ModelAndView getAdmindashboard(HttpServletResponse response) {
+        ModelAndView mavDashboardDetails = new ModelAndView();
+
+        DashboardData dbData = new DashboardData();
+        dbData.setTutorCount(tutorService.getTutorCount());
+        dbData.setStudentCount(studentService.getStudentCount());
+        dbData.setStaffCount(staffService.getStaffCount());
+        dbData.setClassCount(tution_class_Service.getClassCount());
+        dbData.setAdminCount(adminService.getAdminCount());
+        dbData.setExamCount(examService.getExamCount());
+        dbData.setParentCount(parentService.getParentCount());
+        dbData.setSubjectCount(subjectService.getSubjectCount());
+
+        List<Student> latestStudents = studentService.getLatestStudents();
+
+        mavDashboardDetails.addObject("userStats", dbData);
+        mavDashboardDetails.addObject("latestStudents", latestStudents);
+        mavDashboardDetails.setViewName("admin/admViewDashboard");
+        return mavDashboardDetails;
+
     }
 
     @RequestMapping(value = "/admViewAdmin", method = RequestMethod.GET)
@@ -157,23 +192,47 @@ public class AdminController {
         return "admin/admAddStudent";
     }
 
-    @RequestMapping(value = "/admAddStudent", method = RequestMethod.POST)
+    @RequestMapping(value = "/admEditStudentParent", method = RequestMethod.GET)
+    public String getEditParent() {
+        return "admin/admEditStudentParent";
+    }
+
+    @RequestMapping(value = "/admEditStudentParent", method = RequestMethod.POST)
+    @ResponseBody
+    public String getEditParent(@ModelAttribute("Parent") Parent parent) {
+        if (parentService.updateParent(parent)) {
+            return "success";
+        } else {
+            return "error";
+        }
+    }
+
+    @RequestMapping(value = "/admAddParentStuRegister", method = RequestMethod.POST)
     public @ResponseBody
-    String addStudent(@ModelAttribute("Student") Student student, HttpSession session) {
+    int addStudent(@ModelAttribute("Parent") Parent parent, HttpSession session) {
 
-        
-            
-            student.setAdmIdStu(new Admin((int) session.getAttribute("regNumber")));
-            student.setParentparentId(new Parent(1));
+        int adminId = (int) session.getAttribute("regNumber");
+        int stuId = parentService.addParent(parent, adminId);
+        if (0 != stuId) {
+            return stuId;
+        } else {
+            return 0;
+        }
+    }
 
-            if (studentService.addStudent(student)) {
-                return "success";
-            } else {
-                return "error";
-            }
+    @RequestMapping(value = "/admAddParentStuRegisterExists", method = RequestMethod.POST)
+    public @ResponseBody
+    int addStudent(@RequestParam("parentId") int parentId, HttpSession session) {
 
-           
-           
+        int adminId = (int) session.getAttribute("regNumber");
+        int stuId = studentService.addStudentParentExists(parentId, adminId);
+
+        if (0 != stuId) {
+            return stuId;
+        } else {
+            return 0;
+        }
+
     }
 
     @RequestMapping(value = "/admDeleteStudent", method = RequestMethod.GET)
@@ -200,30 +259,13 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/admViewStudentLoaded", method = RequestMethod.GET)
-    public ModelAndView viewStudent(@ModelAttribute("Student") Student student, ModelMap studentModel, HttpServletResponse httpServletResponse) {
+    public ModelAndView viewStudent(@ModelAttribute("Student") Student student, HttpServletResponse httpServletResponse) {
 
         Student searchStudent = studentService.searchStudent(student.getStuRegNumber());
-        if (searchStudent != null) {
-            student.setStuRegNumber(searchStudent.getStuRegNumber());
-            student.setFirstName(searchStudent.getFirstName());
-            student.setLastName(searchStudent.getLastName());
-            student.setAddress(searchStudent.getAddress());
-            student.setDob(searchStudent.getDob());
-            student.setGrade(searchStudent.getGrade());
-            student.setGender(searchStudent.getGender());
-            student.setEmail(searchStudent.getEmail());
-            student.setMobileNumber(searchStudent.getMobileNumber());
-            student.setPassword(searchStudent.getPassword());
-            student.setPicture(searchStudent.getPicture());
-            student.setAdmIdStu(searchStudent.getAdmIdStu());
-//            student.setParentParentId(searchStudent.getParentParentId());
-
-            studentModel.addAttribute("searchedStudent", student);
-
-        }
-
-        return new ModelAndView("admin/admViewStudentLoaded", "Student", studentModel);
-
+        ModelAndView mavStudent = new ModelAndView();
+        mavStudent.addObject("studentSearchView", searchStudent);
+        mavStudent.setViewName("admin/admViewStudent");
+        return mavStudent;
     }
 
     @RequestMapping(value = "/admScanStudentAttendence", method = RequestMethod.GET)
@@ -244,16 +286,14 @@ public class AdminController {
 
     @RequestMapping(value = "/admAddTutor", method = RequestMethod.POST)
     public @ResponseBody
-    String addTutor(@ModelAttribute("Tutor") Tutor tutor, HttpSession session) {
+    int addTutor(@ModelAttribute("Tutor") Tutor tutor, HttpSession session) {
 
-        Admin admin = new Admin();
-        admin.setAdmRegNumber((int) session.getAttribute("regNumber"));
-        tutor.setAdmIdTui(admin);
-
-        if (tutorService.addTutor(tutor)) {
-            return "success";
+        tutor.setAdmIdTui(new Admin((int) session.getAttribute("regNumber")));
+        int tuiId = tutorService.addTutor(tutor);
+        if (0 != tuiId) {
+            return tuiId;
         } else {
-            return "error";
+            return 0;
         }
 
     }
@@ -284,29 +324,10 @@ public class AdminController {
     public ModelAndView viewTutor(@ModelAttribute("Tutor") Tutor tutor, ModelMap tutorModel) {
 
         Tutor searchTutor = tutorService.SearchTutor(tutor.getTuiRegNumber());
-        if (searchTutor != null) {
-            tutor.setTuiRegNumber(searchTutor.getTuiRegNumber());
-            tutor.setFirstName(searchTutor.getFirstName());
-            tutor.setLastName(searchTutor.getLastName());
-            tutor.setAddress(searchTutor.getAddress());
-            tutor.setGender(searchTutor.getGender());
-            tutor.setDob(searchTutor.getDob());
-            tutor.setGraduation(searchTutor.getGraduation());
-            tutor.setStream(searchTutor.getStream());
-            tutor.setMobileNumber(searchTutor.getMobileNumber());
-            tutor.setEmail(searchTutor.getEmail());
-            tutor.setBank(searchTutor.getBank());
-            tutor.setBranch(searchTutor.getBranch());
-            tutor.setBankAcc(searchTutor.getBankAcc());
-            tutor.setPassword(searchTutor.getPassword());
-            tutor.setPicture(searchTutor.getPicture());
-            tutor.setAdmIdTui(searchTutor.getAdmIdTui());
-
-            tutorModel.addAttribute("searchedTutor", tutor);
-
-        }
-
-        return new ModelAndView("admin/admViewTutor", "Tutor", tutorModel);
+        ModelAndView mavTutor = new ModelAndView();
+        mavTutor.addObject("tutorSearchView", searchTutor);
+        mavTutor.setViewName("admin/admViewTutor");
+        return mavTutor;
 
     }
 
@@ -318,16 +339,14 @@ public class AdminController {
 
     @RequestMapping(value = "/admAddStaff", method = RequestMethod.POST)
     public @ResponseBody
-    String addStaff(@ModelAttribute("Staff") Staff staff, HttpSession session) {
+    int addStaff(@ModelAttribute("Staff") Staff staff, HttpSession session) {
 
-        Admin admin = new Admin();
-        admin.setAdmRegNumber(1);
-        staff.setAdmIdStf(admin);
-
-        if (staffService.addStaffMember(staff)) {
-            return "success";
+        staff.setAdmIdStf(new Admin((Integer) session.getAttribute("regNumber")));
+        int staffId = staffService.addStaffMember(staff);
+        if (0 != staffId) {
+            return staffId;
         } else {
-            return "error";
+            return 0;
         }
 
     }
@@ -352,28 +371,43 @@ public class AdminController {
     public ModelAndView viewStaff(@ModelAttribute("Staff") Staff staff, ModelMap staffModel) {
 
         Staff searchStaff = staffService.SearchStaffMember(staff.getStfRegNumber());
-        if (searchStaff != null) {
-            staff.setStfRegNumber(searchStaff.getStfRegNumber());
-            staff.setFirstName(searchStaff.getFirstName());
-            staff.setLastName(searchStaff.getLastName());
-            staff.setAddress(searchStaff.getAddress());
-            staff.setDob(searchStaff.getDob());
-            staff.setGender(searchStaff.getGender());
-            staff.setMobileNumber(searchStaff.getMobileNumber());
-            staff.setEmail(searchStaff.getEmail());
-            staff.setBank(searchStaff.getBank());
-            staff.setBankAcc(searchStaff.getBankAcc());
-            staff.setBranch(searchStaff.getBranch());
-            staff.setPassword(searchStaff.getPassword());
-            staff.setPicture(searchStaff.getPicture());
-            staff.setAdmIdStf(searchStaff.getAdmIdStf());
+        ModelAndView mavStaff = new ModelAndView();
+        mavStaff.addObject("staffSearchView", searchStaff);
+        mavStaff.setViewName("admin/admViewStaff");
+        return mavStaff;
 
-            staffModel.addAttribute("searchedStaff", staff);
+    }
 
+    @RequestMapping(value = "/admEditPic", method = RequestMethod.POST, headers = "content-type=multipart/form-data")
+    public ModelAndView admEditPicture(@RequestParam("picture") MultipartFile picture, HttpSession session, HttpServletResponse response) throws InterruptedException, IOException {
+
+        int admID = (Integer) session.getAttribute("regNumber");
+
+        try {
+
+            String fileName = picture.getOriginalFilename();
+            System.out.println(fileName);
+            String savePath = "F:\\Git_Projects\\Apex-website\\Apex_Web_Site\\web\\resources\\customPics\\" + fileName;
+            File uploadFile = new File(savePath);
+            picture.transferTo(uploadFile);
+            String refferPath = "../resources/customPics/" + fileName;
+
+            Admin adminResult = adminService.getAdmEditPicture(refferPath, admID);
+//            String imageMain = "src=\"" + studentResult.getPicture() + "\"";
+            String imageLink = adminResult.getPicture();
+
+            if (null != adminResult) {
+                ModelAndView mav = new ModelAndView();
+                mav.addObject("adminResult", adminResult);
+                mav.setViewName("admin/admViewAdmin");
+                session.setAttribute("picture", adminResult.getPicture());
+                return mav;
+            }
+
+        } catch (IllegalStateException ex) {
+            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        return new ModelAndView("admin/admViewStaff", "Staff", staffModel);
-
+        return null;
     }
 
 }

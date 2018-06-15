@@ -15,9 +15,11 @@ import edu.jcodesprint.apex.model.Parent;
  * @author Lakshan Harischandra
  */
 public interface ParentService {
-    int addParent(StudentRegister studentParentDetail);
+    int  addParent(Parent parent,int adminId);
     void deleteParent(int parentId);
-    void updateParent(Parent parent);
+    boolean  updateParent(Parent parent);
     public Parent searchParent(int parentId);
+
+    public int getParentCount();
     
 }

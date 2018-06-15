@@ -26,12 +26,14 @@ public class StaffServiceImpl implements StaffService {
     StaffDAO staffDAO;
 
     @Override
-    public boolean addStaffMember(Staff staff) {
+    public int addStaffMember(Staff staff) {
 
         if (null != staffDAO.addStaffMember(staff)) {
-            return true;
+            Staff newStaff = staffDAO.newlyCreatedStaff();
+            int staffId = newStaff.getStfRegNumber();
+            return staffId;
         } else {
-            return false;
+            return 0;
         }
     }
 
@@ -58,6 +60,13 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public Staff checkUserNamePassword(LoginCredintials loginCredintials) {
         return staffDAO.checkUserNamePassword(loginCredintials);
+    }
+
+    @Override
+    public int getStaffCount() {
+        List<Staff> staffList = staffDAO.getAllStaffMember();
+        int staffCount = staffList.size();
+        return staffCount;
     }
 
 }

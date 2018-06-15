@@ -21,18 +21,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class AdminServiceImpl implements AdminService {
-    
-    
+
     @Autowired
     AdminDAO adminDAO;
 
     @Override
-    public boolean addAdmin(Admin admin) {
-       
+    public int addAdmin(Admin admin) {
+
         if (null != adminDAO.addAdmin(admin)) {
-            return true;
+            Admin newAdmin = adminDAO.newlyCreatedAdmin();
+            int adminId = newAdmin.getAdmRegNumber();
+            return adminId;
         } else {
-            return false;
+            return 0;
         }
     }
 
@@ -43,9 +44,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public boolean updateAdmin(Admin admin) {
-        
-      
-        
+
         return adminDAO.updateAdmin(admin);
     }
 
@@ -63,5 +62,24 @@ public class AdminServiceImpl implements AdminService {
     public Admin checkUserNamePassword(LoginCredintials loginCredintials) {
         return adminDAO.checkUserNamePassword(loginCredintials);
     }
-    
+
+    @Override
+    public Admin getAdmEditPicture(String refferPath, int admID) {
+        Admin admin = adminDAO.SearchAdmin(admID);
+        admin.setPicture(refferPath);
+        if (adminDAO.updateAdmin(admin)) {
+            return adminDAO.SearchAdmin(admID);
+        } else {
+            return null;
+        }
+
+    }
+
+    @Override
+    public int getAdminCount() {
+        List<Admin> adminList = adminDAO.getAllAdmins();
+        int adminCount = adminList.size();
+        return adminCount;
+    }
+
 }

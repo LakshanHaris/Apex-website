@@ -87,6 +87,14 @@ public class Student implements Serializable {
         this.stuRegNumber = stuRegNumber;
     }
 
+    public Student(Admin admIdStu, Parent parentparentId) {
+        this.admIdStu = admIdStu;
+        this.parentparentId = parentparentId;
+    }
+
+   
+
+    
     public Integer getStuRegNumber() {
         return stuRegNumber;
     }

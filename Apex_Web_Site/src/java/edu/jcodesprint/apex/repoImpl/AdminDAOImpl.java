@@ -53,7 +53,7 @@ public class AdminDAOImpl implements AdminDAO {
                 + "last_name = :lastName,"
                 + " dob = :dob, address = :address, gender = :gender, email = :email, mobile_number = :mobileNumber, bank = :bank,bank_acc = :bankAcc,"
                 + "branch = :branch, password = :password, picture = :picture where adm_reg_number = :admId";
-        
+
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
 
         query.setParameter("admRegNum", admin.getAdmRegNumber());
@@ -97,6 +97,14 @@ public class AdminDAOImpl implements AdminDAO {
         criteria.add(andExp);
 
         return (Admin) criteria.uniqueResult();
+    }
+
+    @Override
+    public Admin newlyCreatedAdmin() {
+        String sql = "select * from admin where adm_reg_number = (select max(adm_reg_number) from admin) ";
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.addEntity(Admin.class);
+        return (Admin) query.uniqueResult();
     }
 
 }

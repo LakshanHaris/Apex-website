@@ -199,4 +199,22 @@ public class StudentDAOImpl implements StudentDAO {
         return query.list();
     }
 
+    @Override
+    public Student newlyCreatedStudent() {
+        String sql="select * from student where stu_reg_number = (select max(stu_reg_number) from student) ";
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.addEntity(Student.class);
+        return (Student) query.uniqueResult();
+    }
+
+    @Override
+    public List<Student> getLatestStudents() {
+        String sql="select * from student order by stu_reg_number DESC LIMIT 8";
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.addEntity(Student.class);
+        return query.list();
+    }
+
+  
+
 }

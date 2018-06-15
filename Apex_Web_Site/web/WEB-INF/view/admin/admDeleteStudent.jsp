@@ -1,467 +1,187 @@
-<%-- 
-    Document   : admDeleteStudent
-    Created on : Oct 20, 2017, 1:48:03 PM
-    Author     : Lakshan Harischandra
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <html>
-
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin</title>
-        <!-- Core CSS - Include with every page -->
-        <link href="../resources/css/bootstrap.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Freckle+Face|Rock+Salt" rel="stylesheet"> 
-        <link href="../resources/css/font-awesome.css" rel="stylesheet" />
-        <link href="../resources/css/jquery-ui.css" rel="stylesheet" type="text/css" />
-        <script
-            src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
-        <link href="../resources/css/admin-style.css" rel="stylesheet" />
-        <link href="../resources/css/admin-main-style.css" rel="stylesheet" />
-        <link href="../resources/css/sweetalert.css" rel="stylesheet" />
+        <meta charset="UTF-8">
+        <title>Apex | Admin</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- Bootstrap 3.3.2 -->
+        <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="../resources/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+        <link href="../resources/css/_all-skins.min.css" rel="stylesheet" type="text/css" />
+        <link href="../resources/custom/AdminCustomStyles.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/sweetalert.css" rel="stylesheet" type="text/css"/>
+
 
     </head>
-
-    <body>
-        <!--  wrapper -->
-        <div id="wrapper">
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="adjust-nav">
-                    <div class="navbar-header">
-
-
-                        <h2 id="main-title">Apex Institutuion</h2>
-
-
-
+    <body class="skin-blue">
+        <!-- Site wrapper -->
+        <div class="wrapper">
+            <header class="main-header">
+                <a href="../../index2.html" class="logo"><b>Apex</b>Institution</a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <label><a href="../login/userLogOut" style="color: black; align-self: center; font-size: 25px;"><i class="fas fa-power-off fa-1x"></i></a></label>
                     </div>
+                </nav>
+            </header>
 
+            <!-- =============================================== -->
 
-
-
-
-
-                    <div class="social-media">
-
-                        <a href="#"><i class="fa fa-facebook-square fa-3x" ></i></a>    
-                        <a href="#"><i class="fa fa-twitter-square fa-3x" ></i></a>    
-                        <a href="#"><i class="fa fa-linkedin-square fa-3x" ></i></a>    
-                        <a href="#"><i class="fa fa-google-plus fa-3x" ></i></a>    
-
-                    </div>
-
-                    <!--                    <form action="/logInPage" method="GET">-->
-                    <a href="../login/userLogOut"><button class="btn btn-block btn-success btn-lg" id="admin-logout" type="button">Log Out</button></a>
-                    <!--                    </form>-->
-
-                </div>
-
-            </div>
-
-            <!-- navbar side -->
-            <nav class="navbar-default navbar-static-side" id="navigation" role="navigation">
-                <!-- sidebar-collapse -->
-                <div class="sidebar-collapse">
-                    <!-- side-menu -->
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <!-- user image section-->
-                            <div class="user-section">
-                                <div class="user-section-inner">
-                                    <img  src="../resources/img/img2.jpg" alt="pic">
-                                </div>
-                                <div class="user-info">
-                                    <div>Admin : <strong><%=session.getAttribute("firstName")%></strong></div>
-                                    <div class="user-text-online">
-                                        <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;<small>Online</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end user image section-->
-                        </li>
-                        <li class="sidebar-search">
-                            <!-- search section-->
-                            <div class="input-group custom-search-form">
-                                <form action="../student/admViewStudent" method="POST">
-                                    <input type="search" class="form-control" placeholder="Search Student" name="stuRegNumber">
-                                </form>
-
-                            </div>
-
-                            <br>
-
-                            <div class="input-group custom-search-form">
-                                <form action="../tutor/admViewTutor" method="POST">
-                                    <input type="search" class="form-control" placeholder="Search Tuitor" name="tuiRegNumber">
-                                </form>
-                            </div>
-
-                            <!--end search section-->
-                        </li>
-
-
-
-
-
-
-
-                        <li class="">
-
-                            <a href="<c:url value="../admin/admViewDashboard"/>"   ><i class="fa fa-dashboard fa-lg"></i> &nbsp;Dashboard</a>
-
-                        </li>
-
-                        <li class="">
-                            <a href="<c:url value="../admin/admViewAdmin"/>"><i class="fa fa-user fa-lg" aria-hidden="true"></i> &nbsp;&nbsp;My Profile</a>
-                        </li>
-                        <li>
-                            <a href="admin-search-student.html"><i class="fa fa-male fa-lg" aria-hidden="true" ></i> &nbsp;&nbsp;Student<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-
-                                <li>
-                                    <a href="<c:url value="../admin/admAddStudent"/>"><i class="fa fa-bars " aria-hidden="true"></i>  Registor Student</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admDeleteStudent"/>"><i class="fa fa-bars " aria-hidden="true"></i>  Delete Student</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admScanStudentAttendence"/>"><i class="fa fa-bars " aria-hidden="true"></i>  View Attendence</a>
-                                </li>
-                                <li>
-                                    <a href="<c:url value="../admin/admScanStudentFees"/>"><i class="fa fa-bars" aria-hidden="true"></i>  View Payments</a>
-                                </li>
-                            </ul>
-                            <!-- second-level-items -->
-                        </li>
-                        <li>
-                            <a ><i class="fa fa-hand-o-up fa-lg" aria-hidden="true"></i>   &nbsp;Tuitor<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-
-                                <li>
-                                    <a href="<c:url value="../admin/admAddTutor"/>"><i class="fa fa-bars" aria-hidden="true"></i>  Registor Tuitor</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admDeleteTutor"/>"> <i class="fa fa-bars" aria-hidden="true"></i> Delete Tuitor</a>
-                                </li>
-
-
-                                <li>
-                                    <a href="<c:url value="../admin/admViewTutorPayments"/>"> <i class="fa fa-bars" aria-hidden="true"></i> View Payments</a>
-                                </li>
-                            </ul>
-                            <!-- second-level-items -->
-                        </li>
-                        <li>
-                            <a><i class="fa fa-users fa-lg" aria-hidden="true"></i>  &nbsp;Staff<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-
-                                <li>
-                                    <a href="<c:url value="../admin/admAddStaff"/>"> <i class="fa fa-bars" aria-hidden="true"></i> Registor Staff</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admDeleteStaff"/>"><i class="fa fa-bars" aria-hidden="true"></i>  Delete Staff</a>
-                                </li>
-
-                                <li>
-                                    <a href="<c:url value="../admin/admViewStaffPayments"/>"> <i class="fa fa-bars" aria-hidden="true"></i> View Payments</a>
-                                </li>
-                            </ul>
-                            <!-- second-level-items -->
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admScanStudentAttendence"/>"><i class="fa fa-indent fa-lg" aria-hidden="true"></i> &nbsp;Scan Attendence</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admScanStudentFees"/>"><i class="fa fa-usd fa-lg"  aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Scan Fees</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admViewTimetable"/>"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Time table</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admBanUser"/>"><i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ban user</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admSendMail"/>"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Send Mail</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../admin/admViewInbox"/>"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Inbox</a>
-                        </li>
-
-
-
-                    </ul>
-                    <!-- end side-menu -->
-                </div>
-                <!-- end sidebar-collapse -->
-
-
-
-
-            </nav>
-            <!-- end navbar side -->
-            <!--  page-wrapper -->
-            <div id="page-wrapper">
-
-                <br><br>
-                <label id="stu-reg-main-title">Delete a Student</label>
-                <hr id="stu-reg-divider">
-
-                <div class="panel-body">
-                    <div class="row">
-
-                        <div class="col-lg-12">
-                            <label>Enter student's registration number</label>
-
-
+            <!-- Left side column. contains the sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="<%=session.getAttribute("picture")%>" class="img-circle" alt="pic" />
                         </div>
+                        <div class="pull-left info">
+                            <p><%=session.getAttribute("firstName")%></p>
 
-
-
-                        <br><br>
-
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
                     </div>
 
-
-
-                    <form id="admDelStuForm">
-                        <div class="row">
-
-                            <div class="col-lg-4">
-                                <input class="form-control" placeholder="registration number" id="delStuId" name="stuRegNumber">
-
-
-                            </div>
-
-                            <!--                            <div class="col-lg-2">
-                            
-                                                            <button type="submit" class="btn btn-primary" id="adminSearchDelBtn">Go!</button>
-                            
-                                                        </div>-->
-
-                        </div>
-
-
-
-                        <br><br>
-
-                        <hr id="stu-reg-divider-light">
-
-
-                        <!--                        <div id="loadingDivDelStudent">
-                        
-                                                    <div class="row">
-                                                        <div class="col-lg-3">
-                                                            <img src="../resource/img/lakshan3.jpg" width="300" height="250">
-                                                        </div>
-                        
-                        
-                        
-                                                        <div class="col-lg-1">
-                        
-                                                        </div>
-                        
-                        
-                                                        <div class="col-lg-6">
-                        
-                                                            <div class="box-body">
-                                                                <table class="table table-striped ">
-                        
-                        
-                                                                    <tr>
-                        
-                                                                        <td>Registration No.</td>
-                                                                        <td>${searchedStudent.stuRegNumber}</td>
-                        
-                                                                    </tr>
-                        
-                                                                    <tr>
-                                                                        <td>First name</td>
-                                                                        <td>${searchedStudent.firstName}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Last name</td>
-                                                                        <td>${searchedStudent.lastName}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Date of Birth</td>
-                                                                        <td>${searchedStudent.dob}</td>
-                        
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Gender</td>
-                                                                        <td>${searchedStudent.gender}</td> 
-                                                                    </tr>
-                                                                    
-                                                                    <tr>
-                                                                        <td>Grade</td>
-                                                                        <td>${searchedStudent.grade}</td> 
-                                                                    </tr>
-                        
-                                                                    <tr>
-                                                                        <td>Address</td>
-                                                                        <td>${searchedStudent.address}</td> 
-                                                                    </tr>
-                        
-                                                                    <tr>
-                                                                        <td>Mobile Number</td>
-                                                                        <td>${searchedStudent.mobileNumber}</td> 
-                                                                    </tr>
-                        
-                                                                    <tr>
-                                                                        <td>Email</td>
-                                                                        <td>${searchedStudent.email}</td> 
-                                                                    </tr>
-                                                                    
-                                                                    <tr>
-                                                                        <td>Parent id</td>
-                                                                        <td>${searchedStudent.parentParentId}</td> 
-                                                                    </tr>
-                                                                    
-                                                                    <tr>
-                                                                        <td>Registered admin id</td>
-                                                                        <td>${searchedStudent.admIdStu}</td> 
-                                                                    </tr>
-                        
-                        
-                        
-                        
-                        
-                        
-                                                                </table>
-                                                            </div>
-                        
-                        
-                        
-                        
-                                                        </div>
-                        
-                                                        <div class="col-lg-2">
-                        
-                                                        </div>
-                        
-                        
-                                                    </div>
-                        
-                                                    <br><br><br><br>
-                        
-                        
-                        
-                        
-                        
-                        
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            Collapsible Accordion Panel Group   
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading">
-                                                                    <label>"Deleting a student is a great loss to the institutuion. &nbsp;If you still wish to delete please explain the reason and delete"</label>
-                        
-                                                                </div>
-                                                                <div class="panel-body">
-                                                                    <div class="panel-group" id="accordion">
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading">
-                                                                                <h4 class="panel-title">
-                                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Click here</a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapseOne" class="panel-collapse collapse in">
-                                                                                <div class="panel-body">
-                                                                                    <div class="container" id="combo-selections">
-                                                                                        <div class="row">
-                        
-                                                                                            <div class="row">
-                                                                                                <div class="col-md-3">
-                                                                                                    <div class="form-group">
-                                                                                                        <label>Select a reason :</label>
-                                                                                                        <select class="form-control">
-                                                                                                            <option>It's a request from the student</option>
-                                                                                                            <option>Violated the rules</option>
-                                                                                                            <option>Due to legal action</option>
-                                                                                                            <option>Other</option>
-                        
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                        
-                                                                                        </div>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                        
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                        
-                                                            </div>
-                        
-                                                        </div>
-                        
-                        
-                        
-                                                    </div>
-                        
-                        
-                        
-                        
-                                                </div>  loading div stops -->
-
-
-
-
-                        <div class="col-lg-6">
-
-                            <button type="button" class="btn btn-primary" id="admDelStuBtn">Delete</button>
-
+                    <!-- search form -->
+                    <form action="../admin/admViewStudent" method="GET" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search student(id)"/>
+                            <span class="input-group-btn">
+                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
                         </div>
                     </form>
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="header">MAIN NAVIGATION</li>
+                        <li><a href="<c:url value="../admin/admViewDashboard"/>"><i class="fa fa-book"></i> Dashboard</a></li>
+                        <li><a href="<c:url value="../admin/admViewAdmin"/>"><i class="fa fa-book"></i> My Profile</a></li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>Student</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value="../admin/admAddStudent"/>"><i class="fa fa-circle-o"></i> Register</a></li>
+                                <li><a href="<c:url value="../admin/admDeleteStudent"/>"><i class="fa fa-circle-o"></i> Delete</a></li>
+                                <li><a href="<c:url value="../admin/admScanStudentAttendence"/>"><i class="fa fa-circle-o"></i> View Attendence</a></li>
+                                <li><a href="<c:url value="../admin/admScanStudentFees"/>"><i class="fa fa-circle-o"></i> View Payments</a></li>
+                                <li><a href="<c:url value="../admin/admEditStudentParent"/>"><i class="fa fa-circle-o"></i> Edit Parent</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>Tutor</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value="../admin/admAddTutor"/>"><i class="fa fa-circle-o"></i> Register</a></li>
+                                <li><a href="<c:url value="../admin/admDeleteTutor"/>"><i class="fa fa-circle-o"></i> Delete</a></li>
+                                <li><a href="<c:url value="../admin/admViewTutorPayments"/>"><i class="fa fa-circle-o"></i> View Payments</a></li>
+                                <li><a href="<c:url value="../admin/admViewTutors"/>"><i class="fa fa-circle-o"></i> View Tutors</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>Staff</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value="../admin/admAddStaff"/>"><i class="fa fa-circle-o"></i> Register</a></li>
+                                <li><a href="<c:url value="../admin/admDeleteStaff"/>"><i class="fa fa-circle-o"></i> Delete</a></li>
+                                <li><a href="<c:url value="../admin/admViewStaffPayments"/>"><i class="fa fa-circle-o"></i> View Payments</a></li>
+                                <li><a href="<c:url value="../admin/admViewStaffMembers"/>"><i class="fa fa-circle-o"></i> View Staff</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="<c:url value="../admin/admScanStudentAttendence"/>"><i class="fa fa-book"></i> Scan Attendence</a></li>
+                        <li><a href="<c:url value="../admin/admScanStudentFees"/>"><i class="fa fa-book"></i> Scan Fees</a></li>
+                        <li><a href="<c:url value="../admin/admSendMail"/>"><i class="fa fa-book"></i> Send Mail</a></li>
+                        <li><a href="<c:url value="../admin/admViewInbox"/>"><i class="fa fa-book"></i> Inbox</a></li>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
 
+            <!-- =============================================== -->
 
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content">
+                    <div id="page-inner">
 
-                </div>
-                <!-- end page-wrapper -->
+                        <br><br>
+                        <label style="font-size: 30px;  margin-left: 320px;">Delete a Student</label>
+                        <br><br>
+                        <div class="panel-body">
+                            <form id="admDelStuForm">
+                                <div class="row">
 
-            </div>
-            <!-- end wrapper -->
+                                    <div class="col-lg-2">
 
-            <div class="footer" id="admin-footer">
+                                    </div>
 
+                                    <div class="col-lg-7">
 
-                <div class="row">
-                    <div class="col-lg-12" id="foot-note-admin">
-                        &copy;  2017 Apex Institution,Kalutara. &nbsp;| &nbsp;Designed by :&nbsp; <a href="#" style="color:#E6E6FA;" target="_blank">Lakshan Harischandra</a>
+                                        <div class="form-group">
+                                            <label>Student Registration number :</label>
+                                            <input class="form-control" placeholder="student id" name="stuRegNumber" type="number" id="delStuId">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2"></div>
+                                    <div class="col-lg-7">
+                                        <hr id="stu-reg-divider">
+                                        <div class="col-lg-4">
+                                            <button type="button" class="btn btn-primary" id="admDelStuBtn" >Delete</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
-                </div>
-            </div>
-            <!-- Core Scripts - Include with every page -->
-            <script src="../resources/js/jquery-1.10.2.js"></script>
-            <script src="../resources/js/bootstrap.min.js"></script>
-            <script src="../resources/js/jquery.metisMenu.js"></script>
-            <script src="../resources/js/pace.js"></script>
-            <script src="../resources/js/siminta.js"></script>
-            <script src="../resources/js/AdminControl.js"></script>
-            <script src="../resources/js/sweetalert.js"></script>
-    </body>
+                </section>
+            </div><!-- /.content-wrapper -->
 
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 2.0
+                </div>
+                <strong>Copyright &copy; 2018 <a href="#">Apex Institution</a></strong> | Lakshan Harischandra.
+            </footer>
+        </div><!-- ./wrapper -->
+
+        <!-- jQuery 2.1.3 -->
+        <script src="../resources/js/jQuery-2.1.3.min.js"></script>
+        <!-- Bootstrap 3.3.2 JS -->
+        <script src="../resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- SlimScroll -->
+        <script src="../resources/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <!-- FastClick -->
+        <script src="../resources/js/fastclick.min.js" type="text/javascript"></script>
+        <!-- AdminLTE App -->
+        <script src="../resources/js/app.min.js" type="text/javascript"></script>
+        <script src="../resources/js/AdminControl.js" type="text/javascript"></script>
+        <script src="../resources/js/sweetalert.js" type="text/javascript"></script>
+    </body>
 </html>

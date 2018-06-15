@@ -15,11 +15,18 @@ import java.util.List;
  * @author Lakshan Harischandra
  */
 public interface StaffDAO {
-    
+
     Serializable addStaffMember(Staff staff);
-    boolean  deleteStaffMember(int staffId);
-    boolean  updateStaffMember(Staff staff);
+
+    boolean deleteStaffMember(int staffId);
+
+    boolean updateStaffMember(Staff staff);
+
     List<Staff> getAllStaffMember();
+
     public Staff SearchStaffMember(int staffId);
+
     public Staff checkUserNamePassword(LoginCredintials loginCredintials);
+
+    public Staff newlyCreatedStaff();
 }

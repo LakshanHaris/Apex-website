@@ -5,6 +5,7 @@
  */
 package edu.jcodesprint.apex.dto;
 
+import edu.jcodesprint.apex.model.Admin;
 import java.util.Date;
 
 /**
@@ -13,187 +14,104 @@ import java.util.Date;
  */
 public class StudentRegister {
 
-    private Integer stuRegNumber;
-    private String firstName;
-    private String lastName;
-    private Integer grade;
-    private Date dob;
-    private String address;
-    private Integer mobileNumber;
-    private String email;
-    private String password;
-    private String gender;
-    private byte[] picture;
-    private int admId;
+    
+    private String parentFirstName;
+    private String parentLastName;
+    private String occupation;
+    private int parentMobileNumber;
+    private String parentEmail;
+    private Admin adminId;
 
+   
+    
+    
+    
     /**
-     * @return the stuRegNumber
+     * @return the parentFirstName
      */
-    public Integer getStuRegNumber() {
-        return stuRegNumber;
+    public String getParentFirstName() {
+        return parentFirstName;
     }
 
     /**
-     * @param stuRegNumber the stuRegNumber to set
+     * @param parentFirstName the parentFirstName to set
      */
-    public void setStuRegNumber(Integer stuRegNumber) {
-        this.stuRegNumber = stuRegNumber;
+    public void setParentFirstName(String parentFirstName) {
+        this.parentFirstName = parentFirstName;
     }
 
     /**
-     * @return the firstName
+     * @return the parentLastName
      */
-    public String getFirstName() {
-        return firstName;
+    public String getParentLastName() {
+        return parentLastName;
     }
 
     /**
-     * @param firstName the firstName to set
+     * @param parentLastName the parentLastName to set
      */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setParentLastName(String parentLastName) {
+        this.parentLastName = parentLastName;
     }
 
     /**
-     * @return the lastName
+     * @return the occupation
      */
-    public String getLastName() {
-        return lastName;
+    public String getOccupation() {
+        return occupation;
     }
 
     /**
-     * @param lastName the lastName to set
+     * @param occupation the occupation to set
      */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+   
+    /**
+     * @return the parentEmail
+     */
+    public String getParentEmail() {
+        return parentEmail;
     }
 
     /**
-     * @return the grade
+     * @param parentEmail the parentEmail to set
      */
-    public Integer getGrade() {
-        return grade;
+    public void setParentEmail(String parentEmail) {
+        this.parentEmail = parentEmail;
     }
 
     /**
-     * @param grade the grade to set
+     * @return the parentMobileNumber
      */
-    public void setGrade(Integer grade) {
-        this.grade = grade;
+    public int getParentMobileNumber() {
+        return parentMobileNumber;
     }
 
     /**
-     * @return the dob
+     * @param parentMobileNumber the parentMobileNumber to set
      */
-    public Date getDob() {
-        return dob;
+    public void setParentMobileNumber(int parentMobileNumber) {
+        this.parentMobileNumber = parentMobileNumber;
     }
 
     /**
-     * @param dob the dob to set
+     * @return the adminId
      */
-    public void setDob(Date dob) {
-        this.dob = dob;
+    public Admin getAdminId() {
+        return adminId;
     }
 
     /**
-     * @return the address
+     * @param adminId the adminId to set
      */
-    public String getAddress() {
-        return address;
+    public void setAdminId(Admin adminId) {
+        this.adminId = adminId;
     }
 
-    /**
-     * @param address the address to set
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * @return the mobileNumber
-     */
-    public Integer getMobileNumber() {
-        return mobileNumber;
-    }
-
-    /**
-     * @param mobileNumber the mobileNumber to set
-     */
-    public void setMobileNumber(Integer mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * @return the gender
-     */
-    public String getGender() {
-        return gender;
-    }
-
-    /**
-     * @param gender the gender to set
-     */
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    /**
-     * @return the picture
-     */
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    /**
-     * @param picture the picture to set
-     */
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
-    /**
-     * @return the admId
-     */
-    public int getAdmId() {
-        return admId;
-    }
-
-    /**
-     * @param admId the admId to set
-     */
-    public void setAdmId(int admId) {
-        this.admId = admId;
-    }
-
+   
    
 
 }

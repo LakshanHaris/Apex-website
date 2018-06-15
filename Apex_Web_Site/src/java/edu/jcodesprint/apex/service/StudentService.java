@@ -8,7 +8,7 @@ package edu.jcodesprint.apex.service;
 import edu.jcodesprint.apex.dto.AttendenceSearchDTO;
 import edu.jcodesprint.apex.dto.LoginCredintials;
 import edu.jcodesprint.apex.dto.PayExamSearchDto;
-import edu.jcodesprint.apex.dto.StudentDto;
+import edu.jcodesprint.apex.dto.StudentRegister;
 import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Student;
@@ -24,7 +24,7 @@ import java.util.List;
  */
 public interface StudentService {
 
-    boolean addStudent(Student student);
+    boolean  addStudent(Student student);
 
     boolean deleteStudent(int stuId);
 
@@ -49,4 +49,10 @@ public interface StudentService {
     public Student getStuEditPicture(String refferPath,int stuId);
 
     public List<Subject> getStudentSubjects(int stuId);
+
+    public int getStudentCount();
+
+    public List<Student> getLatestStudents();
+
+    public int addStudentParentExists(int parentId, int adminId);
 }

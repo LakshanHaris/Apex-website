@@ -54,7 +54,7 @@ public class StaffDAOImpl implements StaffDAO {
                 + "last_name = :lastName,"
                 + " dob = :dob,address = :address,gender = :gender,email = :email,mobile_number = :mobileNumber,"
                 + "bank = :bank,bank_acc = :bankAcc,branch = :branch,password = :password,picture = :picture,adm_id_stf = :admIdStf    where stf_reg_number = :stfId";
-        
+
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
         query.setParameter("sftRegNum", staff.getStfRegNumber());
         query.setParameter("firstName", staff.getFirstName());
@@ -95,6 +95,14 @@ public class StaffDAOImpl implements StaffDAO {
         criteria.add(andExp);
 
         return (Staff) criteria.uniqueResult();
+    }
+
+    @Override
+    public Staff newlyCreatedStaff() {
+        String sql = "select *  from staff where stf_reg_number = (select max(stf_reg_number) from staff) ";
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.addEntity(Staff.class);
+        return (Staff) query.uniqueResult();
     }
 
 }

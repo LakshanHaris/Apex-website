@@ -14,11 +14,19 @@ import java.util.List;
  * @author Lakshan Harischandra
  */
 public interface TutorService {
-    boolean  addTutor(Tutor tutor);
-    boolean  deleteTutor(int tutorId);
-    boolean  updateTutor(Tutor tutor);
+
+    int addTutor(Tutor tutor);
+
+    boolean deleteTutor(int tutorId);
+
+    boolean updateTutor(Tutor tutor);
+
     List<Tutor> getAllTutors();
+
     public Tutor SearchTutor(int tutorId);
+
     public Tutor checkUserNamePassword(LoginCredintials loginCredintials);
+
+    public int getTutorCount();
 
 }

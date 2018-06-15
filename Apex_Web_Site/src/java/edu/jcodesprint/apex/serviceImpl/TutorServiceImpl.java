@@ -20,29 +20,31 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class TutorServiceImpl implements TutorService{
+public class TutorServiceImpl implements TutorService {
 
     @Autowired
     TutorDAO tutorDAO;
+
     @Override
-    public boolean  addTutor(Tutor tutor) {
-        
-       
-         if (null != tutorDAO.addTutor(tutor)) {
-            return true;
+    public int addTutor(Tutor tutor) {
+
+        if (null != tutorDAO.addTutor(tutor)) {
+            Tutor newTutor = tutorDAO.newlyCreatedTutor();
+            int tuiId = newTutor.getTuiRegNumber();
+            return tuiId;
         } else {
-             return false;
+            return 0;
         }
     }
 
     @Override
-    public boolean  deleteTutor(int tutorId) {
-        return  tutorDAO.deleteTutor(tutorId);
+    public boolean deleteTutor(int tutorId) {
+        return tutorDAO.deleteTutor(tutorId);
     }
 
     @Override
-    public boolean  updateTutor(Tutor tutor) {
-        return  tutorDAO.updateTutor(tutor);
+    public boolean updateTutor(Tutor tutor) {
+        return tutorDAO.updateTutor(tutor);
     }
 
     @Override
@@ -52,14 +54,19 @@ public class TutorServiceImpl implements TutorService{
 
     @Override
     public Tutor SearchTutor(int tutorId) {
-        return  tutorDAO.SearchTutor(tutorId);
+        return tutorDAO.SearchTutor(tutorId);
     }
-
-  
 
     @Override
     public Tutor checkUserNamePassword(LoginCredintials loginCredintials) {
         return tutorDAO.checkUserNamePassword(loginCredintials);
     }
-    
+
+    @Override
+    public int getTutorCount() {
+        List<Tutor> tutorList = tutorDAO.getAllTutors();
+        int tutorCount = tutorList.size();
+        return tutorCount;
+    }
+
 }

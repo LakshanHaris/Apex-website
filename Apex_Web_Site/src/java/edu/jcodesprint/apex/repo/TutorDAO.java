@@ -27,4 +27,6 @@ public interface TutorDAO {
     public Tutor SearchTutor(int tutorId);
 
     public Tutor checkUserNamePassword(LoginCredintials loginCredintials);
+
+    public Tutor newlyCreatedTutor();
 }

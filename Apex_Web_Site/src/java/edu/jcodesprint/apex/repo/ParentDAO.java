@@ -7,6 +7,7 @@ package edu.jcodesprint.apex.repo;
 
 import edu.jcodesprint.apex.model.Parent;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -17,4 +18,6 @@ public interface ParentDAO {
     boolean  deleteParent(int parentIdNo);
     boolean  updateParent(Parent parent);
     public Parent SearchParent(int parentIdNo);
+    public List<Parent> getAllParents();
+    public Parent newlyCreatedParent();
 }

@@ -27,4 +27,6 @@ public interface AdminDAO {
     public Admin SearchAdmin(int adminId);
 
     public Admin checkUserNamePassword(LoginCredintials loginCredintials);
+
+    public Admin newlyCreatedAdmin();
 }
