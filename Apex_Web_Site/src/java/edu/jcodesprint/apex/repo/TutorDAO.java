@@ -6,6 +6,7 @@
 package edu.jcodesprint.apex.repo;
 
 import edu.jcodesprint.apex.dto.LoginCredintials;
+import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Tutor;
 import java.io.Serializable;
 import java.util.List;
@@ -29,4 +30,6 @@ public interface TutorDAO {
     public Tutor checkUserNamePassword(LoginCredintials loginCredintials);
 
     public Tutor newlyCreatedTutor();
+
+    public List<Salary> getSalaryList(Tutor tutor, String year);
 }

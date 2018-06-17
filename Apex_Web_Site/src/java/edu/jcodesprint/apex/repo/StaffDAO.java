@@ -6,6 +6,7 @@
 package edu.jcodesprint.apex.repo;
 
 import edu.jcodesprint.apex.dto.LoginCredintials;
+import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Staff;
 import java.io.Serializable;
 import java.util.List;
@@ -29,4 +30,6 @@ public interface StaffDAO {
     public Staff checkUserNamePassword(LoginCredintials loginCredintials);
 
     public Staff newlyCreatedStaff();
+
+    public List<Salary> getSalaryList(Staff staff, String year);
 }

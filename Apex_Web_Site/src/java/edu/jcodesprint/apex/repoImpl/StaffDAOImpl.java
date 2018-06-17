@@ -6,6 +6,7 @@
 package edu.jcodesprint.apex.repoImpl;
 
 import edu.jcodesprint.apex.dto.LoginCredintials;
+import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Staff;
 
 import edu.jcodesprint.apex.repo.StaffDAO;
@@ -64,6 +65,9 @@ public class StaffDAOImpl implements StaffDAO {
         query.setParameter("gender", staff.getGender());
         query.setParameter("email", staff.getEmail());
         query.setParameter("mobileNumber", staff.getMobileNumber());
+        query.setParameter("bank", staff.getBank());
+        query.setParameter("branch", staff.getBranch());
+        query.setParameter("bankAcc", staff.getBankAcc());
         query.setParameter("password", staff.getPassword());
         query.setParameter("picture", staff.getPicture());
         query.setParameter("admIdStf", staff.getAdmIdStf());
@@ -103,6 +107,18 @@ public class StaffDAOImpl implements StaffDAO {
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
         query.addEntity(Staff.class);
         return (Staff) query.uniqueResult();
+    }
+
+    @Override
+    public List<Salary> getSalaryList(Staff staff, String year) {
+        String datePattern = year + "%";
+        String sql = "select * from salary \n"
+                + "where stf_id_salary= :staffId and date LIKE '" + datePattern + "'";
+
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.setParameter("staffId", staff.getStfRegNumber());
+        query.addEntity(Salary.class);
+        return query.list();
     }
 
 }

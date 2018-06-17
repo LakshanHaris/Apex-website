@@ -17,19 +17,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author Lakshan Harischandra
  */
 @Entity
-@Table(name = "tutor")
 
 public class Tutor implements Serializable {
 
@@ -68,7 +65,8 @@ public class Tutor implements Serializable {
     private String password;
     @Lob
     @Column(name = "picture")
-    private byte[] picture;
+    private String picture;
+    @JsonIgnore
     @OneToMany(mappedBy = "tuiIdSalary")
     private List<Salary> salaryList;
     @JoinColumn(name = "adm_id_tui", referencedColumnName = "adm_reg_number")
@@ -138,14 +136,6 @@ public class Tutor implements Serializable {
         this.graduation = graduation;
     }
 
-    public String getStream() {
-        return stream;
-    }
-
-    public void setStream(String stream) {
-        this.stream = stream;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -194,14 +184,7 @@ public class Tutor implements Serializable {
         this.password = password;
     }
 
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
+    @JsonIgnore
     public List<Salary> getSalaryList() {
         return salaryList;
     }
@@ -218,6 +201,34 @@ public class Tutor implements Serializable {
         this.admIdTui = admIdTui;
     }
 
+    /**
+     * @return the picture
+     */
+    public String getPicture() {
+        return picture;
+    }
+
+    /**
+     * @param picture the picture to set
+     */
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    /**
+     * @return the stream
+     */
+    public String getStream() {
+        return stream;
+    }
+
+    /**
+     * @param stream the stream to set
+     */
+    public void setStream(String stream) {
+        this.stream = stream;
+    }
+
    
-    
+
 }

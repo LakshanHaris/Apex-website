@@ -64,10 +64,10 @@ public class AdminController {
 
     @Autowired
     ParentService parentService;
-    
+
     @Autowired
     ExamService examService;
-    
+
     @Autowired
     SubjectService subjectService;
 
@@ -166,14 +166,9 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/admUpdateAdmin", method = RequestMethod.GET)
-    public ModelAndView GetUpdateAdmin(HttpSession session) {
+    public String GetUpdateAdmin(HttpSession session) {
 
-        Admin searchAdmin = adminService.SearchAdmin((int) session.getAttribute("regNumber"));
-        ModelAndView mavSearchedAdmin = new ModelAndView();
-        mavSearchedAdmin.setViewName("admin/admUpdateAdmin");
-        mavSearchedAdmin.addObject("adminResult", searchAdmin);
-        return mavSearchedAdmin;
-
+        return "admin/admUpdateAdmin";
     }
 
     @RequestMapping(value = "/admUpdateAdmin", method = RequestMethod.POST)
@@ -181,6 +176,8 @@ public class AdminController {
     String UpdateAdmin(@ModelAttribute("Admin") Admin admin, HttpSession session) throws IOException {
         admin.setAdmRegNumber((int) session.getAttribute("regNumber"));
         if (adminService.updateAdmin(admin)) {
+            Admin searchedAdmin = adminService.SearchAdmin((int) session.getAttribute("regNumber"));
+            session.setAttribute("firstName", searchedAdmin.getFirstName());
             return "success";
         }
         return "error";

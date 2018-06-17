@@ -1,562 +1,171 @@
-<%-- 
-    Document   : stfEditProfile
-    Created on : 07-May-2018, 02:28:37
-    Author     : Lakshan Harischandra
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Staff Management</title>
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <link href="../resources/css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <link href="../resources/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-        <link href="../resources/css/_all-skins.min.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Freckle+Face|Rock+Salt" rel="stylesheet">
-        <!--link custom style css--> 
-        <link href="../resources/custom/custom-styles.css" rel="stylesheet" type="text/css">
-        <link href="../resources/custom/staff-style.css" rel="stylesheet" type="text/css">
-        <link href="../resources/css/main-style.css" rel="stylesheet" type="text/css">
-        <link href="../resources/css/style.css" rel="stylesheet" type="text/css">
-
-
+        <title>Staff</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../resources/custom/bootswatch.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua|Philosopher">
+        <link rel="stylesheet" href="../resources/custom/UserCustomStyles.css">
+        <link href="../resources/css/sweetalert.css" rel="stylesheet" />
     </head>
-    <body class="skin-blue">
-        <div class="wrapper">
 
-            <header class="custom-main-header">
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <a class="navbar-brand" href="#" id="mainLogo">Apex Institution</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+                    aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!-- <p id="sub-heading">We make you the best</p> -->
-
-
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div id="cust-logo"><strong>Apex Institution</strong></div>
-                    </div>
-
-
-
-                    <div class="col-md-4" >
-                        <div class="social-media">
-
-
-
-                            <a href="#"><i class="fa fa-facebook-square fa-3x" ></i></a>    
-                            <a href="#"><i class="fa fa-twitter-square fa-3x" ></i></a>    
-                            <a href="#"><i class="fa fa-linkedin-square fa-3x" ></i></a>    
-                            <a href="#"><i class="fa fa-google-plus fa-3x" ></i></a>    
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-1" >
-                        <a href="../login/userLogOut" class="btn btn-block btn-success " id="stu-logout-btn" role="button">Log Out</a>
-
-                    </div>
-
-                </div>
-
-
-
-
-
-
-            </header>
-            <aside class="main-sidebar" id="mainSider">
-                <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="../resources/img/staff2.jpg" class="img-circle" alt="User Image" >
-                    </div>
-                    <div class="pull-left info">
-                        <p style="padding-left: 15px;">&nbsp;<strong><%=session.getAttribute("firstName")%></strong></p>
-
-                        <a href="#"><i class="fa fa-circle text-success"></i> <strong>Online&nbsp;&nbsp;|&nbsp;Staff</strong></a>
-                    </div>
-                </div>
-                <section class="sidebar">
-                    <div class=""></div>
-                    <ul class="sidebar-menu">
-
-                        <li class="active treeview">
-                            <a href="<c:url value="../staff/stfViewStaff"/>" id="student-a">
-                                <i class="fa fa-user"></i> <span>&nbsp;My profile</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="../staff/stfViewSalary" id="lectures-a">
-                                <i class="fa fa-money"></i>
-                                <span>&nbsp;My Salary</span>
-
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="../staff/stfCollectStuAttendence"/>" id="classes-a">
-                                <i class="fa fa-check-square" aria-hidden="true"></i><span>&nbsp;Collect Attendence</span>
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a href="<c:url value="../staff/stfCollectExamResults"/>" id="classes-a">
-                                <i class="fa fa-cog" aria-hidden="true"></i><span>&nbsp;Enter Exam Results</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="<c:url value="../staff/stfEnterSalaryDetails"/>" id="classes-a">
-                                <i class="fa fa-cog" aria-hidden="true"></i><span>&nbsp;Enter Salary Details</span>
-                            </a>
-                        </li>
-
-
-
-                        <li class="treeview">
-                            <a href="../staff/stfViewMailbox" id="other-a">
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <span>&nbsp;Mail box</span>
-
-                            </a>
-                        </li>
-
-
-                    </ul>
-                </section>
-
-            </aside>
-            <div class="content-wrapper" >
-
-                <div class="container" id="welcomeDetails">
-
-
-                    <p><h3><strong><u>Edit Your Profile Info </u></strong></h3></p> 
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<c:url value="../staff/stfViewStaff"/>">My Profile |
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="../staff/stfViewSalary"/>">My Salary |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="../staff/stfCollectStuAttendence"/>">Collect Attendance |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="../staff/stfCollectExamResults"/>">Enter Exam Results |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="../staff/stfEnterSalaryDetails"/>">Enter Salary Details |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="../staff/stfViewMailbox"/>">Inbox |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value=" ../login/userLogOut "/>">Log out |</a>
+                    </li>
+                </ul>
+                <div id="welcomeDetailsNavBar">
                     <div class="row">
-                        <div class="col-md-6" >
-
-                            <label> <strong>Welcome Staff member</strong></label>
-                            <label>Please enter your modifications here ....</label>
-
-                        </div>   
-
-
+                        <div class="col-md-10">
+                            <label>
+                                <strong id="userRole">
+                                    <i class="fa fa-circle text-success"></i>&nbsp;Online |
+                                    <%=session.getAttribute("role")%>
+                                </strong>
+                            </label>
+                            <strong id="userName"><%=session.getAttribute("firstName")%></strong>
+                        </div>
+                        <div class="col-md-1"></div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-12" id="divider"> 
-                        <hr class="divider-style" >         
-                    </div>
-                </div>
-
-                <br><br><br>
-
-                <div class="row">
-
-                    <div class="col-md-1">
-
-                    </div>
-
-
-                    <!-- center colm begins -->
-
-                    <div class="col-md-8" id="stu-edit-profile">
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>First name :</label>
-                                        <input class="form-control" placeholder="first name">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Last name :</label>
-                                        <input class="form-control" placeholder="last name">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Date of birth :</label>
-                                        <input class="form-control" placeholder="yyyy/mm/dd" id ="datepicker-5">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Address :</label>
-                                        <input class="form-control" placeholder="enter address">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Mobile number :</label>
-                                        <input class="form-control" placeholder="mobile number">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Email :</label>
-                                        <input class="form-control" placeholder="enter email">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-
-
-
-
-
-
-
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Bank :</label>
-                                        <input class="form-control" placeholder="bank name">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Bank Branch :</label>
-                                        <input class="form-control" placeholder="name of the branch">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Bank Account Number :</label>
-                                        <input class="form-control" placeholder="account number">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label>Change password :</label>
-                                        <input class="form-control" type="password" placeholder="change password">
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <br>
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-
-                                <div class="form-group">
-                                    <label>Upload a new photo</label>
-                                    <input type="file">
-                                </div>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-                            <div class="col-lg-10">
-                                <hr id="stu-reg-divider">
-                                <div class="col-lg-4">
-                                    <button type="submit" class="btn btn-primary">Submit details</button>
-                                </div>
-                            </div>
-
-
-
-
-
-
-                            <div class="col-lg-1">
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-
-                </div>
-
-                <div class="col-md-1">
-
-                </div>
-
-
-
-
-            </div><!-- /.content-wrapper -->
-
-            <div class="copy-rights">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-4">
-                            Copyright&nbsp;&copy; 2017 Apex Institution , Kalutara.<br>
-                            Web-Site designed by : <u><a href="#">Lakshan Harischandra</a></u> 
-                        </div>
-
-                        <div class="col-md-4">
-                            <!-- free space -->
-                        </div>
-
-                    </div>
-                </div>
+                <img alt="Pic" src="<%=session.getAttribute("picture")%>"  style=" width: 50px; height:50px; border-radius: 50%;">
             </div>
-        </div><!-- ./wrapper -->
+        </nav>
+        <div style="height: 87px;"></div>
 
+        <!-- Main container starts -->
+        <div class="container" id="mainContainer">
 
+            <div class="row" style="height: 100px;"></div>
 
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <form id="stfEditStaffForm">
+                        <fieldset>
+                            <legend>
+                                <u>You can update your profile details here</u>
+                            </legend>
+                            <br>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">First name</label>
+                                <input type="text" class="form-control" placeholder="first name"  name="firstName">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Last name</label>
+                                <input type="text" class="form-control" placeholder="last name"  name="lastName">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Date of birth</label>
+                                <input type="text" class="form-control" placeholder="yyyy/mm/dd"  name="dob" id="dateinput">
+                            </div>
+                            <fieldset class="form-group">
+                                <label class="col-form-label" for="inputDefault">Gender</label>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"  id="optionsRadios1" value="male" name="gender" checked="">Male
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" id="optionsRadios2" value="female" name="gender">Female
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Address</label>
+                                <input type="text" class="form-control" placeholder="address"  name="address">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Mobile number</label>
+                                <input type="number" class="form-control" placeholder="10 digits"  name="mobileNumber">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Bank</label>
+                                <input type="text" class="form-control" placeholder="bank"  name="bank">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Bank branch</label>
+                                <input type="text" class="form-control" placeholder="branch"  name="branch">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Bank Acc.</label>
+                                <input type="text" class="form-control" placeholder="bank acc."  name="bankAcc">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Change password</label>
+                                <input type="password" class="form-control" placeholder="password"  name="password">
+                            </div>
+                            <br>
+
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-primary" id="stfEditStaffBtn">Submit</button>
+                        </fieldset>  
+                    </form>
+
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <!-- Footer -->
+        <footer id="footer">
+            <!-- Footer Links -->
+            <div class="container-fluid text-center">
+            </div>
+            <!-- Footer Links -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="#">&nbsp;Apex Institution | Lakshan Harischandra</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
 
         <script src="../resources/js/jQuery-2.1.3.min.js"></script>
-        <script src="../resources/js/jquery-1.10.2.js"></script>
-        <script src="../resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../resources/js/bootstrap-datepicker.js" type="text/javascript"></script>
-        <script src="../resources/dist/js/demo.js" type="text/javascript"></script>
-        <script src="../resources/js/admin-control.js"></script>
-        <script src="../resources/js/jquery-ui.js"></script>
+        <script src="../resources/js/bootstrap.js"></script>
+        <script src="../resources/js/staffControl.js"></script>
+        <script src="../resources/js/sweetalert.js"></script>
 
     </body>
 </html>

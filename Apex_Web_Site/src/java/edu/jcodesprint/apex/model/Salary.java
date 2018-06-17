@@ -21,6 +21,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonManagedReference;
 
 /**
@@ -49,15 +50,12 @@ public class Salary implements Serializable {
     private String status;
     @JoinColumn(name = "adm_id_salary", referencedColumnName = "adm_reg_number")
     @ManyToOne(optional = true)
-    @JsonManagedReference
     private Admin admIdSalary;
     @JoinColumn(name = "stf_id_salary", referencedColumnName = "stf_reg_number")
     @ManyToOne(optional = true)
-    
     private Staff stfIdSalary;
     @JoinColumn(name = "tui_id_salary", referencedColumnName = "tui_reg_number")
     @ManyToOne(optional = true)
-    
     private Tutor tuiIdSalary;
 
     public Salary() {

@@ -7,6 +7,7 @@ package edu.jcodesprint.apex.repoImpl;
 
 import edu.jcodesprint.apex.dto.LoginCredintials;
 import edu.jcodesprint.apex.model.Admin;
+import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Tutor;
 
 import edu.jcodesprint.apex.repo.TutorDAO;
@@ -53,7 +54,7 @@ public class TutorDAOImpl implements TutorDAO {
     public boolean updateTutor(Tutor tutor) {
         String sql = "update Tutor set tui_reg_number = :tuiRegNum,first_name = :firstName,"
                 + "last_name = :lastName,"
-                + " dob = :dob,address = :address,gender = :gender,email = :email,mobile_number = :mobileNumber,graduation =:graduation,stream =:stream"
+                + " dob = :dob,address = :address,gender = :gender,email = :email,mobile_number = :mobileNumber,graduation =:graduation,stream =:tutorStream"
                 + "bank = :bank,bank_acc = :bankAcc,branch = :branch,password = :password,picture = :picture,adm_id_tui = :admIdStu    where tui_reg_number = :tuiId";
 
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
@@ -66,7 +67,10 @@ public class TutorDAOImpl implements TutorDAO {
         query.setParameter("email", tutor.getEmail());
         query.setParameter("mobileNumber", tutor.getMobileNumber());
         query.setParameter("graduation", tutor.getGraduation());
-        query.setParameter("stream", tutor.getStream());
+        query.setParameter("tutorStream", tutor.getStream());
+        query.setParameter("bank", tutor.getBank());
+        query.setParameter("bankAcc", tutor.getBankAcc());
+        query.setParameter("branch", tutor.getBranch());
         query.setParameter("password", tutor.getPassword());
         query.setParameter("picture", tutor.getPicture());
         query.setParameter("admIdStu", tutor.getAdmIdTui());
@@ -106,6 +110,18 @@ public class TutorDAOImpl implements TutorDAO {
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
         query.addEntity(Tutor.class);
         return (Tutor) query.uniqueResult();
+    }
+
+    @Override
+    public List<Salary> getSalaryList(Tutor tutor, String year) {
+        String datePattern = year + "%";
+        String sql = "select * from salary \n"
+                + "where tui_id_salary= :tutorId and date LIKE '" + datePattern + "'";
+
+        SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
+        query.setParameter("tutorId", tutor.getTuiRegNumber());
+        query.addEntity(Salary.class);
+        return query.list();
     }
 
 }

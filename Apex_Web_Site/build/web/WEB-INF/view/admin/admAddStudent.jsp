@@ -213,7 +213,7 @@
 
                                 <br><br><br><br>
                                 
-                                <label style="font-size: 20px;  margin-left: 160px;">Proceed below to register a existing Parent's student</label>
+                                <label style="font-size: 20px;  margin-left: 160px;">Proceed below to register a student of an existing Parent</label>
                                 <br><br>
                                 <form id="admAddStudentForm">
                                     <div class="row">

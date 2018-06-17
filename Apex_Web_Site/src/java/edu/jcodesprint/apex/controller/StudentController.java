@@ -185,7 +185,8 @@ public class StudentController {
     public String StuEditProfile(@ModelAttribute("Student") Student student, HttpSession session) {
         student.setStuRegNumber((Integer) session.getAttribute("regNumber"));
         if (studentService.updateStudent(student)) {
-            session.setAttribute("firstName", student.getFirstName());
+            Student searchedStudent = studentService.searchStudent((Integer) session.getAttribute("regNumber"));
+            session.setAttribute("firstName", searchedStudent.getFirstName());
             return "success";
         }
         return "error";

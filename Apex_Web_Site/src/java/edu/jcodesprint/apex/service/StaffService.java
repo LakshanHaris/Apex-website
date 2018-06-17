@@ -6,6 +6,7 @@
 package edu.jcodesprint.apex.service;
 
 import edu.jcodesprint.apex.dto.LoginCredintials;
+import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Staff;
 import edu.jcodesprint.apex.model.Tutor;
 import java.util.List;
@@ -23,4 +24,8 @@ public interface StaffService {
     public Staff checkUserNamePassword(LoginCredintials loginCredintials);
 
     public int getStaffCount();
+
+    public Staff getStfEditPicture(String refferPath, int stfId);
+
+    public List<Salary> getStfSalary(Staff staff, String year);
 }

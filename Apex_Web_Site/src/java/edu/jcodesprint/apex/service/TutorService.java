@@ -6,6 +6,7 @@
 package edu.jcodesprint.apex.service;
 
 import edu.jcodesprint.apex.dto.LoginCredintials;
+import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Tutor;
 import java.util.List;
 
@@ -28,5 +29,9 @@ public interface TutorService {
     public Tutor checkUserNamePassword(LoginCredintials loginCredintials);
 
     public int getTutorCount();
+
+    public Tutor getTuiEditPicture(String refferPath, int tuiId);
+
+    public List<Salary> getSalaryList(Tutor tutor, String year);
 
 }

@@ -74,6 +74,7 @@ public class Admin implements Serializable {
     @OneToMany(mappedBy = "admIdSalary", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Salary> salaryList;
+    @JsonIgnore
     @OneToMany(mappedBy = "admIdTui")
     private List<Tutor> tutorList;
 

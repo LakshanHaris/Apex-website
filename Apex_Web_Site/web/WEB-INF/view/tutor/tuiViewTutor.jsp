@@ -1,257 +1,211 @@
-<%-- 
-    Document   : tuiViewTutor
-    Created on : 07-May-2018, 01:43:24
-    Author     : Lakshan Harischandra
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tutor Management</title>
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Freckle+Face|Rock+Salt" rel="stylesheet"> 
-        <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <link href="../resources/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-        <link href="../resources/css/_all-skins.min.css" rel="stylesheet" type="text/css" />
-        <!--link custom style css--> 
-        <link href="../resources/custom/custom-styles.css" rel="stylesheet" type="text/css">
-        <link href="../resources/css/main-style.css" rel="stylesheet" type="text/css">
-        <link href="../resources/css/style.css" rel="stylesheet" type="text/css">
-
+        <title>Tutor</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../resources/custom/bootswatch.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua|Philosopher">
+        <link rel="stylesheet" href="../resources/custom/UserCustomStyles.css">
+        <link href="../resources/css/sweetalert.css" rel="stylesheet" />
     </head>
-    <body class="skin-blue">
-        <div class="wrapper">
 
-            <header class="custom-main-header">
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <a class="navbar-brand" href="#" id="mainLogo">Apex Institution</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+                    aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!-- <p id="sub-heading">We make you the best</p> -->
-
-
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div id="cust-logo"><strong>Apex Institution</strong></div>
-                    </div>
-
-
-
-                    <div class="col-md-4" >
-                        <div class="social-media">
-
-
-
-                            <a href="#"><i class="fa fa-facebook-square fa-3x" ></i></a>    
-                            <a href="#"><i class="fa fa-twitter-square fa-3x" ></i></a>    
-                            <a href="#"><i class="fa fa-linkedin-square fa-3x" ></i></a>    
-                            <a href="#"><i class="fa fa-google-plus fa-3x" ></i></a>    
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-1" >
-                        <a href="../login/userLogOut" class="btn btn-block btn-success " id="stu-logout-btn" role="button">Log Out</a>
-
-                    </div>
-
-                </div>
-
-
-
-
-
-
-            </header>
-       
-            <aside class="main-sidebar" id="mainSider">
-                <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="../resources/img/tutor1.jpg" class="img-circle" alt="User Image" >
-                    </div>
-                    <div class="pull-left info">
-                        <p style="padding-left: 15px;"><strong><%=session.getAttribute("firstName")%></p>
-
-                        <a href="#"><i class="fa fa-circle text-success"></i> <strong>&nbsp;Online&nbsp;&nbsp;|&nbsp;<strong>Tutor</strong></strong></a>
-                    </div>
-                </div>
-                <section class="sidebar">
-                    <div class=""></div>
-                    <ul class="sidebar-menu">
-
-                        <li class="active treeview">
-                            <a href="<c:url value="../tutor/tuiViewTutor"/>" id="student-a">
-                                <i class="fa fa-user"></i> <span>My profile</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="<c:url value="../tutor/tuiViewSalary"/>" id="other-a">
-                                <i class="fa fa-money"></i>
-                                <span>My Salary</span>
-
-                            </a>
-                        </li>
-
-
-                        <li class="treeview">
-                            <a href="<c:url value="../tutor/tuuiSendNotice"/>" id="other-a">
-                                <i class="fa fa-comment-o"></i>
-                                <span>Send a Notice</span>
-
-                            </a>
-                        </li>
-
-                        <li class="treeview">
-                            <a href="<c:url value="../tutor/tuiViewInbox"/>" id="other-a">
-                                <i class="fa fa-comment-o"></i>
-                                <span>Inbox</span>
-
-                            </a>
-                        </li>
-
-                    </ul>
-                </section>
-
-            </aside>
-            <div class="content-wrapper" id="custom-student-background">
-                <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<c:url value="../tutor/tuiViewTutor"/>">My Profile |
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="../tutor/tuiViewSalary"/>">My Salary |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="../tutor/tuiSendNotice"/>">Send Email |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="../tutor/tuiViewInbox"/>">Inbox |</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value=" ../login/userLogOut "/>">Log out |</a>
+                    </li>
+                </ul>
+                <div id="welcomeDetailsNavBar">
                     <div class="row">
-                        <div class="col-lg-1 col-md-1"></div>
-                        <!-- <div class="col-lg-9 col-md-9 cust-col-border"> -->
-                        <br><br>
-
-                        <img src="../resources/img/tutor1.jpg" width="300" height="300" id="stuPic"> 
-
-                        <br><br>
-
-
-
-
-
-
-
-
-
-
-
-                        <div class="box-body">
-                            <table class="table table-striped ">
-
-
-                                <tr>
-
-                                    <td>Tutor registration number</td>
-                                    <td>${tutorResult.tuiRegNumber}</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>Tutor name</td>
-                                    <td>${tutorResult.firstName} &nbsp; ${tutorResult.lastName}</td>
-                                </tr>
-                                <tr>
-
-                                    <td>Graduated from</td>
-                                    <td>${tutorResult.graduation}</td>
-
-                                </tr>
-                                <tr>
-
-                                    <td>Stream </td>
-                                    <td>${tutorResult.stream}</td>
-
-                                </tr>
-
-
-                                <tr>
-                                    <td>Date of Birth</td>
-                                    <td>${tutorResult.dob}</td>
-
-                                </tr>
-                                <tr>
-                                    <td>Gender</td>
-                                    <td>${tutorResult.gender}</td> 
-                                </tr>
-
-                                <tr>
-                                    <td>Address</td>
-                                    <td>${tutorResult.address}</td> 
-                                </tr>
-
-                                <tr>
-                                    <td>Mobile Number</td>
-                                    <td>${tutorResult.mobileNumber}</td> 
-                                </tr>
-
-                                <tr>
-                                    <td>Email</td>
-                                    <td>${tutorResult.email}</td> 
-                                </tr>
-
-                                <tr>
-                                    <td>Bank </td>
-                                    <td>${tutorResult.bank}</td> 
-                                </tr>
-
-                                <tr>
-                                    <td>Branch</td>
-                                    <td>${tutorResult.branch}</td> 
-                                </tr>
-
-                                <tr>
-                                    <td>Bank Account Number</td>
-                                    <td>${tutorResult.bankAcc}</td> 
-                                </tr>
-
-                            </table>
-                        </div><!-- /.box-body -->
-
-                        <br><br><br><br>
-                        <div class="col-md-4">
-                            <a href="../tutor/tuiEditProfile"><button class="btn btn-block btn-success btn-lg">Edit Profile</button></a>
-                        </div><br><br><br><br>
-
-
-                        <div class="col-lg-2 col-md-2"></div>
-                    </div>
-
-
-                </div>
-
-
-
-            </div><!-- /.content-wrapper -->
-
-            <div class="copy-rights">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-4">
-                            Copyright&nbsp;&copy; 2017 Apex Institution , Kalutara.<br>
-                            Web-Site designed by : <u><a href="#">Lakshan Harischandra</a></u> 
+                        <div class="col-md-10">
+                            <label>
+                                <strong id="userRole">
+                                    <i class="fa fa-circle text-success"></i>&nbsp;Online |
+                                    <%=session.getAttribute("role")%>
+                                </strong>
+                            </label>
+                            <strong id="userName"><%=session.getAttribute("firstName")%></strong>
                         </div>
-
-                        <div class="col-md-4">
-                            <!-- free space -->
-                        </div>
-
+                        <div class="col-md-1"></div>
                     </div>
                 </div>
+                <img alt="Pic" src="<%=session.getAttribute("picture")%>"  style=" width: 50px; height:50px; border-radius: 50%;">
             </div>
-        </div><!-- ./wrapper -->
+        </nav>
+        <div style="height: 87px;"></div>
+
+        <!-- Main container starts -->
+        <div class="container" id="mainContainer">
+
+            <div class="row" style="height: 100px;"></div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-5">
+                    <div class="container">
+                        <img src="<%=session.getAttribute("picture")%>" class="img-responsive" style="width: 300px; height: 300px;" id="stuPic">
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div style="height: 87px;"></div>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="container">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+
+                                <div class="custom-file">
+                                    <form id="profilePicUpload" action="../tutor/tuiEditPic" method="POST"  enctype="multipart/form-data" >
+                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="picture">
+                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                        <button id="updateBtnPic" type="submit" class="btn btn-primary btn-lg" >Upload photo</button>
+                                    </form>
+                                </div>
 
 
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div style="height: 130px;"></div>
+
+            <div class="row">
+                <div class="col-md-3"></div><br>
+                <div class="col-md-6 col-xs-8 col-sm-8">
+                    <table class="table table-hover" id="profileTable">
+
+                        <tbody>
+                            <tr class="table-success">
+                                <th scope="row">Tutor Registration Number</th>
+                                <td>${tutorResult.tuiRegNumber}</td>
+
+                            </tr>
+                            <tr class="table-light">
+                                <th scope="row">Tutor Name</th>
+                                <td>${tutorResult.firstName} &nbsp; ${tutorResult.lastName}</td>
+
+                            </tr>
+                            <tr class="table-success">
+                                <th scope="row">University of Graduation</th>
+                                <td>${tutorResult.graduation}</td>
+
+                            </tr>
+                            <tr class="table-light">
+                                <th scope="row">Stream</th>
+                                <td>${tutorResult.tutor_stream}</td>
+
+                            </tr>
+                            <tr class="table-success">
+                                <th scope="row">Date of Birth</th>
+                                <td>${tutorResult.dob}</td>
+
+                            </tr>
+                            <tr class="table-light">
+                                <th scope="row">Gender</th>
+                                <td>${tutorResult.gender}</td>
+
+                            </tr>
+                            <tr class="table-success">
+                                <th scope="row">Address</th>
+                                <td>${tutorResult.address}</td>  
+
+                            </tr>
+                            <tr class="table-light">
+                                <th scope="row">Mobile Number</th>
+                                <td>${tutorResult.mobileNumber}</td> 
+
+                            </tr>
+                            <tr class="table-success">
+                                <th scope="row">Email</th>
+                                <td>${tutorResult.email}</td> 
+
+                            </tr>
+                            <tr class="table-light">
+                                <th scope="row">Bank</th>
+                                <td>${tutorResult.bank}</td> 
+
+                            </tr>
+                            <tr class="table-success">
+                                <th scope="row">Bank Branch</th>
+                                <td>${tutorResult.branch}</td>
+
+                            </tr>
+                            <tr class="table-light">
+                                <th scope="row">Bank Account Number</th>
+                                <td>${tutorResult.bankAcc}</td>  
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div style="height: 30px;"></div>          
+
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-5">
+                    <a href="<c:url value="../tutor/tuiEditProfile"/>"> <button type="button" class="btn btn-primary">Edit Profile Details</button></a>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div style="height: 100px;"></div> 
+
+        </div>
+
+        <div class="clear"></div>
+        <!-- Footer -->
+        <footer id="footer">
+            <!-- Footer Links -->
+            <div class="container-fluid text-center">
+            </div>
+            <!-- Footer Links -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="#">&nbsp;Apex Institution | Lakshan Harischandra</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
 
         <script src="../resources/js/jQuery-2.1.3.min.js"></script>
-
-        <script src="../resources/js/bootstrap.min.js" type="text/javascript"></script>
-
-
-
+        <script src="../resources/js/bootstrap.js"></script>
+        <script src="../resources/js/TutorControl.js"></script>
+        <script src="../resources/js/sweetalert.js"></script>
 
     </body>
 </html>

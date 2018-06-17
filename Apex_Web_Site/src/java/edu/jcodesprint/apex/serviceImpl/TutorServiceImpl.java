@@ -6,6 +6,7 @@
 package edu.jcodesprint.apex.serviceImpl;
 
 import edu.jcodesprint.apex.dto.LoginCredintials;
+import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Tutor;
 import edu.jcodesprint.apex.repo.TutorDAO;
 import edu.jcodesprint.apex.service.TutorService;
@@ -67,6 +68,24 @@ public class TutorServiceImpl implements TutorService {
         List<Tutor> tutorList = tutorDAO.getAllTutors();
         int tutorCount = tutorList.size();
         return tutorCount;
+    }
+
+    @Override
+    public Tutor getTuiEditPicture(String refferPath, int tuiId) {
+        Tutor tutor = tutorDAO.SearchTutor(tuiId);
+        tutor.setPicture(refferPath);
+        
+        if (tutorDAO.updateTutor(tutor)) {
+            System.out.println(tutor);
+            return tutorDAO.SearchTutor(tuiId);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Salary> getSalaryList(Tutor tutor, String year) {
+        return tutorDAO.getSalaryList(tutor,year);
     }
 
 }

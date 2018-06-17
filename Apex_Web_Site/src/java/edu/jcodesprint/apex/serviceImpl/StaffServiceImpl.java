@@ -6,6 +6,7 @@
 package edu.jcodesprint.apex.serviceImpl;
 
 import edu.jcodesprint.apex.dto.LoginCredintials;
+import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Staff;
 import edu.jcodesprint.apex.repo.StaffDAO;
 import edu.jcodesprint.apex.service.StaffService;
@@ -67,6 +68,24 @@ public class StaffServiceImpl implements StaffService {
         List<Staff> staffList = staffDAO.getAllStaffMember();
         int staffCount = staffList.size();
         return staffCount;
+    }
+
+    @Override
+    public Staff getStfEditPicture(String refferPath, int stfId) {
+        Staff staff = staffDAO.SearchStaffMember(stfId);
+        System.out.println(staff);
+        staff.setPicture(refferPath);
+        if (staffDAO.updateStaffMember(staff)) {
+            System.out.println(staff);
+            return staffDAO.SearchStaffMember(stfId);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Salary> getStfSalary(Staff staff, String year) {
+        return staffDAO.getSalaryList(staff,year);
     }
 
 }

@@ -62,7 +62,7 @@ public class Staff implements Serializable {
     private String password;
     @Lob
     @Column(name = "picture")
-    private byte[] picture;
+    private String picture;
     @JoinColumn(name = "adm_id_stf", referencedColumnName = "adm_reg_number")
     @ManyToOne
     private Admin admIdStf;
@@ -173,13 +173,7 @@ public class Staff implements Serializable {
         this.password = password;
     }
 
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
+   
 
     public Admin getAdmIdStf() {
         return admIdStf;
@@ -196,6 +190,20 @@ public class Staff implements Serializable {
 
     public void setSalaryList(List<Salary> salaryList) {
         this.salaryList = salaryList;
+    }
+
+    /**
+     * @return the picture
+     */
+    public String getPicture() {
+        return picture;
+    }
+
+    /**
+     * @param picture the picture to set
+     */
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
 }
