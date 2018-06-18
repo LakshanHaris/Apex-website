@@ -89,6 +89,25 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
                         <div class="form-group">
+                            <label class="col-form-label" for="inputDefault">Select a subject</label>
+                            <select class="form-control" name="subject">
+                                <option value="1" selected>Mathematics</option>
+                                <option value="2">Science</option>
+                                <option value="3">Sinhala</option>
+                                <option value="4">English</option>
+                                <option value="5">ICT</option>
+                                <option value="6">History</option>
+                                <option value="7">Commerce-O/L</option>
+                                <option value="8">Combined-Maths</option>
+                                <option value="9">Physics</option>
+                                <option value="10">Chemistry</option>
+                                <option value="11">Biology</option>
+                                <option value="12">Accounting</option>
+                                <option value="13">Business-Studies</option>
+                                <option value="14">Logic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label class="col-form-label" for="inputDefault">Student ID</label>
                             <input type="text" class="form-control" placeholder="student id"  name="studentId">
                         </div>
@@ -102,48 +121,16 @@
 
                             </select>
                         </div>
+
+                    </div>
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-form-label" for="inputDefault">Results</label>
                             <input type="text" class="form-control" placeholder="result"  name="result">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="date"  name="date" style="display: none;">
-                        </div>
-
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="col-form-label" for="inputDefault">Progress</label>
-                            <select class="custom-select" name="progress">
-
-                                <option value="too bad" selected>Too bad</option>
-                                <option value="bad">Bad</option>
-                                <option value="good">Good</option>
-                                <option value="very good">Very good</option>
-
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label class="col-form-label" for="inputDefault">Remarks</label>
                             <input type="text" class="form-control" placeholder="remarks"  name="remarks">
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label" for="inputDefault">Select a month</label>
-                            <select class="custom-select" name="month">
-
-                                <option value="01" selected>January</option>
-                                <option value="02">February</option>
-                                <option value="03">March</option>
-                                <option value="04">April</option>
-                                <option value="05">May</option>
-                                <option value="06">June</option>
-                                <option value="07">July</option>
-                                <option value="08">August</option>
-                                <option value="09">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select>
                         </div>
                         <div>
                             <button type="button" class="btn btn-success" id="stfEnterExamBtn">Submit</button>
@@ -153,10 +140,12 @@
                 </div>
             </form>
 
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" id="examDetailFetchIndicator" style="color: red; font-weight: bolder;"></div>
+                <div class="col-md-2"></div>
 
-
-
-
+            </div>
         </div>
         <div class="row" style="height: 70px;"></div>
 

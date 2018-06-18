@@ -8,18 +8,20 @@ package edu.jcodesprint.apex.service;
 import edu.jcodesprint.apex.dto.StudentRegister;
 import edu.jcodesprint.apex.model.Parent;
 
-
-
 /**
  *
  * @author Lakshan Harischandra
  */
 public interface ParentService {
-    int  addParent(Parent parent,int adminId);
+
+    int addParent(Parent parent, int adminId);
+
     void deleteParent(int parentId);
-    boolean  updateParent(Parent parent);
+
+    boolean updateParent(Parent parent);
+
     public Parent searchParent(int parentId);
 
     public int getParentCount();
-    
+
 }

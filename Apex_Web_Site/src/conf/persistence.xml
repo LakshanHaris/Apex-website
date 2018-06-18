@@ -3,7 +3,6 @@
   <persistence-unit name="ApexPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>edu.jcodesprint.apex.model.Exam</class>
-    <class>edu.jcodesprint.apex.model.StudentFees</class>
     <class>edu.jcodesprint.apex.model.Subject</class>
     <class>edu.jcodesprint.apex.model.Admin</class>
     <class>edu.jcodesprint.apex.model.Student</class>
@@ -13,6 +12,7 @@
     <class>edu.jcodesprint.apex.model.Tutor</class>
     <class>edu.jcodesprint.apex.model.Attendence</class>
     <class>edu.jcodesprint.apex.model.Tution_class</class>
+    <class>edu.jcodesprint.apex.model.Student_fees</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/apexinstitution?zeroDateTimeBehavior=convertToNull"/>

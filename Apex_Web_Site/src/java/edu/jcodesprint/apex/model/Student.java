@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -66,7 +67,7 @@ public class Student implements Serializable {
     @Column(name = "picture")
     private String picture;
     @JsonIgnore
-    @ManyToMany(mappedBy = "studentList", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "stuId")
     private List<Exam> examList;
     @JoinColumn(name = "adm_id_stu", referencedColumnName = "adm_reg_number")
     @JsonIgnore
@@ -78,7 +79,7 @@ public class Student implements Serializable {
     private Parent parentparentId;
     @OneToMany(mappedBy = "stuIdStuFees")
     @JsonIgnore
-    private List<StudentFees> studentFeesList;
+    private List<Student_fees> studentFeesList;
 
     public Student() {
     }
@@ -202,11 +203,11 @@ public class Student implements Serializable {
     }
 
     @JsonIgnore
-    public List<StudentFees> getStudentFeesList() {
+    public List<Student_fees> getStudentFeesList() {
         return studentFeesList;
     }
 
-    public void setStudentFeesList(List<StudentFees> studentFeesList) {
+    public void setStudentFeesList(List<Student_fees> studentFeesList) {
         this.studentFeesList = studentFeesList;
     }
 

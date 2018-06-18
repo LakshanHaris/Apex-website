@@ -5,6 +5,7 @@
  */
 package edu.jcodesprint.apex.service;
 
+import edu.jcodesprint.apex.dto.SalaryDetailDTO;
 import edu.jcodesprint.apex.model.Salary;
 import java.util.List;
 
@@ -13,9 +14,13 @@ import java.util.List;
  * @author Lakshan Harischandra
  */
 public interface SalaryService {
-    boolean  addSalaryData(Salary salary);
+
+    boolean addSalaryData(SalaryDetailDTO salaryDetailDTO );
+
     void deleteSalaryData(int salaryInvoiceNumber);
-    boolean  updateSalaryData(Salary salary);
+
+    boolean updateSalaryData(Salary salary);
+
     List<Salary> getAllSalaryData();
     //public Salary SearchSalaryData(int userId);
 }

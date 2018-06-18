@@ -12,5 +12,5 @@ package edu.jcodesprint.apex.service;
 public interface SubjectService {
 
     public int getSubjectCount();
-    
+
 }

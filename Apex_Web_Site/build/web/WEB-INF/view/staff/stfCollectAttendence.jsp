@@ -84,7 +84,7 @@
 
             <div class="row" style="height: 70px;"></div>
 
-            <form id="stfSubmitSalaryDetailsForm">
+            <form id="stfSubmitAttendenceDetailsForm">
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
@@ -112,7 +112,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-form-label" for="inputDefault">Student Id</label>
-                            <input type="text" class="form-control" placeholder="student-registration-number"  name="studentId">
+                            <input type="text" class="form-control" placeholder="student-registration-number"  name="studentId" id="stuIdInput">
                         </div>
 
                     </div>
@@ -123,41 +123,19 @@
                 <hr class="divider-style" >
                 <div class="row" style="height: 50px;"></div>
 
-                <div class="row">
+                <div class="row"  id="stuHidingDiv">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <img id="atd-collection-stu-pic" src="../img/admin1.jpg" width="300" height="270">
-                            </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-6">
-                                <table class="table table-hover" id="profileTable">
-
-                                    <tbody>
-                                        <tr class="table-success">
-                                            <th scope="row">Student Id</th>
-                                            <td>${studentResult.stuRegNumber}</td>
-
-                                        </tr>
-                                        <tr class="table-light">
-                                            <th scope="row">Student Name</th>
-                                            <td>${studentResult.firstName} &nbsp; ${studentResult.lastName}</td>
-                                        </tr>
-                                        <tr class="table-success">
-                                            <th scope="row">Mobile Number</th>
-                                            <td>${studentResult.mobileNumber}</td> 
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="row" id="stuDetailsDiv">
+                            <!--                            ajax load content here-->
                         </div>
+                        <div class="row" style="height: 30px;"></div>
+                        <div  id="examDetailFetchIndicator" style="color: red; font-weight: bolder;"></div>
                     </div>
                     <div class="col-md-2"></div>
                 </div>
 
                 <div class="row" style="height: 70px;"></div>
-
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-2"></div>
@@ -180,6 +158,7 @@
                     <div class="col-md-2"></div>
                 </div>
             </form>
+
         </div>
         <div class="row" style="height: 70px;"></div>
 

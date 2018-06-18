@@ -14,7 +14,7 @@ import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Parent;
 import edu.jcodesprint.apex.model.Student;
-import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Student_fees;
 import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
@@ -90,7 +90,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<StudentFees> getStudentPayHistory(PayExamSearchDto payHistorySearchDto) {
+    public List<Student_fees> getStudentPayHistory(PayExamSearchDto payHistorySearchDto) {
         return studentDAO.getStudentPayHistory(payHistorySearchDto);
     }
 

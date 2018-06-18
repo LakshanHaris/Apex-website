@@ -9,19 +9,19 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
@@ -34,6 +34,7 @@ public class Exam implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "exam_no")
     private Long examNo;
@@ -53,13 +54,10 @@ public class Exam implements Serializable {
     @Basic(optional = false)
     @Column(name = "subject")
     private String subject;
-
-    @JoinTable(name = "student_do_exams", joinColumns = {
-        @JoinColumn(name = "exam_id", referencedColumnName = "exam_no")}, inverseJoinColumns = {
-        @JoinColumn(name = "stu_id_stuDoExams", referencedColumnName = "stu_reg_number")})
     @JsonIgnore
-    @ManyToMany
-    private List<Student> studentList;
+    @JoinColumn(name = "student_stu_reg_number", referencedColumnName = "stu_reg_number")
+    @ManyToOne(optional = false)
+    private Student stuId;
 
     public Exam() {
     }
@@ -117,14 +115,7 @@ public class Exam implements Serializable {
         this.staffId = staffId;
     }
 
-    @JsonIgnore
-    public List<Student> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -177,6 +168,20 @@ public class Exam implements Serializable {
      */
     public void setExamNo(Long examNo) {
         this.examNo = examNo;
+    }
+
+    /**
+     * @return the stuId
+     */
+    public Student getStuId() {
+        return stuId;
+    }
+
+    /**
+     * @param stuId the stuId to set
+     */
+    public void setStuId(Student stuId) {
+        this.stuId = stuId;
     }
 
 }

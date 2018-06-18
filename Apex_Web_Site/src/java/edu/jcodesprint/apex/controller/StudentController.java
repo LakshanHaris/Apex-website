@@ -10,7 +10,7 @@ import edu.jcodesprint.apex.dto.PayExamSearchDto;
 import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Student;
-import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Student_fees;
 import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
@@ -61,9 +61,9 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/stuViewPayments", method = RequestMethod.POST)
-    public StudentFees getStuPayments(@ModelAttribute("payhistorySearchDto") PayExamSearchDto payHistory, HttpSession session, HttpServletResponse response) {
+    public Student_fees getStuPayments(@ModelAttribute("payhistorySearchDto") PayExamSearchDto payHistory, HttpSession session, HttpServletResponse response) {
         payHistory.setStuId((int) session.getAttribute("regNumber"));
-        List<StudentFees> payHistoryDetails = studentService.getStudentPayHistory(payHistory);
+        List<Student_fees> payHistoryDetails = studentService.getStudentPayHistory(payHistory);
         if (null != payHistoryDetails) {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();

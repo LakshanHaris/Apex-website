@@ -90,7 +90,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-form-label" for="inputDefault">Receiver Type</label>
-                            <select class="custom-select" name="term">
+                            <select class="custom-select" name="receiverType">
 
                                 <option value="admin" selected>Admin</option>
                                 <option value="tutor">Tutor</option>
@@ -108,14 +108,8 @@
                             <label class="col-form-label" for="inputDefault">Amount</label>
                             <input type="text" class="form-control" placeholder="salary-amount"  name="amount">
                         </div>
-                        <div class="form-group">
-                            <label class="col-form-label" for="inputDefault">Status</label>
-                            <select class="custom-select" name="status">
-                                <option value="paid" selected>Paid</option>
-                                <option value="not paid">Not paid</option>
-                            </select>
-                        </div>
-                        
+
+
                         <div>
                             <button type="button" class="btn btn-success" id="stfEnterSalaryBtn">Submit</button>
                         </div>
@@ -124,7 +118,12 @@
                 </div>
             </form>
 
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" id="examDetailFetchIndicator" style="color: red; font-weight: bolder;"></div>
+                <div class="col-md-2"></div>
 
+            </div>
 
 
 

@@ -41,10 +41,10 @@ public class Subject implements Serializable {
     private String level;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "sub_fee")
-    private BigDecimal subFee;
+    private Double subFee;
     @OneToMany(mappedBy = "subjectId")
     @JsonIgnore
-    private List<StudentFees> studentFeesList;
+    private List<Student_fees> studentFeesList;
     
 
     public Subject() {
@@ -94,20 +94,14 @@ public class Subject implements Serializable {
         this.level = level;
     }
 
-    public BigDecimal getSubFee() {
-        return subFee;
-    }
-
-    public void setSubFee(BigDecimal subFee) {
-        this.subFee = subFee;
-    }
+   
 
     @JsonIgnore
-    public List<StudentFees> getStudentFeesList() {
+    public List<Student_fees> getStudentFeesList() {
         return studentFeesList;
     }
 
-    public void setStudentFeesList(List<StudentFees> studentFeesList) {
+    public void setStudentFeesList(List<Student_fees> studentFeesList) {
         this.studentFeesList = studentFeesList;
     }
 
@@ -134,6 +128,20 @@ public class Subject implements Serializable {
     @Override
     public String toString() {
         return "edu.jcodesprint.apex.model.Subject[ subjectId=" + subjectId + " ]";
+    }
+
+    /**
+     * @return the subFee
+     */
+    public Double getSubFee() {
+        return subFee;
+    }
+
+    /**
+     * @param subFee the subFee to set
+     */
+    public void setSubFee(Double subFee) {
+        this.subFee = subFee;
     }
 
   

@@ -6,6 +6,7 @@
 package edu.jcodesprint.apex.repo;
 
 import edu.jcodesprint.apex.model.Exam;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -13,5 +14,14 @@ import java.util.List;
  * @author Lakshan Harischandra
  */
 public interface ExamDAO {
+
     public List<Exam> getAllExams();
+
+    public Serializable saveExamData(Exam exam);
+
+    public Exam searchExam(long examId);
+
+    public Exam newlyCreatedExamDetail();
+
+    
 }

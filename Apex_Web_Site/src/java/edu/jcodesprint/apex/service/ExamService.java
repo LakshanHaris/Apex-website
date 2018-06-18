@@ -12,5 +12,5 @@ package edu.jcodesprint.apex.service;
 public interface ExamService {
 
     public int getExamCount();
-   
+
 }

@@ -5,9 +5,14 @@
  */
 package edu.jcodesprint.apex.serviceImpl;
 
+import edu.jcodesprint.apex.dto.SalaryDetailDTO;
+import edu.jcodesprint.apex.model.Admin;
 import edu.jcodesprint.apex.model.Salary;
+import edu.jcodesprint.apex.model.Staff;
+import edu.jcodesprint.apex.model.Tutor;
 import edu.jcodesprint.apex.repo.SalaryDAO;
 import edu.jcodesprint.apex.service.SalaryService;
+import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +29,38 @@ public class SalaryServiceImpl implements SalaryService {
     @Autowired
     SalaryDAO salaryDAO;
     @Override
-    public boolean  addSalaryData(Salary salary) {
+    public boolean  addSalaryData(SalaryDetailDTO salaryDetailDTO) {
+        
+        Salary salary = new Salary();
+        long millis = System.currentTimeMillis();
+        Date currentDate = new Date(millis);
+        salary.setDate(currentDate);
+        salary.setReceiverType(salaryDetailDTO.getReceiverType());
+        salary.setAmount(salaryDetailDTO.getAmount());
+        salary.setStatus("paid");
+        
+        String role = salaryDetailDTO.getReceiverType();
+        if (null!=role) switch (role) {
+            case "admin":
+                salary.setAdmIdSalary(new Admin(salaryDetailDTO.getUserId()));
+                salary.setStfIdSalary(new Staff(1));
+                salary.setTuiIdSalary(new Tutor(1));
+                break;
+            case "staff":
+                salary.setStfIdSalary(new Staff(salaryDetailDTO.getUserId()));
+                salary.setAdmIdSalary(new Admin(1));
+                salary.setTuiIdSalary(new Tutor(1));
+                break;
+            case "tutor":
+                salary.setTuiIdSalary(new Tutor(salaryDetailDTO.getUserId()));
+                salary.setAdmIdSalary(new Admin(1));
+                salary.setStfIdSalary(new Staff(1));
+                break;
+            default:
+                break;
+        }
+        
+        
         if (null != salaryDAO.addSalaryData(salary)) {
             return  true;
         } else {

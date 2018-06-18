@@ -5,11 +5,16 @@
  */
 package edu.jcodesprint.apex.controller;
 
+import edu.jcodesprint.apex.dto.ExamResultDTO;
+import edu.jcodesprint.apex.dto.SalaryDetailDTO;
+import edu.jcodesprint.apex.dto.StudentAttendenceDTO;
 import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Staff;
+import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.Tutor;
 import edu.jcodesprint.apex.service.SalaryService;
 import edu.jcodesprint.apex.service.StaffService;
+import edu.jcodesprint.apex.service.StudentService;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -42,6 +47,9 @@ public class StaffController {
     @Autowired
     SalaryService salaryService;
 
+    @Autowired
+    StudentService studentService;
+
     @RequestMapping(value = "/stfViewStaff", method = RequestMethod.GET)
     public ModelAndView getStfViewStaff(HttpSession session) {
         Staff searcheStaff = staffService.SearchStaffMember((int) session.getAttribute("regNumber"));
@@ -58,10 +66,10 @@ public class StaffController {
     public String getStfViewSalary() {
         return "staff/stfViewSalary";
     }
-    
+
     @RequestMapping(value = "/stfViewSalary", method = RequestMethod.POST)
-    public Salary StfViewSalary(@RequestParam("year") String year,HttpServletResponse response,HttpSession session) {
-        List<Salary> salaryList=staffService.getStfSalary(new Staff((Integer) session.getAttribute("regNumber")),year);
+    public Salary StfViewSalary(@RequestParam("year") String year, HttpServletResponse response, HttpSession session) {
+        List<Salary> salaryList = staffService.getStfSalary(new Staff((Integer) session.getAttribute("regNumber")), year);
         if (null != salaryList) {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
@@ -79,14 +87,60 @@ public class StaffController {
         return "staff/stfCollectAttendence";
     }
 
+    @RequestMapping(value = "/stfCollectStuAttendence", method = RequestMethod.POST)
+    @ResponseBody
+    public String StuAttendenceCollect(@ModelAttribute("StudentAttendenceDTO") StudentAttendenceDTO studentAttendenceDTO, HttpSession session) {
+        if (staffService.collectStudentAttendence(studentAttendenceDTO, new Staff((Integer) session.getAttribute("regNumber")))) {
+            return "success";
+        }
+        return "error";
+    }
+
+    @RequestMapping(value = "/stfCollectStuAttendenceGetStuDetails", method = RequestMethod.POST)
+    public String StuAttendenceCollectStuDetails(@RequestParam("studentId") int stuId, HttpSession session, HttpServletResponse response) {
+        Student student = studentService.searchStudent(stuId);
+        if (null != student) {
+            try {
+                ObjectMapper objectMapper = new ObjectMapper();
+                String jsonObj = objectMapper.writeValueAsString(student);
+                response.getWriter().write(jsonObj);
+            } catch (IOException ex) {
+                Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
+
     @RequestMapping(value = "/stfCollectStuFees", method = RequestMethod.GET)
     public String getStuFeesCollect() {
         return "staff/stfCollectStudentFees";
     }
 
+    @RequestMapping(value = "/stfCollectStuFees", method = RequestMethod.POST)
+    @ResponseBody
+    public String StuFeesCollect(@ModelAttribute("StudentAttendenceDTO") StudentAttendenceDTO studentAttendenceDTO, HttpSession session) {
+
+        if (staffService.collectStudentFees(studentAttendenceDTO, new Staff((Integer) session.getAttribute("regNumber")))) {
+            return "success";
+        } else {
+            return "error";
+        }
+    }
+
     @RequestMapping(value = "/stfCollectExamResults", method = RequestMethod.GET)
     public String getStfExamResultCollect() {
         return "staff/stfEnterExamResults";
+    }
+
+    @RequestMapping(value = "/stfCollectExamResults", method = RequestMethod.POST)
+    @ResponseBody
+    public String StfExamResultCollect(@ModelAttribute("ExamResultDTO") ExamResultDTO examResultDTO, HttpSession session) {
+
+        if (staffService.collectExamResults(new Staff((Integer) session.getAttribute("regNumber")), examResultDTO)) {
+            return "success";
+        } else {
+            return "error";
+        }
     }
 
     @RequestMapping(value = "/stfEnterSalaryDetails", method = RequestMethod.GET)
@@ -118,9 +172,9 @@ public class StaffController {
 
     @RequestMapping(value = "/stfEnterSalaryDetails", method = RequestMethod.POST)
     public @ResponseBody
-    String addSalaryDetail(@ModelAttribute("Salary") Salary salary) {
+    String addSalaryDetail(@ModelAttribute("SalaryDetailDTO") SalaryDetailDTO salaryDetailDTO) {
 
-        if (salaryService.addSalaryData(salary)) {
+        if (salaryService.addSalaryData(salaryDetailDTO)) {
             return "success";
         } else {
             return "error";

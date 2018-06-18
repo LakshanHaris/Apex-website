@@ -125,7 +125,7 @@
                             </tr>
                             <tr class="table-light">
                                 <th scope="row">Stream</th>
-                                <td>${tutorResult.tutor_stream}</td>
+                                <td>${tutorResult.stream}</td>
 
                             </tr>
                             <tr class="table-success">

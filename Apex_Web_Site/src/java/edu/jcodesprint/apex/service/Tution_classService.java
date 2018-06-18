@@ -12,5 +12,5 @@ package edu.jcodesprint.apex.service;
 public interface Tution_classService {
 
     public int getClassCount();
-    
+
 }

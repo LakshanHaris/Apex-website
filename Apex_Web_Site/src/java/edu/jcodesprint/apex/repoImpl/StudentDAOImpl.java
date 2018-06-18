@@ -10,7 +10,7 @@ import edu.jcodesprint.apex.dto.PayExamSearchDto;
 import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Student;
-import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Student_fees;
 import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
@@ -122,7 +122,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public List<StudentFees> getStudentPayHistory(PayExamSearchDto payHistorySearchDto) {
+    public List<Student_fees> getStudentPayHistory(PayExamSearchDto payHistorySearchDto) {
 
         String datePattern = payHistorySearchDto.getYear() + "%";
         String sql = "select * from student_fees\n"
@@ -133,17 +133,14 @@ public class StudentDAOImpl implements StudentDAO {
         query.setParameter("subjectId", payHistorySearchDto.getSubject());
         query.setParameter("stuId", payHistorySearchDto.getStuId());
 
-        query.addEntity(StudentFees.class);
+        query.addEntity(Student_fees.class);
         return query.list();
     }
 
     @Override
     public List<Exam> getStudentExamHistory(PayExamSearchDto examHistotySearchDto) {
         String datePattern = examHistotySearchDto.getYear() + "%";
-        String sql = "select  t1.*\n"
-                + "from exam as t1\n"
-                + "INNER JOIN student_do_exams as t2\n"
-                + "where t2.exam_id = t1.exam_no and t1.subject= :subjectId and t2.stu_id_stuDoExams= :stuId and t1.date LIKE '" + datePattern + "'";
+        String sql = "select * from exam where subject= :subjectId and student_stu_reg_number= :stuId and date LIKE '" + datePattern + "' ";
 
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
         query.setParameter("subjectId", examHistotySearchDto.getSubject());
@@ -201,7 +198,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student newlyCreatedStudent() {
-        String sql="select * from student where stu_reg_number = (select max(stu_reg_number) from student) ";
+        String sql = "select * from student where stu_reg_number = (select max(stu_reg_number) from student) ";
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
         query.addEntity(Student.class);
         return (Student) query.uniqueResult();
@@ -209,12 +206,10 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public List<Student> getLatestStudents() {
-        String sql="select * from student order by stu_reg_number DESC LIMIT 8";
+        String sql = "select * from student order by stu_reg_number DESC LIMIT 8";
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
         query.addEntity(Student.class);
         return query.list();
     }
-
-  
 
 }

@@ -11,7 +11,7 @@ import edu.jcodesprint.apex.dto.PayExamSearchDto;
 import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Student;
-import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Student_fees;
 import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
@@ -43,7 +43,7 @@ public interface StudentDAO {
 
     public List<Attendence> getAttendenceDetails(String datePattern, String subjectId, int stuId);
 
-    public List<StudentFees> getStudentPayHistory(PayExamSearchDto payHistorySearchDto);
+    public List<Student_fees> getStudentPayHistory(PayExamSearchDto payHistorySearchDto);
 
     public List<Exam> getStudentExamHistory(PayExamSearchDto examHistotySearchDto);
 

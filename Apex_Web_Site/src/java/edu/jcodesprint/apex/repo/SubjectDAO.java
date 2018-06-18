@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface SubjectDAO {
     public List<Subject> getAllSubjects();
+
+    public Subject searchSubject(String subject);
 }

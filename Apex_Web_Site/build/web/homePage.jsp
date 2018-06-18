@@ -116,7 +116,7 @@
                         </div>
                         <div class="col-md-9">
                             <blockquote class="blockquote">
-                                <p class="mb-0"><i class="fas fa-quote-left"></i>&nbsp;As the CEO I ensure that all the tutors and services done by Apex is in a good command.&nbsp;<i class="fas fa-quote-right"></i></p>
+                                <p class="mb-0"><i class="fas fa-quote-left"></i>&nbsp;As the CEO I ensure that all the tutors and services done by Apex are in a good command.&nbsp;<i class="fas fa-quote-right"></i></p>
                                 <footer class="blockquote-footer">CEO&nbsp; |<cite title="Source Title">&nbsp;Apex institution</cite></footer>
                             </blockquote>
                         </div>

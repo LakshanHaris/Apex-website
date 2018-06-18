@@ -12,7 +12,7 @@ import edu.jcodesprint.apex.dto.StudentRegister;
 import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
 import edu.jcodesprint.apex.model.Student;
-import edu.jcodesprint.apex.model.StudentFees;
+import edu.jcodesprint.apex.model.Student_fees;
 import edu.jcodesprint.apex.model.Subject;
 import edu.jcodesprint.apex.model.Tution_class;
 import edu.jcodesprint.apex.model.Tutor;
@@ -24,7 +24,7 @@ import java.util.List;
  */
 public interface StudentService {
 
-    boolean  addStudent(Student student);
+    boolean addStudent(Student student);
 
     boolean deleteStudent(int stuId);
 
@@ -38,7 +38,7 @@ public interface StudentService {
 
     public List<Attendence> getAttendenceDetails(AttendenceSearchDTO attendenceSearchDTO);
 
-    public List<StudentFees> getStudentPayHistory(PayExamSearchDto payHistorySearchDto);
+    public List<Student_fees> getStudentPayHistory(PayExamSearchDto payHistorySearchDto);
 
     public List<Exam> getExamResultsHistory(PayExamSearchDto examHistotySearchDto);
 
@@ -46,7 +46,7 @@ public interface StudentService {
 
     public Tution_class getStuSearchClass(int grade, int subject);
 
-    public Student getStuEditPicture(String refferPath,int stuId);
+    public Student getStuEditPicture(String refferPath, int stuId);
 
     public List<Subject> getStudentSubjects(int stuId);
 

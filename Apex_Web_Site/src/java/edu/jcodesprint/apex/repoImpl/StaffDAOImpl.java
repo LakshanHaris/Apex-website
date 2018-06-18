@@ -8,6 +8,7 @@ package edu.jcodesprint.apex.repoImpl;
 import edu.jcodesprint.apex.dto.LoginCredintials;
 import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Staff;
+import edu.jcodesprint.apex.model.Student_fees;
 
 import edu.jcodesprint.apex.repo.StaffDAO;
 import java.io.Serializable;
@@ -119,6 +120,12 @@ public class StaffDAOImpl implements StaffDAO {
         query.setParameter("staffId", staff.getStfRegNumber());
         query.addEntity(Salary.class);
         return query.list();
+    }
+
+    @Override
+    public Serializable saveStudentFees(Student_fees stuFees) {
+        return factory.getCurrentSession().save(stuFees);
+        
     }
 
 }
