@@ -74,7 +74,7 @@ public class Student implements Serializable {
     @ManyToOne
     private Admin admIdStu;
     @JsonIgnore
-    @JoinColumn(name = "parent_parent_Id", referencedColumnName = "parentId")
+    @JoinColumn(name = "parent_parent_Id", referencedColumnName = "parent_id")
     @ManyToOne(optional = false)
     private Parent parentparentId;
     @OneToMany(mappedBy = "stuIdStuFees")

@@ -37,7 +37,7 @@ public class ParentDAOImpl implements ParentDAO {
 
     @Override
     public boolean deleteParent(int parentIdNo) {
-        Query query = factory.getCurrentSession().createQuery("delete from Parent where parentId=:parentRegNum");
+        Query query = factory.getCurrentSession().createQuery("delete from Parent where parent_id=:parentRegNum");
         query.setParameter("parentRegNum", parentIdNo);
 
         if (query.executeUpdate() > 0) {
@@ -49,10 +49,10 @@ public class ParentDAOImpl implements ParentDAO {
 
     @Override
     public boolean updateParent(Parent parent) {
-        Query query = factory.getCurrentSession().createQuery("update Parent set parentId = :parentRegNum,firstName = :firstName,"
+        Query query = factory.getCurrentSession().createQuery("update Parent set parent_id = :parentRegNum,firstName = :firstName,"
                 + "lastName = :lastName,"
                 + "email = :email,mobileNumber = :mobileNumber,occupation = :occupation"
-                + "   where parentId = :parentId");
+                + "   where parent_id = :parentId");
 
         query.setParameter("parentRegNum", parent.getParentId());
         query.setParameter("firstName", parent.getFirstName());
@@ -75,7 +75,7 @@ public class ParentDAOImpl implements ParentDAO {
 
     @Override
     public Parent newlyCreatedParent() {
-        String sql = "select * from parent where parentId = (select max(parentId) from parent) ";
+        String sql = "select * from parent where parent_id = (select max(parent_id) from parent) ";
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
         query.addEntity(Parent.class);
         return (Parent) query.uniqueResult();

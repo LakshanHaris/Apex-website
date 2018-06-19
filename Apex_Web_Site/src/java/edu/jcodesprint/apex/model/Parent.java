@@ -42,7 +42,7 @@ public class Parent implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "parentId")
+    @Column(name = "parent_id")
     private Integer parentId;
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentparentId")

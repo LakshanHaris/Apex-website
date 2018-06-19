@@ -20,6 +20,7 @@ import edu.jcodesprint.apex.repo.ExamDAO;
 import edu.jcodesprint.apex.repo.StaffDAO;
 import edu.jcodesprint.apex.repo.StudentDAO;
 import edu.jcodesprint.apex.repo.SubjectDAO;
+import edu.jcodesprint.apex.service.EmailService;
 import edu.jcodesprint.apex.service.StaffService;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -187,11 +188,12 @@ public class StaffServiceImpl implements StaffService {
         stuFees.setStuIdStuFees(new Student(studentAttendenceDTO.getStudentId()));
         stuFees.setSubjectId(new Subject(studentAttendenceDTO.getSubject()));
 
-        if (null!=staffDAO.saveStudentFees(stuFees)) {
+        if (null != staffDAO.saveStudentFees(stuFees)) {
+           
             return true;
         }
         return false;
-        
+
     }
 
 }

@@ -12,6 +12,7 @@ import edu.jcodesprint.apex.model.Salary;
 import edu.jcodesprint.apex.model.Staff;
 import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.Tutor;
+import edu.jcodesprint.apex.service.EmailService;
 import edu.jcodesprint.apex.service.SalaryService;
 import edu.jcodesprint.apex.service.StaffService;
 import edu.jcodesprint.apex.service.StudentService;
@@ -24,6 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +52,12 @@ public class StaffController {
 
     @Autowired
     StudentService studentService;
+
+    @Autowired
+    EmailService emailService;
+
+    @Autowired
+    JavaMailSender mailSender;
 
     @RequestMapping(value = "/stfViewStaff", method = RequestMethod.GET)
     public ModelAndView getStfViewStaff(HttpSession session) {
@@ -121,10 +130,18 @@ public class StaffController {
     public String StuFeesCollect(@ModelAttribute("StudentAttendenceDTO") StudentAttendenceDTO studentAttendenceDTO, HttpSession session) {
 
         if (staffService.collectStudentFees(studentAttendenceDTO, new Staff((Integer) session.getAttribute("regNumber")))) {
-            return "success";
-        } else {
-            return "error";
+
+            if (emailService.alertStudentFeesToParent(studentAttendenceDTO)) {
+                return "success";
+            }
+
+//            SimpleMailMessage message = new SimpleMailMessage();
+//            message.setTo("lakshan.harischandra2014@gmail.com");
+//            message.setSubject("Apex institution | Payment received");
+//            message.setText("Your child done a payment of Rs. 1800.00 for the Subject ICT \n\nTechnical Division\nApex Institution\nKalutara\nWestern 12000\nSri Lanka\nTel : +942221902");
+//            mailSender.send(message);
         }
+        return "error";
     }
 
     @RequestMapping(value = "/stfCollectExamResults", method = RequestMethod.GET)
@@ -134,7 +151,8 @@ public class StaffController {
 
     @RequestMapping(value = "/stfCollectExamResults", method = RequestMethod.POST)
     @ResponseBody
-    public String StfExamResultCollect(@ModelAttribute("ExamResultDTO") ExamResultDTO examResultDTO, HttpSession session) {
+    public String StfExamResultCollect(@ModelAttribute("ExamResultDTO") ExamResultDTO examResultDTO, HttpSession session
+    ) {
 
         if (staffService.collectExamResults(new Staff((Integer) session.getAttribute("regNumber")), examResultDTO)) {
             return "success";
@@ -160,7 +178,8 @@ public class StaffController {
 
     @RequestMapping(value = "/stfEditStaff", method = RequestMethod.POST)
     @ResponseBody
-    public String StfEditStaff(@ModelAttribute("Staff") Staff staff, HttpSession session) {
+    public String StfEditStaff(@ModelAttribute("Staff") Staff staff, HttpSession session
+    ) {
         staff.setStfRegNumber((Integer) session.getAttribute("regNumber"));
         if (staffService.updateStaffMember(staff)) {
             Staff searchedStaff = staffService.SearchStaffMember((Integer) session.getAttribute("regNumber"));
@@ -172,7 +191,8 @@ public class StaffController {
 
     @RequestMapping(value = "/stfEnterSalaryDetails", method = RequestMethod.POST)
     public @ResponseBody
-    String addSalaryDetail(@ModelAttribute("SalaryDetailDTO") SalaryDetailDTO salaryDetailDTO) {
+    String addSalaryDetail(@ModelAttribute("SalaryDetailDTO") SalaryDetailDTO salaryDetailDTO
+    ) {
 
         if (salaryService.addSalaryData(salaryDetailDTO)) {
             return "success";
@@ -182,7 +202,8 @@ public class StaffController {
     }
 
     @RequestMapping(value = "/stfEditPic", method = RequestMethod.POST, headers = "content-type=multipart/form-data")
-    public ModelAndView tuiEditPicture(@RequestParam("picture") MultipartFile picture, HttpSession session, HttpServletResponse response) throws InterruptedException, IOException {
+    public ModelAndView tuiEditPicture(@RequestParam("picture") MultipartFile picture, HttpSession session,
+            HttpServletResponse response) throws InterruptedException, IOException {
 
         int stfId = (Integer) session.getAttribute("regNumber");
 

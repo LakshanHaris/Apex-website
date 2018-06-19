@@ -20,4 +20,5 @@ public interface ParentDAO {
     public Parent SearchParent(int parentIdNo);
     public List<Parent> getAllParents();
     public Parent newlyCreatedParent();
+
 }

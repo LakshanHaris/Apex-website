@@ -9,6 +9,7 @@ import edu.jcodesprint.apex.dto.LoginCredintials;
 import edu.jcodesprint.apex.dto.PayExamSearchDto;
 import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
+import edu.jcodesprint.apex.model.Parent;
 import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.Student_fees;
 import edu.jcodesprint.apex.model.Subject;
@@ -211,5 +212,7 @@ public class StudentDAOImpl implements StudentDAO {
         query.addEntity(Student.class);
         return query.list();
     }
+
+  
 
 }

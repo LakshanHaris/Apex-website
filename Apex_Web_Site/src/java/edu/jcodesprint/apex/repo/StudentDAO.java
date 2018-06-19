@@ -10,6 +10,7 @@ import edu.jcodesprint.apex.dto.LoginCredintials;
 import edu.jcodesprint.apex.dto.PayExamSearchDto;
 import edu.jcodesprint.apex.model.Attendence;
 import edu.jcodesprint.apex.model.Exam;
+import edu.jcodesprint.apex.model.Parent;
 import edu.jcodesprint.apex.model.Student;
 import edu.jcodesprint.apex.model.Student_fees;
 import edu.jcodesprint.apex.model.Subject;
@@ -56,6 +57,8 @@ public interface StudentDAO {
     public Student newlyCreatedStudent();
 
     public List<Student> getLatestStudents();
+
+  
 
    
 

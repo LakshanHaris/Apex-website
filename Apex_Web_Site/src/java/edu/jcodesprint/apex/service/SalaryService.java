@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface SalaryService {
 
-    boolean addSalaryData(SalaryDetailDTO salaryDetailDTO );
+    boolean addSalaryData(SalaryDetailDTO salaryDetailDTO);
 
     void deleteSalaryData(int salaryInvoiceNumber);
 
