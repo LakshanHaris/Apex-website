@@ -6,6 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="description" content="">
         <meta name="author" content="">
 
@@ -21,6 +22,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua|Philosopher">
         <link href="resources/homePageStyles/blockQuoteStyle.css" rel="stylesheet" type="text/css"/>
         <link href="resources/homePageStyles/half-slider.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="resources/custom/UserCustomStyles.css">
+        <link href="resources/css/sweetalert.css" rel="stylesheet" />
+        <link href="resources/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
         <link href="resources/homePageStyles/footer-distributed-with-address-and-phones.css" rel="stylesheet" type="text/css"/>
     </head>
 
@@ -67,18 +71,209 @@
 
             <div class="row" style="height: 100px;"></div>
 
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class="jumbotron">
-                        <h1 class="display-3">We are Sorry! &nbsp; <i class="fas fa-frown"></i></h1>
-                        <p class="lead">The page you are requested is currently unavailable.</p>
-                        <hr class="my-4">
-                        <label>Enquery call on : <strong>(+94342221902)</strong>&nbsp;&nbsp;Technical division | Apex institution.</label>
+            <!--            <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="jumbotron">
+                                    <h1 class="display-3">We are Sorry! &nbsp; <i class="fas fa-frown"></i></h1>
+                                    <p class="lead">The page you are requested is currently unavailable.</p>
+                                    <hr class="my-4">
+                                    <label>Enquery call on : <strong>(+94342221902)</strong>&nbsp;&nbsp;Technical division | Apex institution.</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>-->
+
+
+            <form id="stuSearchClassForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-form-label" for="inputDefault">Select a grade</label>
+                            <select class="form-control" name="grade">
+                                <option value="6" selected>6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-form-label" for="inputDefault">Select a subject</label>
+                            <select class="form-control" name="subject">
+                                <option value="1" selected>Mathematics</option>
+                                <option value="2">Science</option>
+                                <option value="3">Sinhala</option>
+                                <option value="4">English</option>
+                                <option value="5">ICT</option>
+                                <option value="6">History</option>
+                                <option value="7">Commerce-O/L</option>
+                                <option value="8">Combined-Maths</option>
+                                <option value="9">Physics</option>
+                                <option value="10">Chemistry</option>
+                                <option value="11">Biology</option>
+                                <option value="12">Accounting</option>
+                                <option value="13">Business-Studies</option>
+                                <option value="14">Logic</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-success" id="search-btnClassHome">Search</button>
                     </div>
                 </div>
-                <div class="col-md-2"></div>
+            </form>
+
+            <!-- Dont remove this div to avoid structure faliure -->
+            <div class="row" style="height: 100px;"></div>
+
+
+            <div class="row" id="classLoaded">
+                <!--                ajax load content here-->
+
             </div>
+
+            <div class="row" style="height: 100px;"></div>
+            
+            <div class="row" id="classSugguest">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="row" id="sub">
+
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="container">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">Combined Maths</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 12-2 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 12 : hall 3</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="container">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">Physics</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 4-6 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 13 : hall 4</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="container">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">ICT</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Thursday | 4-6 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 8 : hall 2</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="container">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">English</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 2-4 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 10 : hall 1</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="container">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">Business Studies</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 10-12 a.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 12 : hall 4</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="container">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">Science</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Friday | 4-6 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 8 : hall 1</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="container">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">Commerce O/L</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 10-12 a.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 11 : hall 3</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+
+
+
 
         </div>
         <!-- Dont remove this footer expanding div -->
@@ -152,6 +347,9 @@
 
         <script src="resources/js/jQuery-2.1.3.min.js" type="text/javascript"></script>
         <script src="resources/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <script src="resources/js/StudentControl.js"></script>
+        <script src="resources/js/sweetalert.js"></script>
+        <script src="resources/js/owl.carousel.js" type="text/javascript"></script>
 
     </body>
 

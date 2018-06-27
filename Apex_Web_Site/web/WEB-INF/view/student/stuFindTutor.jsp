@@ -12,6 +12,8 @@
         <title>Student</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../resources/custom/bootswatch.css">
+        <link href="../resources/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/owl.theme.default.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
               crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua|Philosopher">
@@ -131,78 +133,185 @@
 
             <div class="row" id="tutorLoaded">
                 <!--                ajax load content here-->
-                
+
             </div>
 
+            <div class="row" id="tutorSugguest">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="row" id="sub">
 
-            <div id="tutorSugguest">
-
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <h3 class="card-header">Asela Ranasinghe</h3>
-                            <div class="card-body">
-                                <h5 class="card-title">Physics</h5>
-                                <h6 class="card-subtitle text-muted">University of Peradeniya</h6>
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Asela Ranasinghe</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Physics</h5>
+                                        <h6 class="card-subtitle text-muted">University of Peradeniya</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/aselaSir.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
                             </div>
-                            <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                                 alt="Card image">
-                            <div class="card-body">
-                                <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Prasanna Baddewithana</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Chemistry</h5>
+                                        <h6 class="card-subtitle text-muted">University of Sri Jayawardanepura</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/baddewithana.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Niluka Senanayaka</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">English</h5>
+                                        <h6 class="card-subtitle text-muted">An experienced school teacher</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/niluka.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Prasad  Siriwardana</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Science</h5>
+                                        <h6 class="card-subtitle text-muted">An experienced school teacher</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/prasad.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Romesh Kitthangoda</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sinhala</h5>
+                                        <h6 class="card-subtitle text-muted">University of Kelaniya</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/romesh.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Chandrasiri Withana</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">ICT</h5>
+                                        <h6 class="card-subtitle text-muted">An experienced school teacher</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/chandrasiri.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Nirosh Chaminda</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Combined Maths</h5>
+                                        <h6 class="card-subtitle text-muted">University of Moratuwa</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/nirosh.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Bandara Dissanayake</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Business Studies</h5>
+                                        <h6 class="card-subtitle text-muted">University of Sri Jayawardanapura</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/bandara.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Suneth Edirisinghe</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Logic</h5>
+                                        <h6 class="card-subtitle text-muted">University of Colombo</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/suneth.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Sujeewa Peris</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Biology</h5>
+                                        <h6 class="card-subtitle text-muted">University of Peradeniya</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/sujeewa.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Hasika Nilushan</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Commerce-O/L</h5>
+                                        <h6 class="card-subtitle text-muted">An experienced school teacher</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/customPics/hasika.jpg"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <h3 class="card-header">Nirosh Chaminda</h3>
-                            <div class="card-body">
-                                <h5 class="card-title">Combined Mathematics</h5>
-                                <h6 class="card-subtitle text-muted">University of Moratuwa</h6>
-                            </div>
-                            <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                                 alt="Card image">
-                            <div class="card-body">
-                                <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2"></div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <h3 class="card-header">Prasanna Baddewithana</h3>
-                            <div class="card-body">
-                                <h5 class="card-title">Chemistry</h5>
-                                <h6 class="card-subtitle text-muted">University of Sri Jayawardanapura</h6>
-                            </div>
-                            <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                                 alt="Card image">
-                            <div class="card-body">
-                                <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <h3 class="card-header">Padma Wijesinghe</h3>
-                            <div class="card-body">
-                                <h5 class="card-title">Mathematics</h5>
-                                <h6 class="card-subtitle text-muted">Experienced school teacher</h6>
-                            </div>
-                            <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                                 alt="Card image">
-                            <div class="card-body">
-                                <p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>
+                <div class="col-md-1"></div>
             </div>
+
         </div>
 
         <!-- Dont remove this footer expanding div -->
@@ -226,6 +335,6 @@
         <script src="../resources/js/bootstrap.js"></script>
         <script src="../resources/js/StudentControl.js"></script>
         <script src="../resources/js/sweetalert.js"></script>
-
+        <script src="../resources/js/owl.carousel.js" type="text/javascript"></script>
     </body>
 </html>

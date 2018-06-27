@@ -6,6 +6,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="description" content="">
         <meta name="author" content="">
 
@@ -88,7 +89,7 @@
 <!--                    <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>-->
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center mb-4">
-                    <img class="rounded-circle img-fluid d-block mx-auto" src="resources/img/mainAdmin.jpg" alt="" style="width: 200px; height: 200px;">
+                    <img class="rounded-circle img-fluid d-block mx-auto" src="resources/img/mainadmin.jpg" alt="" style="width: 200px; height: 200px;">
                     <h3>Mr. Lakshan Harischandra
                         <p><small>Main Administrator</small></p>
                     </h3>

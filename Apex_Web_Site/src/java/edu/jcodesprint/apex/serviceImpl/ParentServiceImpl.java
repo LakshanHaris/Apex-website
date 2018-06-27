@@ -37,8 +37,11 @@ public class ParentServiceImpl implements ParentService {
         if (null != parentDAO.addParent(parent)) {
             Parent newParent = parentDAO.newlyCreatedParent();
             Student student = new Student();
+            student.setFirstName("student");
             student.setParentparentId(newParent);
+            System.out.println("admin : "+adminId);
             student.setAdmIdStu(new Admin(adminId));
+            student.setPassword("student");
 
             System.out.println("parent id" + newParent.getParentId());
             studentDAO.addStudent(student);

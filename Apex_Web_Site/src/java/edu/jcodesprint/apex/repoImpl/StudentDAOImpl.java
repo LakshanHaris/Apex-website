@@ -60,7 +60,7 @@ public class StudentDAOImpl implements StudentDAO {
     public boolean updateStudent(Student student) {
         String sql = "update Student set stu_reg_number = :stuRegNum,first_name = :firstName,"
                 + "last_name = :lastName,"
-                + " dob = :dob,address = :address,gender = :gender,email = :email,mobile_number = :mobileNumber,"
+                + " dob = :dob,address = :address,grade=:grade,gender = :gender,email = :email,mobile_number = :mobileNumber,"
                 + "password = :password,picture = :picture,adm_id_stu = :admIdStu    where stu_reg_number = :stuId";
         SQLQuery query = factory.getCurrentSession().createSQLQuery(sql);
         query.setParameter("stuRegNum", student.getStuRegNumber());
@@ -68,6 +68,7 @@ public class StudentDAOImpl implements StudentDAO {
         query.setParameter("lastName", student.getLastName());
         query.setParameter("dob", student.getDob());
         query.setParameter("address", student.getAddress());
+        query.setParameter("grade", student.getGrade());
         query.setParameter("gender", student.getGender());
         query.setParameter("email", student.getEmail());
         query.setParameter("mobileNumber", student.getMobileNumber());

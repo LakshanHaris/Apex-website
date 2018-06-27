@@ -51,8 +51,8 @@ public class AppConfigure extends WebMvcConfigurerAdapter {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("apexinstitution.kalutara@gmail.com");
-        mailSender.setPassword("NBIWMAP1993apex");
+        mailSender.setUsername("laksh777.fiverr@gmail.com");
+        mailSender.setPassword("NBIWMAP1993fiverr");
 
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.starttls.enable", "true");

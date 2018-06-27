@@ -147,7 +147,7 @@ public class TutorController {
                 response.getWriter().write(imageLink);
                 ModelAndView mav = new ModelAndView();
                 mav.addObject("tutorResult", tutorResult);
-                mav.setViewName("tutor/tuiViewTuror");
+                mav.setViewName("tutor/tuiViewTutor");
                 session.setAttribute("picture", tutorResult.getPicture());
 
                 return mav;

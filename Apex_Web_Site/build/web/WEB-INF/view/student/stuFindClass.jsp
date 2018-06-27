@@ -12,6 +12,7 @@
         <title>Student</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../resources/custom/bootswatch.css">
+        <link href="../resources/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
               crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua|Philosopher">
@@ -133,74 +134,198 @@
                 <!--                ajax load content here-->
 
             </div>
+            
+            <div class="row" style="height: 80px;"></div>
 
-            <div id="classSuguest">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <h3 class="card-header">Combined Mathematics</h3>
-                            <div class="card-body">
-                                <h5 class="card-title">Saturday | 12-2 p.m</h5>
-                                <h6 class="card-subtitle text-muted">Grade 12 : hall 3</h6>
-                            </div>
-                            <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                                 alt="Card image">
-                            <div class="card-body">
-                                <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <h3 class="card-header">Physics</h3>
-                            <div class="card-body">
-                                <h5 class="card-title">Saturday | 4-6 p.m</h5>
-                                <h6 class="card-subtitle text-muted">Grade 13 : hall 4</h6>
-                            </div>
-                            <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                                 alt="Card image">
-                            <div class="card-body">
-                                <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>
+            <div class="row" id="classSugguest">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="row" id="sub">
 
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <h3 class="card-header">ICT</h3>
-                            <div class="card-body">
-                                <h5 class="card-title">Thursday | 4-6 p.m</h5>
-                                <h6 class="card-subtitle text-muted">Grade 8 : hall 2</h6>
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Combined Mathematics</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Saturday | 12-2 p.m</h5>
+                                        <h6 class="card-subtitle text-muted">Grade 12 : hall 3</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/img/apex.png"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                    </div>
+                                </div>
                             </div>
-                            <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                                 alt="Card image">
-                            <div class="card-body">
-                                <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+
+                            <div class="item">
+                                <div class="card mb-3">
+                                    <h3 class="card-header">Physics</h3>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Saturday | 4-6 p.m</h5>
+                                        <h6 class="card-subtitle text-muted">Grade 13 : hall 4</h6>
+                                    </div>
+                                    <img style="height: 200px; width: 100%; display: block;" src="../resources/img/apex.png"
+                                         alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="item">
+                                <div class="card mb-3">
+                                        <h3 class="card-header">ICT</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Thursday | 4-6 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 8 : hall 2</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="../resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="card mb-3">
+                                        <h3 class="card-header">English</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 2-4 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 10 : hall 1</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="../resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="card mb-3">
+                                        <h3 class="card-header">Business Studies</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 10-12 a.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 12 : hall 4</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="../resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="card mb-3">
+                                        <h3 class="card-header">Science</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Friday | 4-6 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 8 : hall 1</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="../resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="card mb-3">
+                                        <h3 class="card-header">Commerce O/L</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 10-12 a.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 11 : hall 3</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="../resources/img/apex.png"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <h3 class="card-header">English</h3>
-                            <div class="card-body">
-                                <h5 class="card-title">Saturday | 2-4 p.m</h5>
-                                <h6 class="card-subtitle text-muted">Grade 10 : hall 1</h6>
-                            </div>
-                            <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                                 alt="Card image">
-                            <div class="card-body">
-                                <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2"></div>
                 </div>
+                <div class="col-md-1"></div>
             </div>
+
+
+
+
+
+
+            <!--            <div id="classSuguest">
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">Combined Mathematics</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 12-2 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 12 : hall 3</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">Physics</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 4-6 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 13 : hall 4</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+            
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">ICT</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Thursday | 4-6 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 8 : hall 2</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <h3 class="card-header">English</h3>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Saturday | 2-4 p.m</h5>
+                                            <h6 class="card-subtitle text-muted">Grade 10 : hall 1</h6>
+                                        </div>
+                                        <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                                             alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-text">Please consider that time duration can be vary due to un avoidable matters</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+                        </div>-->
         </div>
 
         <!-- Dont remove this footer expanding div -->
@@ -224,5 +349,6 @@
         <script src="../resources/js/bootstrap.js"></script>
         <script src="../resources/js/StudentControl.js"></script>
         <script src="../resources/js/sweetalert.js"></script>
+        <script src="../resources/js/owl.carousel.js" type="text/javascript"></script>
     </body>
 </html>

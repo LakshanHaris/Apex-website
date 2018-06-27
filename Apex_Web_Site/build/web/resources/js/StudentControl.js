@@ -133,7 +133,53 @@ $("#searchBtn-tuitor").click(function () {
                     '<h5 class="card-title">Contact on &nbsp;: &nbsp;(+94)' + objJs.mobileNumber + ' | ' + objJs.email + '</h5>' +
                     '<h6 class="card-subtitle text-muted">' + graduation + '</h6>' +
                     '</div>' +
-                    '<img style="height: 450px; width: 100%; display: block;" src="../resources/img/aselaSir.jpg"alt="Card image">' +
+                    '<img style="height: 450px; width: 100%; display: block;" src="' + objJs.picture + '"alt="Card image">' +
+                    '<div class="card-body">' +
+                    '<p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-md-3"></div>';
+            $("#tutorLoaded").append(divContent);
+        }
+    });
+});
+
+
+$("#searchBtn-tuitorHome").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: 'student/stuFindTutor',
+        data: $("#stuSearchTuiForm").serialize(),
+        success: function (response) {
+            console.log("ok");
+            $("#tutorSugguest").hide();
+            $("#tutorLoaded").empty();
+            if (response.length == 0) {
+                swal("Sorry!", "We dont have any Tutors for this selection", "error");
+                return;
+            } else {
+                var objJs = JSON.parse(response);
+                swal("Thank you!", "We have found a best Tutor for you!", "success");
+            }
+            console.log(objJs);
+            var graduation = objJs.graduation;
+            if (graduation == 'none') {
+                graduation = 'An experienced school teacher';
+            }
+            
+            var picture=objJs.picture;
+            var absoultePath=picture.slice(3);
+            
+            var divContent = '<div class="col-md-3"></div>' +
+                    '<div class="col-md-6" style="min-height: 640px;"' +
+                    '<div class="card mb-3"  style=" border: 2px solid;">' +
+                    '<h3 class="card-header">' + objJs.firstName + ' ' + objJs.lastName + '</h3>' +
+                    '<div class="card-body">' +
+                    '<h5 class="card-title">Contact on &nbsp;: &nbsp;(+94)' + objJs.mobileNumber + ' | ' + objJs.email + '</h5>' +
+                    '<h6 class="card-subtitle text-muted">' + graduation + '</h6>' +
+                    '</div>' +
+                    '<img style="height: 450px; width: 100%; display: block;" src="' + absoultePath + '"alt="Card image">' +
                     '<div class="card-body">' +
                     '<p class="card-text">We gurantee that our tutors are well educated and skilled in teaching</p>' +
                     '</div>' +
@@ -171,7 +217,44 @@ $("#search-btnClass").click(function () {
                     '<div class="card-body">' +
                     '<h5 class="card-title">Hall number:&nbsp;' + objJs.hallNo + '</h5>' +
                     '</div>' +
-                    '<img style="height: 450px; width: 100%; display: block;" src="../resources/img/aselaSir.jpg"alt="Card image">' +
+                    '<img style="height: 450px; width: 100%; display: block;" src="../resources/img/apex.png"alt="Card image">' +
+                    '<div class="card-body">' +
+                    '<p class="card-text">Please consider that the time duration can be vary due to un avoidable matters</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-md-3"></div>';
+            $("#classLoaded").append(divContent);
+        }
+    });
+});
+
+
+$("#search-btnClassHome").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: 'student/stuFindClass',
+        data: $("#stuSearchClassForm").serialize(),
+        success: function (response) {
+            console.log("ok");
+            $("#classSuguest").hide();
+            $("#classLoaded").empty();
+            if (response.length == 0) {
+                swal("Sorry!", "We dont have any Classes for this selection", "error");
+                return;
+            } else {
+                var objJs = JSON.parse(response);
+                swal("Thank you!", "We have found a best Class for you!", "success");
+            }
+            console.log(objJs);
+            var divContent = '<div class="col-md-3"></div>' +
+                    '<div class="col-md-6" style="min-height: 640px;"' +
+                    '<div class="card mb-3"  style=" border: 2px solid;">' +
+                    '<h3 class="card-header">' + objJs.day + ' | ' + objJs.time + '</h3>' +
+                    '<div class="card-body">' +
+                    '<h5 class="card-title">Hall number:&nbsp;' + objJs.hallNo + '</h5>' +
+                    '</div>' +
+                    '<img style="height: 450px; width: 100%; display: block;" src="resources/img/apex.png"alt="Card image">' +
                     '<div class="card-body">' +
                     '<p class="card-text">Please consider that the time duration can be vary due to un avoidable matters</p>' +
                     '</div>' +
@@ -231,3 +314,35 @@ $("#getSubjects").click(function () {
 //
 //
 //});
+
+//
+//$("#subBtn").click(function () {
+//    var owl = $('.owl-carousel');
+//    owl.owlCarousel({
+//        items: 3,
+//        loop: true,
+//        margin: 10,
+//        autoplay: true,
+//        autoplayTimeout: 1000,
+//        autoplayHoverPause: true
+//    });
+//
+//
+//
+//});
+
+
+
+$(document).ready(function () {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items: 3,
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true
+    });
+});
+
+

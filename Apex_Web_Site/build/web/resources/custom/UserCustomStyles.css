@@ -52,7 +52,7 @@
 
 }
 
-#searchBtn-payHistory , #stuSearchAttendence ,#searchBtn-viewResuls , #searchBtn-tuitor ,#search-btnClass{
+#searchBtn-payHistory , #stuSearchAttendence ,#searchBtn-viewResuls , #searchBtn-tuitor ,#search-btnClass,#search-btnClassHome,#searchBtn-tuitorHome{
 
     margin-top: 30px !important;
 }

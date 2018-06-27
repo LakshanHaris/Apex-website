@@ -113,11 +113,19 @@ public class AdminController {
         ModelAndView mavDashboardDetails = new ModelAndView();
 
         DashboardData dbData = new DashboardData();
-        dbData.setTutorCount(tutorService.getTutorCount());
+
+        int adminCount = adminService.getAdminCount();
+        adminCount = adminCount - 1;
+        dbData.setAdminCount(adminCount);
+        int tutorCount = tutorService.getTutorCount();
+        tutorCount = tutorCount - 1;
+        dbData.setTutorCount(tutorCount);
+        int staffCount = staffService.getStaffCount();
+        staffCount = staffCount - 1;
+        dbData.setStaffCount(staffCount);
+
         dbData.setStudentCount(studentService.getStudentCount());
-        dbData.setStaffCount(staffService.getStaffCount());
         dbData.setClassCount(tution_class_Service.getClassCount());
-        dbData.setAdminCount(adminService.getAdminCount());
         dbData.setExamCount(examService.getExamCount());
         dbData.setParentCount(parentService.getParentCount());
         dbData.setSubjectCount(subjectService.getSubjectCount());
